@@ -25,22 +25,22 @@ License: For each use you must have a valid license purchased only from above li
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
 		<meta property="og:site_name" content="Keenthemes | Metronic" />
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="public/assets/media/logos/favicon.ico" />
 		<!--begin::Fonts(mandatory for all pages)-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used for this page only)-->
-		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="public/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="public/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="public/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="public/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 	
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{--  @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
 
         <!-- Styles -->
         @livewireStyles
@@ -346,7 +346,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="d-flex align-items-center">
 								<!--begin::Avatar-->
 								<div class="symbol symbol-circle symbol-40px">
-									<img src="assets/media/avatars/300-1.jpg" alt="photo" />
+									<img src="public/assets/media/avatars/300-1.jpg" alt="photo" />
 								</div>
 								<!--end::Avatar-->
 								<!--begin::User info-->
@@ -376,7 +376,7 @@ License: For each use you must have a valid license purchased only from above li
 										<div class="menu-content d-flex align-items-center px-3">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-50px me-5">
-												<img alt="Logo" src="assets/media/avatars/300-1.jpg" />
+												<img alt="Logo" src="public/assets/media/avatars/300-1.jpg" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Username-->
@@ -472,7 +472,7 @@ License: For each use you must have a valid license purchased only from above li
 										<a href="#" class="menu-link px-5">
 											<span class="menu-title position-relative">Language
 											<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-											<img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
+											<img class="w-15px h-15px rounded-1 ms-2" src="public/assets/media/flags/united-states.svg" alt="" /></span></span>
 										</a>
 										<!--begin::Menu sub-->
 										<div class="menu-sub menu-sub-dropdown w-175px py-4">
@@ -480,7 +480,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="menu-item px-3">
 												<a href="#english" class="menu-link d-flex px-5 active">
 												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
+													<img class="rounded-1" src="public/assets/media/flags/united-states.svg" alt="" />
 												</span>English</a>
 											</div>
 											<!--end::Menu item-->
@@ -488,7 +488,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="menu-item px-3">
 												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
 												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
+													<img class="rounded-1" src="public/assets/media/flags/spain.svg" alt="" />
 												</span>Spanish</a>
 											</div>
 											<!--end::Menu item-->
@@ -496,7 +496,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="menu-item px-3">
 												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
 												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
+													<img class="rounded-1" src="public/assets/media/flags/germany.svg" alt="" />
 												</span>German</a>
 											</div>
 											<!--end::Menu item-->
@@ -504,7 +504,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="menu-item px-3">
 												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
 												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
+													<img class="rounded-1" src="public/assets/media/flags/japan.svg" alt="" />
 												</span>Japanese</a>
 											</div>
 											<!--end::Menu item-->
@@ -512,7 +512,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="menu-item px-3">
 												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
 												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
+													<img class="rounded-1" src="public/assets/media/flags/france.svg" alt="" />
 												</span>French</a>
 											</div>
 											<!--end::Menu item-->
@@ -560,8 +560,8 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Aside toggle-->
 								<!--begin::Logo-->
 								<a href="../../demo10/dist/index.html">
-									<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px h-lg-30px d-none d-md-block" />
-									<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-25px d-block d-md-none" />
+									<img alt="Logo" src="public/assets/media/logos/default-dark.svg" class="h-25px h-lg-30px d-none d-md-block" />
+									<img alt="Logo" src="public/assets/media/logos/default-small.svg" class="h-25px d-block d-md-none" />
 								</a>
 								<!--end::Logo-->
 							</div>
@@ -626,7 +626,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-6.jpg" alt="" />
+																<img src="public/assets/media/avatars/300-6.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -641,7 +641,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-2.jpg" alt="" />
+																<img src="public/assets/media/avatars/300-2.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -656,7 +656,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-9.jpg" alt="" />
+																<img src="public/assets/media/avatars/300-9.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -671,7 +671,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-14.jpg" alt="" />
+																<img src="public/assets/media/avatars/300-14.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -686,7 +686,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-11.jpg" alt="" />
+																<img src="public/assets/media/avatars/300-11.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -705,7 +705,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/volicity-9.svg" alt="" />
+																	<img class="w-20px h-20px" src="public/assets/media/svg/brand-logos/volicity-9.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -722,7 +722,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/tvit.svg" alt="" />
+																	<img class="w-20px h-20px" src="public/assets/media/svg/brand-logos/tvit.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -739,7 +739,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/misc/infography.svg" alt="" />
+																	<img class="w-20px h-20px" src="public/assets/media/svg/misc/infography.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -756,7 +756,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/leaf.svg" alt="" />
+																	<img class="w-20px h-20px" src="public/assets/media/svg/brand-logos/leaf.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -773,7 +773,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/tower.svg" alt="" />
+																	<img class="w-20px h-20px" src="public/assets/media/svg/brand-logos/tower.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -1317,7 +1317,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-												<img src="assets/media/avatars/300-14.jpg" alt="img" />
+												<img src="public/assets/media/avatars/300-14.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1340,12 +1340,12 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/300-2.jpg" alt="img" />
+													<img src="public/assets/media/avatars/300-2.jpg" alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/300-14.jpg" alt="img" />
+													<img src="public/assets/media/avatars/300-14.jpg" alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
@@ -1379,7 +1379,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/300-20.jpg" alt="img" />
+													<img src="public/assets/media/avatars/300-20.jpg" alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
@@ -1434,7 +1434,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-												<img src="assets/media/avatars/300-1.jpg" alt="img" />
+												<img src="public/assets/media/avatars/300-1.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1477,7 +1477,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-												<img src="assets/media/avatars/300-23.jpg" alt="img" />
+												<img src="public/assets/media/avatars/300-23.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1490,7 +1490,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
-												<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+												<img alt="" class="w-30px me-3" src="public/assets/media/svg/files/pdf.svg" />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-semibold">
@@ -1507,7 +1507,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
-												<img alt="../../demo10/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+												<img alt="../../demo10/dist/apps/projects/project.html" class="w-30px me-3" src="public/assets/media/svg/files/doc.svg" />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-semibold">
@@ -1524,7 +1524,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center">
 												<!--begin::Icon-->
-												<img alt="../../demo10/dist/apps/projects/project.html" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+												<img alt="../../demo10/dist/apps/projects/project.html" class="w-30px me-3" src="public/assets/media/svg/files/css.svg" />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-semibold">
@@ -1576,7 +1576,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-												<img src="assets/media/avatars/300-14.jpg" alt="img" />
+												<img src="public/assets/media/avatars/300-14.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1616,7 +1616,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-												<img src="assets/media/avatars/300-2.jpg" alt="img" />
+												<img src="public/assets/media/avatars/300-2.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1630,7 +1630,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay me-10">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-29.jpg" />
+													<img alt="img" class="rounded w-150px" src="public/assets/media/stock/600x400/img-29.jpg" />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -1644,7 +1644,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay me-10">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-31.jpg" />
+													<img alt="img" class="rounded w-150px" src="public/assets/media/stock/600x400/img-31.jpg" />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -1658,7 +1658,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-40.jpg" />
+													<img alt="img" class="rounded w-150px" src="public/assets/media/stock/600x400/img-40.jpg" />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -1747,7 +1747,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-												<img src="assets/media/avatars/300-4.jpg" alt="img" />
+												<img src="public/assets/media/avatars/300-4.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1962,7 +1962,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -1994,7 +1994,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -2014,7 +2014,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -2046,7 +2046,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -2066,7 +2066,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -2099,7 +2099,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -2119,7 +2119,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -2151,7 +2151,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -2171,7 +2171,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -2276,7 +2276,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-1.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-1.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -2311,7 +2311,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-3.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-3.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -2346,7 +2346,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-8.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-8.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -2381,7 +2381,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-26.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-26.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -2416,7 +2416,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-21.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-21.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -2451,7 +2451,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-34.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-34.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -2486,7 +2486,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-27.jpg" alt="" />
+							<img src="public/assets/media/stock/600x400/img-27.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -3319,7 +3319,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="d-flex align-items-center">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/pdf.svg" alt="icon" />
+															<img src="public/assets/media/svg/files/pdf.svg" alt="icon" />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Details-->
@@ -3346,7 +3346,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="d-flex align-items-center">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/tif.svg" alt="icon" />
+															<img src="public/assets/media/svg/files/tif.svg" alt="icon" />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Details-->
@@ -3373,7 +3373,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="d-flex align-items-center">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/folder-document.svg" alt="icon" />
+															<img src="public/assets/media/svg/files/folder-document.svg" alt="icon" />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Details-->
@@ -3400,7 +3400,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="d-flex align-items-center">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/css.svg" alt="icon" />
+															<img src="public/assets/media/svg/files/css.svg" alt="icon" />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Details-->
@@ -3427,7 +3427,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="d-flex align-items-center">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/ai.svg" alt="icon" />
+															<img src="public/assets/media/svg/files/ai.svg" alt="icon" />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Details-->
@@ -3454,7 +3454,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="d-flex align-items-center">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/doc.svg" alt="icon" />
+															<img src="public/assets/media/svg/files/doc.svg" alt="icon" />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Details-->
@@ -3709,7 +3709,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Actions-->
 										<!--begin::Illustration-->
 										<div class="text-center px-4">
-											<img src="assets/media/illustrations/sigma-1/9.png" alt="" class="mww-100 mh-350px" />
+											<img src="public/assets/media/illustrations/sigma-1/9.png" alt="" class="mww-100 mh-350px" />
 										</div>
 										<!--end::Illustration-->
 									</div>
@@ -4332,9 +4332,9 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Input-->
 													<!--begin::Card logos-->
 													<div class="position-absolute translate-middle-y top-50 end-0 me-5">
-														<img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
-														<img src="assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
-														<img src="assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
+														<img src="public/assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+														<img src="public/assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
+														<img src="public/assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
 													</div>
 													<!--end::Card logos-->
 												</div>
@@ -4454,7 +4454,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Description-->
 											<!--begin::Illustration-->
 											<div class="text-center px-4 py-15">
-												<img src="assets/media/illustrations/sigma-1/9.png" alt="" class="mw-100 mh-300px" />
+												<img src="public/assets/media/illustrations/sigma-1/9.png" alt="" class="mw-100 mh-300px" />
 											</div>
 											<!--end::Illustration-->
 										</div>
@@ -4538,7 +4538,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Heading-->
 						<!--begin::Google Contacts Invite-->
 						<div class="btn btn-light-primary fw-bold w-100 mb-8">
-						<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
+						<img alt="Logo" src="public/assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
 						<!--end::Google Contacts Invite-->
 						<!--begin::Separator-->
 						<div class="separator d-flex flex-center mb-8">
@@ -4561,7 +4561,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-6.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4617,7 +4617,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4645,7 +4645,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-5.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4673,7 +4673,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4729,7 +4729,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-9.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4813,7 +4813,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-23.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4869,7 +4869,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-12.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4925,7 +4925,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-13.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -4981,7 +4981,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-21.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -5009,7 +5009,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
+											<img alt="Pic" src="public/assets/media/avatars/300-9.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -5129,7 +5129,7 @@ License: For each use you must have a valid license purchased only from above li
 										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
+												<img alt="Pic" src="public/assets/media/avatars/300-6.jpg" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Info-->
@@ -5159,7 +5159,7 @@ License: For each use you must have a valid license purchased only from above li
 										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+												<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Info-->
@@ -5174,7 +5174,7 @@ License: For each use you must have a valid license purchased only from above li
 										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
+												<img alt="Pic" src="public/assets/media/avatars/300-5.jpg" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Info-->
@@ -5189,7 +5189,7 @@ License: For each use you must have a valid license purchased only from above li
 										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+												<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Info-->
@@ -5219,7 +5219,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-6.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5291,7 +5291,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-1.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5327,7 +5327,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-5.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5363,7 +5363,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-25.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5435,7 +5435,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-9.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5543,7 +5543,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-23.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5615,7 +5615,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-12.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5687,7 +5687,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-13.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5759,7 +5759,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
+													<img alt="Pic" src="public/assets/media/avatars/300-21.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
@@ -5837,7 +5837,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Message-->
 									<!--begin::Illustration-->
 									<div class="text-center px-5">
-										<img src="assets/media/illustrations/sigma-1/1.png" alt="" class="w-100 h-200px h-sm-325px" />
+										<img src="public/assets/media/illustrations/sigma-1/1.png" alt="" class="w-100 h-200px h-sm-325px" />
 									</div>
 									<!--end::Illustration-->
 								</div>
@@ -5858,25 +5858,25 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
+		<script src="public/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="public/assets/js/scripts.bundle.js"></script>
 		
-		<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="public/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="public/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		
-		<script src="assets/js/widgets.bundle.js"></script>
-		<script src="assets/js/custom/widgets.js"></script>
-		<script src="assets/js/custom/apps/chat/chat.js"></script>
-		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-campaign.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="public/assets/js/widgets.bundle.js"></script>
+		<script src="public/assets/js/custom/widgets.js"></script>
+		<script src="public/assets/js/custom/apps/chat/chat.js"></script>
+		<script src="public/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="public/assets/js/custom/utilities/modals/create-campaign.js"></script>
+		<script src="public/assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="public/assets/js/custom/utilities/modals/users-search.js"></script>
 		
-		<script src="assets/js/custom/apps/user-management/users/list/table.js"></script>
-		<script src="assets/js/custom/apps/user-management/users/list/export-users.js"></script>
-		<script src="assets/js/custom/apps/user-management/users/list/add.js"></script>
-		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="public/assets/js/custom/apps/user-management/users/list/table.js"></script>
+		<script src="public/assets/js/custom/apps/user-management/users/list/export-users.js"></script>
+		<script src="public/assets/js/custom/apps/user-management/users/list/add.js"></script>
+		<script src="public/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="public/assets/js/custom/utilities/modals/users-search.js"></script>
         @stack('modals')
 
         @livewireScripts
