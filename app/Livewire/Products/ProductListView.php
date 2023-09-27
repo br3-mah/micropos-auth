@@ -13,11 +13,10 @@ class ProductListView extends Component
     
     public function render()
     {
-        $response = Http::get('http://localhost:9000/api/products');
+        $response = Http::get('http://localhost/ecoAgro/marketplace/api/products');
         dd($response->json());
         // dd($response->json());
-        // try {
-           
+        // try 
         //     if ($response->successful()) {
         //         $this->products = $response->json();
         //     } else {

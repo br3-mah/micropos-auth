@@ -16,26 +16,26 @@ class DashboardController extends Controller
         $userData = json_encode($user);
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
-                case 'marketplace':   
-                    $destination = 'http://localhost:9000?user=' . urlencode($userData);
+                case 'marketplace':
+                    $destination = 'http://market.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                     break;
                 
                 case 'call-center':
-                    return Redirect::away('http://localhost/eco');
+                    return Redirect::away('http://website.greenwebbtech.com/');
                     break;
             
                 case 'website':
-                    $destination = 'http://localhost/eco?user=' . urlencode($userData);
+                    $destination = 'http://website.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                     break;
         
                 case 'payment':
-                    return Redirect::away('http://localhost/eco');
+                    return Redirect::away('http://website.greenwebbtech.com/');
                     break;
         
                 case 'advisory':
-                    return Redirect::away('http://localhost/eco');
+                    return Redirect::away('http://website.greenwebbtech.com/');
                     break;
         
                 case 'auth':
@@ -44,7 +44,7 @@ class DashboardController extends Controller
                     break;
                             
                 default:
-                    $destination = 'http://localhost/eco?user=' . urlencode($userData);
+                    $destination = 'http://market.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                     break;
             }
