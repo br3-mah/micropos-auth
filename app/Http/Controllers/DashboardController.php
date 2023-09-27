@@ -14,38 +14,42 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
         $userData = json_encode($user);
-        switch (auth()->user()->current_destination) {
-            case 'marketplace':   
-                $destination = 'http://localhost:9000?user=' . urlencode($userData);
-                return Redirect::away($destination);
-                break;
-            
-            case 'call-center':
-                return Redirect::away('http://localhost/eco');
-                break;
-        
-            case 'website':
-                $destination = 'http://localhost/eco?user=' . urlencode($userData);
-                return Redirect::away($destination);
-                break;
-    
-            case 'payment':
-                return Redirect::away('http://localhost/eco');
-                break;
-    
-            case 'advisory':
-                return Redirect::away('http://localhost/eco');
-                break;
-    
-            case 'auth':
+        if(auth()->check()){
+            switch (auth()->user()->current_destination) {
+                case 'marketplace':   
+                    $destination = 'http://localhost:9000?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                    break;
                 
-                return view('dashboard');
-                break;
-                        
-            default:
-                $destination = 'http://localhost/eco?user=' . urlencode($userData);
-                return Redirect::away($destination);
-                break;
+                case 'call-center':
+                    return Redirect::away('http://localhost/eco');
+                    break;
+            
+                case 'website':
+                    $destination = 'http://localhost/eco?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                    break;
+        
+                case 'payment':
+                    return Redirect::away('http://localhost/eco');
+                    break;
+        
+                case 'advisory':
+                    return Redirect::away('http://localhost/eco');
+                    break;
+        
+                case 'auth':
+                    
+                    return view('dashboard');
+                    break;
+                            
+                default:
+                    $destination = 'http://localhost/eco?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                    break;
+            }
+        }else{
+            return view('dashboard');
         }
     }
 

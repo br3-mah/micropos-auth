@@ -14,7 +14,8 @@ class ProductListView extends Component
     public function render()
     {
         $response = Http::get('http://localhost:9000/api/products');
-        dd($response->body());
+        dd($response->json());
+        // dd($response->json());
         // try {
            
         //     if ($response->successful()) {

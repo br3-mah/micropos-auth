@@ -15,11 +15,11 @@
 
 <!-- Stylesheet
 ========================= -->
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/css/css-bootstrap.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/css/css-all.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/css/css-stylesheet.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/theme/css/css-bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/theme/css/css-all.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('public/theme/css/css-stylesheet.css')}}">
 <!-- Colors Css -->
-<link id="color-switcher" type="text/css" rel="stylesheet" href="{{ asset('theme/css/oxyy-#')}}">
+<link id="color-switcher" type="text/css" rel="stylesheet" href="{{ asset('public/theme/css/oxyy-#')}}">
 </head>
 <body>
 
@@ -118,7 +118,7 @@
         <div class="container h-100 d-flex flex-column">
           <div class="row g-0">
             <div class="col-11 col-md-10 mx-auto">
-              <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="#" title="ecoAgro"><img src="{{('img/logo.png')}}" alt="ecoAgro"></a> </div>
+              <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="#" title="ecoAgro"><img src="{{('public/img/logo.png')}}" alt="ecoAgro"></a> </div>
             </div>
           </div>
           <div class="row g-0 my-auto">
@@ -155,10 +155,10 @@
 <!-- Styles Switcher End --> 
 
 <!-- Script --> 
-<script src="{{ asset('theme/js/jquery-jquery.min.js')}}"></script> 
-<script src="{{ asset('theme/js/js-bootstrap.bundle.min.js')}}"></script> 
+<script src="{{ asset('public/theme/js/jquery-jquery.min.js')}}"></script> 
+<script src="{{ asset('public/theme/js/js-bootstrap.bundle.min.js')}}"></script> 
 <!-- Style Switcher --> 
-<script src="{{ asset('theme/js/5435-js-switcher.min.js')}}"></script> 
-<script src="{{ asset('theme/js/4463-js-theme.js')}}"></script>
+<script src="{{ asset('public/theme/js/5435-js-switcher.min.js')}}"></script> 
+<script src="{{ asset('public/theme/js/4463-js-theme.js')}}"></script>
 </body>
 </html>
