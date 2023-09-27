@@ -559,9 +559,9 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::Aside toggle-->
 								<!--begin::Logo-->
-								<a href="../../demo10/dist/index.html">
-									<img alt="Logo" src="public/assets/media/logos/default-dark.svg" class="h-25px h-lg-30px d-none d-md-block" />
-									<img alt="Logo" src="public/assets/media/logos/default-small.svg" class="h-25px d-block d-md-none" />
+								<a href="{{ route('dashboard') }}">
+									<img alt="Ecoagro" src="{{ asset('public/img/logo.png') }}" class="h-25px h-lg-30px d-none d-md-block" />
+									<img alt="Ecoagro" src="{{ asset('public/img/logo.png') }}g" class="h-25px d-block d-md-none" />
 								</a>
 								<!--end::Logo-->
 							</div>
