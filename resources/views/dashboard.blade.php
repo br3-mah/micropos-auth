@@ -256,13 +256,13 @@
 										<!--begin::Col-->
 										<div class="col mx-5">
 											<div class="fs-6 text-gray-400">Avarage Sale</div>
-											<div class="fs-2 fw-bold text-gray-800">K650</div>
+											<div class="fs-2 fw-bold text-gray-800">K0</div>
 										</div>
 										<!--end::Col-->
 										<!--begin::Col-->
 										<div class="col mx-5">
 											<div class="fs-6 text-gray-400">Comissions</div>
-											<div class="fs-2 fw-bold text-gray-800">K29,500</div>
+											<div class="fs-2 fw-bold text-gray-800">K0</div>
 										</div>
 										<!--end::Col-->
 									</div>
@@ -272,13 +272,13 @@
 										<!--begin::Col-->
 										<div class="col mx-5">
 											<div class="fs-6 text-gray-400">Revenue</div>
-											<div class="fs-2 fw-bold text-gray-800">K55,000</div>
+											<div class="fs-2 fw-bold text-gray-800">K0</div>
 										</div>
 										<!--end::Col-->
 										<!--begin::Col-->
 										<div class="col mx-5">
 											<div class="fs-6 text-gray-400">Expenses</div>
-											<div class="fs-2 fw-bold text-gray-800">K1,130,600</div>
+											<div class="fs-2 fw-bold text-gray-800">K0</div>
 										</div>
 										<!--end::Col-->
 									</div>

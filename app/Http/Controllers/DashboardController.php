@@ -19,34 +19,33 @@ class DashboardController extends Controller
                 case 'marketplace':
                     $destination = 'http://market.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
-                    break;
+                break;
                 
                 case 'call-center':
                     return Redirect::away('http://website.greenwebbtech.com/');
-                    break;
+                break;
             
                 case 'website':
                     $destination = 'http://website.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
-                    break;
+                break;
         
                 case 'payment':
                     return Redirect::away('http://website.greenwebbtech.com/');
-                    break;
+                break;
         
                 case 'advisory':
                     return Redirect::away('http://website.greenwebbtech.com/');
-                    break;
+                break;
         
                 case 'auth':
-                    
                     return view('dashboard');
-                    break;
+                break;
                             
                 default:
                     $destination = 'http://market.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
-                    break;
+                break;
             }
         }else{
             return view('dashboard');
