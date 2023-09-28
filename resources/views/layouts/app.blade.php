@@ -215,7 +215,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="{{ route('cust-orders') }}">
+											<a class="menu-link" href=""{{ route('products') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -223,7 +223,7 @@ License: For each use you must have a valid license purchased only from above li
 											</a>
 											<!--end:Menu link-->
 										</div>
-										<div class="menu-item">
+										{{--  <div class="menu-item">
 											<!--begin:Menu link-->
 											<a class="menu-link" href="{{ route('my-products') }}">
 												<span class="menu-bullet">
@@ -232,7 +232,7 @@ License: For each use you must have a valid license purchased only from above li
 												<span class="menu-title">My Products</span>
 											</a>
 											<!--end:Menu link-->
-										</div>
+										</div>  --}}
 										<!--end:Menu item-->
 										
 									</div>
@@ -262,7 +262,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="{{ route('cust-orders') }}">
+											<a class="menu-link" href="##">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -272,7 +272,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="{{ route('my-orders') }}">
+											<a class="menu-link" href="##">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>

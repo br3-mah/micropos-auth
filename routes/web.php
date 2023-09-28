@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MainController;
+use App\Livewire\Products\CreateProductView;
 use App\Livewire\Products\MyProductListView;
 use App\Livewire\Products\ProductListView;
 use App\Livewire\Users\AdvisorListView;
@@ -39,10 +41,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     //Products
     Route::get('/products', ProductListView::class)->name('products'); 
-    Route::get('/products', MyProductListView::class)->name('my-products'); 
+    Route::get('/my-products', MyProductListView::class)->name('my-products'); 
+    Route::get('/create-product', CreateProductView::class)->name('create-product'); 
+    Route::get('/products/{id}', [MainController::class, 'destroyProduct'])->name('products.destroy');
 
     //Order & Deliveries
-    Route::get('/customer-orders', ProductListView::class)->name('cust-orders'); 
-    Route::get('/my-orders', ProductListView::class)->name('my-orders');
+    // Route::get('/customer-orders', ProductListView::class)->name('cust-orders'); 
+    // Route::get('/my-orders', ProductListView::class)->name('my-orders');
 
 });
