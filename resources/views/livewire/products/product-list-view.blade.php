@@ -181,6 +181,17 @@
                 <!--end::Card header-->
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
+                    @if(session('successMessage'))
+                        <div class="alert alert-success">
+                            {{ session('successMessage') }}
+                        </div>
+                    @endif
+                    @if(session('errorMessage'))
+                        <div class="alert alert-danger">
+                            {{ session('errorMessage') }}
+                        </div>
+                    @endif
+
                     <!--begin::Table-->
                   <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
                     <thead>
@@ -212,6 +223,7 @@
                                         <!--begin::Thumbnail-->
                                         <a href="#" class="symbol symbol-50px">
                                             <span class="symbol-label" style="background-image:url({{asset("storage/" . $product->image)}});"></span>
+
                                         </a>
                                         <!--end::Thumbnail-->
                                         <div class="ms-5">

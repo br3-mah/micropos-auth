@@ -77,9 +77,9 @@ License: For each use you must have a valid license purchased only from above li
 												<span class="path4"></span>
 											</i>
 										</span>
-										<span class="menu-title">
-											<a href="/dashboard">Dashboards</a>
-										</span>
+										<a href="{{ route('dashboard') }}" class="menu-title">
+											Dashboard
+										</a>
 										<!-- <span class="menu-arrow"></span> -->
 									</span>
 									<!--end:Menu link-->
@@ -93,7 +93,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin:Menu item-->
 										<div class="menu-item d-none">
 											<!--begin:Menu link-->
-											<a class="menu-link active" href="../../demo10/dist/dashboard.html">
+											<a class="menu-link active" href="!">
 												<span class="menu-title">Launcher</span>
 											</a>
 											<!--end:Menu link-->
@@ -107,7 +107,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="menu-item pt-5">
 									<!--begin:Menu content-->
 									<div class="menu-content">
-										<span class="menu-heading fw-bold text-uppercase fs-7">Pages</span>
+										<span class="menu-heading fw-bold text-uppercase fs-7">Operations</span>
 									</div>
 									<!--end:Menu content-->
 								</div>

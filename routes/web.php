@@ -43,7 +43,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/products', ProductListView::class)->name('products'); 
     Route::get('/my-products', MyProductListView::class)->name('my-products'); 
     Route::get('/create-product', CreateProductView::class)->name('create-product'); 
+
+    // External DB Ops
     Route::get('/products/{id}', [MainController::class, 'destroyProduct'])->name('products.destroy');
+    Route::post('/store-product', [MainController::class, 'storeProduct'])->name('product.store');
 
     //Order & Deliveries
     // Route::get('/customer-orders', ProductListView::class)->name('cust-orders'); 
