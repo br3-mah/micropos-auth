@@ -12,12 +12,16 @@ trait UserTrait
 
     public function user_group($group)
     {
-        return User::where('customer_group', $group)->get();
+        return User::where('customer_group', $group)
+        ->orderBy('created_at', 'desc')
+        ->get();
     }
 
     public function user_type($type)
     {
-        return User::where('type', $type)->get();
+        return User::where('type', $type)
+        ->orderBy('created_at', 'desc')
+        ->get();
     }
 
     public function find($id)

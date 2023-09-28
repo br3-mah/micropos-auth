@@ -22,6 +22,7 @@ class ProductListView extends Component
             // Retrieve products from the second database
             $this->products = DB::connection('second_database')
                 ->table('products')
+                ->orderBy('created_at', 'desc')
                 ->get();
             // Commit the transaction
             DB::connection('second_database')->commit();
