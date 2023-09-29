@@ -64,7 +64,7 @@
 /* Style for the grid container */
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Create a grid with 4 equal columns */
+    grid-template-columns: repeat(2, 1fr); /* Create a grid with 4 equal columns */
     gap: 20px; /* Add some spacing between grid items */
 }
 
@@ -157,78 +157,7 @@
 </head>
 <body>
 <!-- Modal Popup -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-      <span id="closeModalBtn"></span>
-      
-      <!-- Signup Form Wizard -->
-      <div id="signupForm">
-          <div class="step" id="step1">
-              <h4>Choose a service you would like to access</h4>
-              <!-- Add a grid of 4 div elements with icons inside -->
-              <div class="grid">
-                  <div class="grid-item">
-                      <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="advisory" checked>
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
-                          <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                          <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                      </svg>
-                      </div>
-                      <p>Advisory</p>
-                  </div>
-                  <div class="grid-item">
-                      <input type="radio" name="purpose" id="marketplace" class="purpose-radio-input" value="marketplace">
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
-                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
-                        </svg>
-                      </div>
-                      <p>Marketplace</p>
-                  </div>
-                  <div class="grid-item">
-                      <input type="radio" name="purpose" id="call-center" class="purpose-radio-input" value="call center">
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
-                            <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
-                        </svg>
-                      </div>
-                      <p>Call Center</p>
-                  </div>
-                  <div class="grid-item">
-                      <input type="radio" name="purpose" id="payments-solution" class="purpose-radio-input" value="payment solution">
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
-                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
-                        </svg>
-                      </div>
-                      <p>Payments Solution</p>
-                  </div>
-              </div>
 
-              <div class="button-footer">
-                <button type="button" class="btn btn-dark shadow-none fw-400" id="nextStep1">Next</button>
-              </div>
-          </div>
-          <div class="step" id="step2">
-              <h4>Upload any relevant documents</h4>
-              <div class="file-uploader">
-                  <!-- Hidden file input -->
-                  <input type="file" multiple class="file-input" id="fileInput" accept=".pdf, .doc, .docx">
-                  <label for="fileInput">
-                      <span>Click to upload files</span>
-                  </label>
-                  <!-- Uploaded file list -->
-                  <ul class="file-list" id="fileList"></ul>
-                  <div class="button-footer">
-                      <button type="button" class="btn btn-dark shadow-none fw-400" id="prevStep2">Previous</button>
-                      <button type="button" class="btn btn-dark shadow-none fw-400" id="completeBtn">Compplete</button>
-                  </div>
-            </div>
-          </div>
-      </div>
-  </div>
-</div>
 
 <!-- Preloader -->
 <div class="preloader">
@@ -245,7 +174,9 @@
     use Illuminate\Support\Facades\Request;
     $source = Request::input('source');
     $destination = Request::input('destination');
+    $type = Request::input('type');
 @endphp
+
 <div id="main-wrapper" class="oxyy-login-register">
   <div class="container-fluid px-0">
     <div class="row g-0 min-vh-100"> 
@@ -262,38 +193,101 @@
         <div class="container my-auto py-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
-              <h3 class="fw-300 text-9 mb-5">Sign up</h3>
+              <h3 class="fw-300 text-9 mb-2">Sign up</h3>
               <x-validation-errors class="mb-4" />
-              <form id="registerForm" method="POST" action="{{ route('register') }}">
+              <form id="registerForm" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
-                  <label for="fullName" class="form-label fw-300">Full Name</label>
-                  <input type="text" name="name" :value="old('name')" autofocus autocomplete="name"  class="form-control bg-light border-light" id="fullName" required placeholder="Enter Your Name">
+
+                <div id="step1">
+                  <h6>Choose a service you would like to access</h6>
+                  <!-- Add a grid of 4 div elements with icons inside -->
+                  <div class="grid">
+                      <div class="grid-item">
+                          <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="advisory" checked>
+                          <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+                              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                          </svg>
+                          </div>
+                          <p>Advisory</p>
+                      </div>
+                      <div class="grid-item">
+                          <input type="radio" name="purpose" id="marketplace" class="purpose-radio-input" value="marketplace">
+                          <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                          </div>
+                          <p>Marketplace</p>
+                      </div>
+                      <div class="grid-item">
+                          <input type="radio" name="purpose" id="call-center" class="purpose-radio-input" value="call center">
+                          <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                                <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                            </svg>
+                          </div>
+                          <p>Call Center</p>
+                      </div>
+                      <div class="grid-item">
+                          <input type="radio" name="purpose" id="payments-solution" class="purpose-radio-input" value="payment solution">
+                          <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
+                            </svg>
+                          </div>
+                          <p>Payments Solution</p>
+                      </div>
+                  </div>
+                  <div class="d-grid my-4">
+                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep2" type="button">Next</button>
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <label for="emailAddress" class="form-label fw-300">Email Address</label>
-                  <input type="email" name="email" :value="old('email')" autocomplete="username" class="form-control bg-light border-light" id="emailAddress" required placeholder="Enter Your Email">
+
+                <div style="display: none" id="step2">
+                  <h6>Upload any relevant documents</h6>
+                  <div class="file-uploader">
+                        <!-- Hidden file input -->
+                        <input type="file" multiple class="file-input" id="fileInput" accept=".pdf, .doc, .docx">
+                        <label for="fileInput">
+                            <span>Click to upload files</span>
+                        </label>
+                        <!-- Uploaded file list -->
+                        <ul class="file-list" id="fileList"></ul>
+                  </div>
+                  <div class="d-grid flex gap-2 my-4">
+                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep1" type="button">Back</button>
+                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep3" type="button">Next</button>
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <label for="loginPassword" class="form-label fw-300">Password</label>
-                  <input type="password" name="password" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword" required placeholder="Enter Password">
-                </div>
-                <div class="mb-3">
-                  <label for="loginPassword" class="form-label fw-300">Confirm Password</label>
-                  <input type="password" name="password_confirmation" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword" required placeholder="Enter Password">
-                </div>
-                
-                <input type="hidden" name="myuploadedfiles">
-                <input type="hidden" name="myserivce">
-                
-                <div class="form-check my-4">
-                  <input id="agree" name="terms" class="form-check-input" type="checkbox">
-                  <label class="form-check-label text-2 fw-300" for="agree">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label>
-                </div>
-                <input type="hidden" name="source" value="{{ $source ?? '' }}">
-                <input type="hidden" name="destination" value="{{ $destination ?? '' }}">
-                <div class="d-grid my-4">
-                  <button class="btn btn-dark shadow-none fw-400" type="submit">Sign Up</button>
+                <div style="display: none" id="step3">
+                  <div class="mb-3">
+                    <label for="fullName" class="form-label fw-300">Full Name</label>
+                    <input type="text" name="name" :value="old('name')" autofocus autocomplete="name"  class="form-control bg-light border-light" id="fullName" required placeholder="Enter Your Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="emailAddress" class="form-label fw-300">Email Address</label>
+                    <input type="email" name="email" :value="old('email')" autocomplete="username" class="form-control bg-light border-light" id="emailAddress" required placeholder="Enter Your Email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label fw-300">Password</label>
+                    <input type="password" name="password" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword" required placeholder="Enter Password">
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label fw-300">Confirm Password</label>
+                    <input type="password" name="password_confirmation" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword" required placeholder="Enter Password">
+                  </div>
+                  <div class="form-check my-4">
+                    <input id="agree" name="terms" class="form-check-input" type="checkbox">
+                    <label class="form-check-label text-2 fw-300" for="agree">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label>
+                  </div>
+                  <input type="hidden" name="source" value="{{ $source ?? '' }}">
+                  <input type="hidden" name="destination" value="{{ $destination ?? '' }}">
+                  <input type="hidden" name="type" value="{{ $type ?? '' }}">
+                  <div class="d-grid my-4">
+                    <button class="btn btn-dark shadow-none fw-400" type="submit">Sign Up</button>
+                  </div>
                 </div>
               </form>
               {{-- <div class="d-flex align-items-center my-4">
@@ -365,76 +359,15 @@
 <script src="{{ asset('public/theme/js/3806-js-theme.js')}}"></script>
 <script>
     // Get the modal and the close button
-    const modal = document.getElementById("myModal");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const completeBtn = document.getElementById("completeBtn");
-    const signupForm = document.getElementById("signupForm");
     
-    // Get all wizard steps
-    const steps = Array.from(document.querySelectorAll(".step"));
+    
+    const signupForm = document.getElementById("signupForm");
+    const myServiceInput = document.getElementById('myserivce');
+    const myUploadedFilesInput = document.getElementById('myuploadedfiles');
+
     
     // Set the current step to the first step
     let currentStep = 0;
-    
-    // Function to open the modal
-    function openModal() {
-        modal.style.display = "block";
-        // Show the first step
-        showStep(currentStep);
-    }
-    
-    // Function to close the modal
-    closeModalBtn.addEventListener("click", () => {
-        // modal.style.display = "none";
-    });
-    
-    // Function to show a specific step and hide the others
-    function showStep(stepIndex) {
-        steps.forEach((step, index) => {
-            if (index === stepIndex) {
-                step.style.display = "block";
-            } else {
-                step.style.display = "none";
-            }
-        });
-    }
-    
-    // Function to navigate to the next step
-    function nextStep() {
-        currentStep++;
-        showStep(currentStep);
-    }
-    
-    // Function to navigate to the previous step
-    function prevStep() {
-        currentStep--;
-        showStep(currentStep);
-    }
-    
-    // Event listeners for next and previous buttons
-    document.getElementById("nextStep1").addEventListener("click", nextStep);
-    document.getElementById("prevStep2").addEventListener("click", prevStep);
-    // document.getElementById("nextStep2").addEventListener("click", nextStep);
-    // document.getElementById("prevStep3").addEventListener("click", prevStep);
-    
-    // Function to close the modal on "Complete" button click
-    completeBtn.addEventListener("click", () => {
-        // Add your logic here to handle the completion of the wizard
-        // For example, you can submit the form data or perform other actions
-        alert("Form completed!"); // Replace with your logic
-        modal.style.display = "none"; // Close the modal after completion
-    });
-    
-    // Close the modal if the user clicks outside of it
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-    
-    // Open the modal when the document is fully loaded
-    window.addEventListener("load", openModal);
-    
     // JavaScript code to handle radio selection on grid item click
     document.addEventListener("DOMContentLoaded", function () {
         const gridItems = document.querySelectorAll(".grid-item");
@@ -448,10 +381,10 @@
                 if (radioInput) {
                     radioInput.checked = true;
                 }
-              // Remove the 'focused' class from all grid items
-              gridItems.forEach(function (gridItem) {
-                  gridItem.classList.remove("focused");
-              });
+                // Remove the 'focused' class from all grid items
+                gridItems.forEach(function (gridItem) {
+                    gridItem.classList.remove("focused");
+                });
 
               // Add the 'focused' class to the clicked grid item
               item.classList.add("focused");
@@ -459,42 +392,25 @@
         });
     });
 
-    // JavaScript to handle file selection and removal
-// JavaScript code to handle radio selection on grid item click
-document.addEventListener("DOMContentLoaded", function () {
-    const gridItems = document.querySelectorAll(".grid-item");
-
-    gridItems.forEach(function (item) {
-        item.addEventListener("click", function () {
-            // Find the associated radio input
-            const radioInput = item.querySelector(".purpose-radio-input");
-
-            // Check the radio input
-            if (radioInput) {
-                radioInput.checked = true;
-                sessionStorage.setItem("selectedService", radioInput.value); // Store in session storage
-            }
-            // Remove the 'focused' class from all grid items
-            gridItems.forEach(function (gridItem) {
-                gridItem.classList.remove("focused");
-            });
-
-            // Add the 'focused' class to the clicked grid item
-            item.classList.add("focused");
-        });
-    });
-});
-
 // JavaScript to handle file selection and removal
 const fileInput = document.getElementById('fileInput');
 const fileList = document.getElementById('fileList');
+const uploadedFiles = [];
+// const uploadedFilesJson = [];
 
+// JavaScript to handle file selection and removal
 fileInput.addEventListener('change', function () {
-    const files = this.files;
-    if (files.length > 0) {
-        const uploadedFiles = [];
+    const files = this.files; 
+    // Initialize an array to store uploaded file names
+    
 
+    if (files.length > 0) {
+      
+        // Add the uploaded files to the uploadedFiles array
         Array.from(files).forEach(file => {
+          
+            uploadedFiles.push(file);
+
             const listItem = document.createElement('li');
             listItem.className = 'file-item';
             listItem.innerHTML = `
@@ -502,12 +418,7 @@ fileInput.addEventListener('change', function () {
                 <button class="remove-button" data-name="${file.name}">x</button>
             `;
             fileList.appendChild(listItem);
-            
-            uploadedFiles.push(file.name); // Store in an array
         });
-
-        // Store the array of uploaded file names in session storage
-        sessionStorage.setItem("uploadedFiles", JSON.stringify(uploadedFiles));
     }
 });
 
@@ -516,16 +427,47 @@ fileList.addEventListener('click', function (e) {
         const fileName = e.target.getAttribute('data-name');
         const fileItem = e.target.parentElement;
         fileItem.remove();
-        // You can perform additional actions here (e.g., remove the file from the server).
-
-        // Remove the removed file name from the session storage array
-        const uploadedFiles = JSON.parse(sessionStorage.getItem("uploadedFiles"));
-        const index = uploadedFiles.indexOf(fileName);
-        if (index !== -1) {
-            uploadedFiles.splice(index, 1);
-            sessionStorage.setItem("uploadedFiles", JSON.stringify(uploadedFiles));
+        // Remove the file name from the uploadedFiles array
+        const fileIndex = uploadedFiles.indexOf(fileName);
+        if (fileIndex !== -1) {
+            uploadedFiles.splice(fileIndex, 1);
         }
+        // Update the hidden input with the updated uploaded files
+        myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+        // You can perform additional actions here (e.g., remove the file from the server).
     }
+});
+
+// Get references to the step elements and buttons
+const step1 = document.getElementById('step1');
+const step2 = document.getElementById('step2');
+const step3 = document.getElementById('step3');
+const gotoStep1Button = document.getElementById('gotoStep1');
+const gotoStep2Button = document.getElementById('gotoStep2');
+const gotoStep3Button = document.getElementById('gotoStep3');
+
+// Event listener for "Next" button on Step 1
+gotoStep2Button.addEventListener('click', function () {
+    // Hide Step 1
+    step1.style.display = 'none';
+    // Show Step 2
+    step2.style.display = 'block';
+});
+
+// Event listener for "Back" button on Step 2
+gotoStep1Button.addEventListener('click', function () {
+    // Hide Step 2
+    step2.style.display = 'none';
+    // Show Step 1
+    step1.style.display = 'block';
+});
+
+// Event listener for "Next" button on Step 2
+gotoStep3Button.addEventListener('click', function () {
+    // Hide Step 2
+    step2.style.display = 'none';
+    // Show Step 3
+    step3.style.display = 'block';
 });
 
 </script>
