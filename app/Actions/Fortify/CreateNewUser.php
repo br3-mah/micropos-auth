@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeEmail;
 use App\Models\User;
+use App\Models\UserFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -22,8 +23,9 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         
-        dd($input);
-        Validator::make($input, [
+       try {
+         // dd($input);
+         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
@@ -40,7 +42,20 @@ class CreateNewUser implements CreatesNewUsers
                     'password' => Hash::make($input['password']),
                     'global_secret_word' => $input['password'],
                 ]);
-
+            // Handle file uploads
+            if (array_key_exists('files', $input) && is_array($input['files'])) {
+                foreach ($input['files'] as $file) {
+                    // Store the file in the storage/app/public directory (you can change the path as needed)
+                    $path = $file->store('public');
+                    
+                    // Save the file path in the database if you have a table for file records
+                    UserFile::create([
+                        'name' => 'Documents',
+                        'path' => $path,
+                        'user_id' => $user->id
+                    ]);
+                }
+            }
         if (!empty($input['destination'])) {
             $user->current_source = $input['source'];
             $user->current_destination = $input['destination'];
@@ -48,8 +63,11 @@ class CreateNewUser implements CreatesNewUsers
         }
               
         
-        Mail::to($user->email)->send(new WelcomeEmail($user));
+        // Mail::to($user->email)->send(new WelcomeEmail($user));
         return $user;
+       } catch (\Throwable $th) {
+        dd($th);
+       }
     }
 
 }

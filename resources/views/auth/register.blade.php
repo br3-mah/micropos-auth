@@ -152,7 +152,11 @@
 .remove-button:hover {
     background-color: #ff0000;
 }
-
+ 
+.hidden {
+        position: absolute;
+        left: -9999px;
+    } 
 </style>
 </head>
 <body>
@@ -245,11 +249,13 @@
                   </div>
                 </div>
 
-                <div style="display: none" id="step2">
+                <div id="step2">
                   <h6>Upload any relevant documents</h6>
                   <div class="file-uploader">
                         <!-- Hidden file input -->
-                        <input type="file" multiple class="file-input" id="fileInput" accept=".pdf, .doc, .docx">
+                        <input type="hidden" name="source" value="{{ $source ?? '' }}">
+
+                        <input type="file" multiple class="file-input" id="fileInput" accept=".pdf, .doc, .docx" name="files[]">
                         <label for="fileInput">
                             <span>Click to upload files</span>
                         </label>
@@ -261,7 +267,13 @@
                     <button class="btn btn-dark shadow-none fw-400" id="gotoStep3" type="button">Next</button>
                   </div>
                 </div>
-                <div style="display: none" id="step3">
+                <div id="step3">
+                  
+                  <a id="gotoStep22" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                  </a>
                   <div class="mb-3">
                     <label for="fullName" class="form-label fw-300">Full Name</label>
                     <input type="text" name="name" :value="old('name')" autofocus autocomplete="name"  class="form-control bg-light border-light" id="fullName" required placeholder="Enter Your Name">
@@ -282,10 +294,9 @@
                     <input id="agree" name="terms" class="form-check-input" type="checkbox">
                     <label class="form-check-label text-2 fw-300" for="agree">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label>
                   </div>
-                  <input type="hidden" name="source" value="{{ $source ?? '' }}">
                   <input type="hidden" name="destination" value="{{ $destination ?? '' }}">
                   <input type="hidden" name="type" value="{{ $type ?? '' }}">
-                  <div class="d-grid my-4">
+                  <div class="d-grid my-4">>
                     <button class="btn btn-dark shadow-none fw-400" type="submit">Sign Up</button>
                   </div>
                 </div>
@@ -444,30 +455,41 @@ const step2 = document.getElementById('step2');
 const step3 = document.getElementById('step3');
 const gotoStep1Button = document.getElementById('gotoStep1');
 const gotoStep2Button = document.getElementById('gotoStep2');
+const gotoStep22Button = document.getElementById('gotoStep22');
 const gotoStep3Button = document.getElementById('gotoStep3');
 
+// Initialize 
+step2.classList.add('hidden');
+step3.classList.add('hidden');
 // Event listener for "Next" button on Step 1
 gotoStep2Button.addEventListener('click', function () {
     // Hide Step 1
-    step1.style.display = 'none';
+    step1.classList.add('hidden');
     // Show Step 2
-    step2.style.display = 'block';
+    step2.classList.remove('hidden');
+});
+// Event listener for "Next" button on Step 1
+gotoStep22Button.addEventListener('click', function () {
+    // Hide Step 1
+    step3.classList.add('hidden');
+    // Show Step 2
+    step2.classList.remove('hidden');
 });
 
 // Event listener for "Back" button on Step 2
 gotoStep1Button.addEventListener('click', function () {
     // Hide Step 2
-    step2.style.display = 'none';
+    step2.classList.add('hidden');
     // Show Step 1
-    step1.style.display = 'block';
+    step1.classList.remove('hidden');
 });
 
 // Event listener for "Next" button on Step 2
 gotoStep3Button.addEventListener('click', function () {
     // Hide Step 2
-    step2.style.display = 'none';
+    step2.classList.add('hidden');
     // Show Step 3
-    step3.style.display = 'block';
+    step3.classList.remove('hidden');
 });
 
 </script>
