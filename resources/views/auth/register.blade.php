@@ -69,6 +69,22 @@
 }
 
 /* Style for each grid item */
+.grid-file-item {
+    text-align: center;
+    padding: 2px;
+    background-color: #ffffff; /* Background color of grid items */
+    border: 1px solid #dddddd; /* Border around each grid item */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover for interactivity */
+}
+.grid-file-item-btn{
+    text-align: center;
+    padding: 2px;
+    background-color: #ff0000; /* Background color of grid items */
+    border: 1px solid #ff0000; /* Border around each grid item */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover for interactivity */
+}
 .grid-item {
     text-align: center;
     padding: 20px;
@@ -157,6 +173,33 @@
         position: absolute;
         left: -9999px;
     } 
+
+    /* Hide the default file input */
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+    white-space: nowrap !important;
+}
+
+/* Style the label with the icon */
+.file-input-label {
+    display: inline-block;
+    padding: 10px;
+    background-color: #007bff; /* Change to your desired background color */
+    color: #fff; /* Change to your desired text color */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style the icon using Font Awesome classes */
+.file-input-label i {
+    margin-right: 5px; /* Adjust as needed for spacing */
+}
 </style>
 </head>
 <body>
@@ -197,7 +240,7 @@
         <div class="container my-auto py-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
-              <h3 class="fw-300 text-9 mb-2">Sign up</h3>
+              {{-- <h3 class="fw-300 text-9 mb-2">Sign up</h3> --}}
               <x-validation-errors class="mb-4" />
               <form id="registerForm" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
@@ -250,20 +293,33 @@
                 </div>
 
                 <div id="step2">
-                  <h6>Upload any relevant documents</h6>
+                  <h6>
+                    <a id="gotoStep1" type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                      </svg>
+                    </a>
+                    &nbsp;
+                    Upload any relevant documents
+                  </h6>
                   <div class="file-uploader">
-                        <!-- Hidden file input -->
-                        <input type="hidden" name="source" value="{{ $source ?? '' }}">
-
-                        <input type="file" multiple class="file-input" id="fileInput" accept=".pdf, .doc, .docx" name="files[]">
-                        <label for="fileInput">
-                            <span>Click to upload files</span>
-                        </label>
-                        <!-- Uploaded file list -->
-                        <ul class="file-list" id="fileList"></ul>
+                      <!-- Hidden file input -->
+                      <input type="hidden" name="source" value="{{ $source ?? '' }}">
+                  
+                      <!-- Use a label for file input and add a Font Awesome icon -->
+                      <input type="file" multiple class="file-input visually-hidden" id="fileInput" accept=".pdf, .doc, .docx" name="files[]">
+                      <label for="fileInput" class="file-input-label">
+                          <i class="fas fa-cloud-upload-alt"></i> <!-- Replace with the desired icon -->
+                          <span>Click to upload files</span>
+                      </label>
+                      
+                      <!-- Uploaded file list -->
+                      <div class="pt-2">
+                          <ul class="file-list" id="fileList"></ul>
+                      </div>
                   </div>
                   <div class="d-grid flex gap-2 my-4">
-                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep1" type="button">Back</button>
+                    {{-- <button class="btn btn-dark shadow-none fw-400" id="gotoStep1" type="button">Back</button> --}}
                     <button class="btn btn-dark shadow-none fw-400" id="gotoStep3" type="button">Next</button>
                   </div>
                 </div>
@@ -331,7 +387,7 @@
           </div>
           <div class="row g-0 my-auto">
             <div class="col-11 col-md-10 mx-auto">
-              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community in the world.</h1>
+              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community in the world. <h3 class="fw-300 text-9 mb-2">Create an Account</h3></h1>
             </div>
           </div>
         </div>
@@ -413,7 +469,6 @@ const uploadedFiles = [];
 fileInput.addEventListener('change', function () {
     const files = this.files; 
     // Initialize an array to store uploaded file names
-    
 
     if (files.length > 0) {
       
@@ -423,10 +478,10 @@ fileInput.addEventListener('change', function () {
             uploadedFiles.push(file);
 
             const listItem = document.createElement('li');
-            listItem.className = 'file-item';
+            listItem.className = 'file-item grid pb-1';
             listItem.innerHTML = `
-                <span>${file.name}</span>
-                <button class="remove-button" data-name="${file.name}">x</button>
+                <span class="grid-file-item">${file.name}</span>
+                <button class="grid-file-item-btn" class="remove-button" data-name="${file.name}">x</button>
             `;
             fileList.appendChild(listItem);
         });
@@ -459,21 +514,45 @@ const gotoStep22Button = document.getElementById('gotoStep22');
 const gotoStep3Button = document.getElementById('gotoStep3');
 
 // Initialize 
+const type = '{{$type}}';
+
+
+
 step2.classList.add('hidden');
 step3.classList.add('hidden');
 // Event listener for "Next" button on Step 1
 gotoStep2Button.addEventListener('click', function () {
-    // Hide Step 1
-    step1.classList.add('hidden');
-    // Show Step 2
-    step2.classList.remove('hidden');
+
+  if (type == 'farmer') {
+      // Hide Step 2
+      step1.classList.add('hidden');
+      step2.classList.add('hidden');
+      // Show Step 3
+      step3.classList.remove('hidden');
+  } else {
+      // Hide Step 1
+      step1.classList.add('hidden');
+      // Show Step 2
+      step2.classList.remove('hidden');
+  }
+
 });
 // Event listener for "Next" button on Step 1
 gotoStep22Button.addEventListener('click', function () {
-    // Hide Step 1
-    step3.classList.add('hidden');
-    // Show Step 2
-    step2.classList.remove('hidden');
+
+
+    if (type == 'farmer') {
+      // Hide Step 1
+      step3.classList.add('hidden');
+      // Show Step 2
+      step2.classList.add('hidden');
+      step1.classList.remove('hidden');
+  } else {
+      // Hide Step 1
+      step1.classList.add('hidden');
+      // Show Step 2
+      step2.classList.remove('hidden');
+  }
 });
 
 // Event listener for "Back" button on Step 2
