@@ -21,6 +21,13 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        dd('Working on saving uploaded documents');
+        // Access the selected service option from session storage
+        $selectedService = session()->get('selectedService');
+        dd($selectedService);
+        // Access the uploaded file names from session storage
+        $uploadedFiles = json_decode(session()->get('uploadedFiles'), true);
+        dd($uploadedFiles);
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
