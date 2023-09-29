@@ -50,7 +50,7 @@ class RegisterController extends Controller
 
         } catch (\Throwable $th) {
             dd($th);
-            return response()->json(['message' => 'User registrtion failed', 'data'=>$th, 'service'=>[], 'token'=>''], 500);
+            // return response()->json(['msessage' => 'User registrtion failed', 'data'=>$th, 'service'=>[], 'token'=>''], 500);
         }
     }
 
