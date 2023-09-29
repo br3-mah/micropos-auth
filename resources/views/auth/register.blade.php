@@ -462,6 +462,7 @@
 // JavaScript to handle file selection and removal
 const fileInput = document.getElementById('fileInput');
 const fileList = document.getElementById('fileList');
+
 const uploadedFiles = [];
 // const uploadedFilesJson = [];
 
@@ -489,7 +490,9 @@ fileInput.addEventListener('change', function () {
 });
 
 fileList.addEventListener('click', function (e) {
+  
     if (e.target.classList.contains('remove-button')) {
+      alert('ooooh');
         const fileName = e.target.getAttribute('data-name');
         const fileItem = e.target.parentElement;
         fileItem.remove();
@@ -552,6 +555,7 @@ gotoStep22Button.addEventListener('click', function () {
       step1.classList.add('hidden');
       // Show Step 2
       step2.classList.remove('hidden');
+      step3.classList.add('hidden');
   }
 });
 
