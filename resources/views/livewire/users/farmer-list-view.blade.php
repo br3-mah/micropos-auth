@@ -530,6 +530,18 @@
                 <!--begin::Card body-->
                 <div class="card-body py-4">
                     <!--begin::Table-->
+                    @php
+                    function getInitials($inputString) {
+                        $words = explode(' ', $inputString); // Split the input string into words
+                        $initials = '';
+                        
+                        foreach ($words as $word) {
+                            $initials .= strtoupper($word[0]); // Convert the first character to uppercase
+                        }
+                        
+                        return $initials;
+                    }// Output: BN
+                    @endphp
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <thead>
                             <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
@@ -539,9 +551,9 @@
                                     </div>
                                 </th>
                                 <th class="min-w-125px">User</th>
-                                <th class="min-w-125px">Role</th>
-                                <th class="min-w-125px">Last login</th>
-                                <th class="min-w-125px">Two-step</th>
+                                <th class="min-w-125px">Service</th>
+                                <th class="min-w-125px">Contact</th>
+                                <th class="min-w-125px">Sex</th>
                                 <th class="min-w-125px">Joined Date</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
@@ -557,24 +569,24 @@
                                 <td class="d-flex align-items-center">
                                     <!--begin:: Avatar -->
                                     <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                        <a href="#user_details">
-                                            <div class="symbol-label fs-3 bg-light-danger text-danger">{{ $f->name }}</div>
+                                        <a href="{{ route('view-user', $f->id) }}">
+                                            <div class="symbol-label fs-3 bg-light-danger text-danger">{{  getInitials($f->name)  }}</div>
                                         </a>
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::User details-->
                                     <div class="d-flex flex-column">
-                                        <a href="#user_details" class="text-gray-800 text-hover-primary mb-1">{{ $f->name }}</a>
-                                        <span>melody@altbox.com</span>
+                                        <a href="{{ route('view-user', $f->id) }}" class="text-gray-800 text-hover-primary mb-1">{{ $f->name }}</a>
+                                        <span>{{ $f->email ?? '' }}</span>
                                     </div>
                                     <!--begin::User details-->
                                 </td>
-                                <td>Analyst</td>
+                                <td class="uppercase">{{ $f->customer_group ?? '' }}</td>
                                 <td>
-                                    <div class="badge badge-light fw-bold">20 mins ago</div>
+                                    <div class="badge badge-light fw-bold">{{ App\Models\User::details($f->id) !== null ?  App\Models\User::details($f->id)->phone_number : ''}}</div>
                                 </td>
                                 <td>
-                                    <div class="badge badge-light-success fw-bold">Enabled</div>
+                                    <div class="badge badge-light-success fw-bold">{{ App\Models\User::details($f->id) !== null ?  App\Models\User::details($f->id)->sex : ''}}</div>
                                 </td>
                                 <td>{{ $f->created_at->toFormattedDateString() }}</td>
                                 <td class="text-end">
@@ -600,7 +612,7 @@
                                 
                             @endforelse
                             
-                            
+
                             {{--  
                             <tr>
                                 <td>

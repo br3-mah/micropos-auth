@@ -530,6 +530,18 @@
                 <!--begin::Card body-->
                 <div class="card-body py-4">
                     <!--begin::Table-->
+                    @php
+                    function getInitials($inputString) {
+                        $words = explode(' ', $inputString); // Split the input string into words
+                        $initials = '';
+                        
+                        foreach ($words as $word) {
+                            $initials .= strtoupper($word[0]); // Convert the first character to uppercase
+                        }
+                        
+                        return $initials;
+                    }// Output: BN
+                    @endphp
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <thead>
                             <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
@@ -557,14 +569,14 @@
                                 <td class="d-flex align-items-center">
                                     <!--begin:: Avatar -->
                                     <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                        <a href="#user_details">
-                                            <div class="symbol-label fs-3 bg-light-danger text-danger">{{ $g->name }}</div>
+                                        <a href="{{ route('view-user', $g->id) }}">
+                                            <div class="symbol-label fs-3 bg-light-danger text-danger">{{  getInitials($g->name)  }}</div>
                                         </a>
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::User details-->
                                     <div class="d-flex flex-column">
-                                        <a href="#user_details" class="text-gray-800 text-hover-primary mb-1">{{ $g->name }}</a>
+                                        <a href="{{ route('view-user', $g->id) }}" class="text-gray-800 text-hover-primary mb-1">{{ $g->name }}</a>
                                         <span>melody@altbox.com</span>
                                     </div>
                                     <!--begin::User details-->

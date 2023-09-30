@@ -55,11 +55,13 @@
             </div>
           </div>
         </div>
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+        <x-validation-errors class="mb-4" />
+
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+            @endif
         <div class="container my-auto py-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">

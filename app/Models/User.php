@@ -30,8 +30,8 @@ class User extends Authenticatable
         'current_source',
         'current_destination',
         'global_secret_word',
-        'customer_group', //advisory, call center, payment solution, marketplace, admin
-        'type', //admin, farmer, agronomist guest
+        'customer_group', //advisory, call center, payment solution, marketplace, admin, none
+        'type', //admin, farmer, agronomist, guest
         'status'
     ];
 
@@ -69,6 +69,14 @@ class User extends Authenticatable
 
     // Relationships
     public function user_details(){
-        return $this->hasOne(UserDetail::class);
+        return $this->hasMany(UserDetail::class);
+    }
+    // Relationships
+    public function user_files(){
+        return $this->hasMany(UserFile::class);
+    }
+    
+    public static function details($user_id){
+        return UserDetail::where('user_id', $user_id)->first();
     }
 }

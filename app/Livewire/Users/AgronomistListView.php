@@ -13,6 +13,6 @@ class AgronomistListView extends Component
     public function render()
     {
         $this->guests = $this->user_type('agronomist');
-        return view('livewire.users.agronomist-list-view');
+        return view('livewire.users.agronomist-list-view')->layout('layouts.app');
     }
 }

@@ -11,6 +11,7 @@ use App\Livewire\Users\CallCenterListView;
 use App\Livewire\Users\FarmerListView;
 use App\Livewire\Users\GuestListView;
 use App\Livewire\Users\PaymentProviderListView;
+use App\Livewire\Users\UserView;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,11 +34,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     // Users
     Route::get('/guests', GuestListView::class)->name('guests'); 
     Route::get('/advisors', AdvisorListView::class)->name('advisors'); 
+    Route::get('/agronomists', AgronomistListView::class)->name('agronomists'); 
     Route::get('/call-center', CallCenterListView::class)->name('call-center'); 
     Route::get('/farmers', FarmerListView::class)->name('farmers'); 
     Route::get('/agronomists', AgronomistListView::class)->name('agronomists'); 
     Route::get('/payment-providers', PaymentProviderListView::class)->name('payment-providers'); 
     Route::get('/marketplace-users', GuestListView::class)->name('marketplace-users'); 
+    Route::get('/users/{id}', UserView::class)->name('view-user'); 
 
     //Products
     Route::get('/products', ProductListView::class)->name('products'); 

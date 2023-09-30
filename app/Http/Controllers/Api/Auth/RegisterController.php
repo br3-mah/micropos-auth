@@ -17,7 +17,7 @@ class RegisterController extends Controller
     use PasswordValidationRules;
     public function register(Request $request)
     {   
-        // dd('here');
+        
         try {
             $input = $request->toArray();
             // dd($input);
