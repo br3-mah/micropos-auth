@@ -200,6 +200,11 @@
 .file-input-label i {
     margin-right: 5px; /* Adjust as needed for spacing */
 }
+
+.purpose-radio-input {
+    display: none;
+}
+
 </style>
 </head>
 <body>
@@ -352,7 +357,7 @@
                   </div>
                   <input type="hidden" name="destination" value="{{ $destination ?? '' }}">
                   <input type="hidden" name="type" value="{{ $type ?? '' }}">
-                  <div class="d-grid my-4">>
+                  <div class="d-grid my-4">
                     <button class="btn btn-dark shadow-none fw-400" type="submit">Sign Up</button>
                   </div>
                 </div>
@@ -484,6 +489,7 @@ fileInput.addEventListener('change', function () {
                 <span class="grid-file-item">${file.name}</span>
                 <button class="grid-file-item-btn" class="remove-button" data-name="${file.name}">x</button>
             `;
+
             fileList.appendChild(listItem);
         });
     }
@@ -491,8 +497,8 @@ fileInput.addEventListener('change', function () {
 
 fileList.addEventListener('click', function (e) {
   
-    if (e.target.classList.contains('remove-button')) {
-      alert('ooooh');
+  console.log(e.target.classList.value);
+    if (e.target.classList.value == 'grid-file-item-btn') {
         const fileName = e.target.getAttribute('data-name');
         const fileItem = e.target.parentElement;
         fileItem.remove();
@@ -518,9 +524,6 @@ const gotoStep3Button = document.getElementById('gotoStep3');
 
 // Initialize 
 const type = '{{$type}}';
-
-
-
 step2.classList.add('hidden');
 step3.classList.add('hidden');
 // Event listener for "Next" button on Step 1

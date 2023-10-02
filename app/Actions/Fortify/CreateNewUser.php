@@ -24,7 +24,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         
        try {
-         // dd($input);
+        //  dd($input);
          Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -66,7 +66,8 @@ class CreateNewUser implements CreatesNewUsers
         // Mail::to($user->email)->send(new WelcomeEmail($user));
         return $user;
        } catch (\Throwable $th) {
-        dd($th);
+        // dd($th);
+        dd('Go Back. Bug Detected');
        }
     }
 
