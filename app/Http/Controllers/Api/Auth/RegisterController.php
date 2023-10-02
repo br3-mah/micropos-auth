@@ -62,11 +62,11 @@ class RegisterController extends Controller
             'phone_number' => $data['phoneNumber'],
             'city' => $data['city'],
             'province' => $data['province'],
-            'age' => $data['age'],
+            'age' => $data['dob'],
             'sex' => $data['sex'],
-            'languages' => $data['languages'],
-            'employement' => $data['employment'],
-            'service' => $data['service'],
+            // 'languages' => $data['languages'],
+            // 'employement' => $data['employment'],
+            'service' => $data['purpose'],
             'user_id' => $user->id,
         ]);
         return $result;

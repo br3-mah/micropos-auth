@@ -243,11 +243,6 @@
           </div>
         </div>
         <div class="container my-auto py-5">
-          @if(session('message'))
-              <div class="alert alert-success">
-                  {{ session('message') }}
-              </div>
-          @endif
           <div class="row gx-0">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
               {{-- <h3 class="fw-300 text-9 mb-2">Sign up</h3> --}}
@@ -360,7 +355,7 @@
                   <div class="flex">
                     <div class="w-1/2">
                       <label for="emailAddress" class="form-label fw-300">City</label>
-                      <input type="text" name="city" class="form-control bg-light border-light" placeholder="City">
+                      <input type="email" name="city" class="form-control bg-light border-light" placeholder="City">
                     </div>
                     <div class="w-1/2">
                       <label for="province" class="form-label fw-300">Province</label>
