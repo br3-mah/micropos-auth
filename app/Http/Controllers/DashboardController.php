@@ -16,6 +16,7 @@ class DashboardController extends Controller
         // important
         $user = auth()->user();
         $userData = json_encode($user);
+        dd(request('destination'));
         if(auth()->check()){
             switch (request('destination')) {
                 case 'marketplace':
@@ -24,7 +25,6 @@ class DashboardController extends Controller
                 break;
                 
                 case 'call-center':
-                    // $destination = 'http://market.greenwebbtech.com?user=' . urlencode($userData);
                     $destination = 'https://greenwebbtech.com/callcenter/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
