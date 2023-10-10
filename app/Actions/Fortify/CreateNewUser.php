@@ -66,7 +66,7 @@ class CreateNewUser implements CreatesNewUsers
         }
               
         
-        // Mail::to($user->email)->send(new WelcomeEmail($user));
+        Mail::to($user->email)->send(new WelcomeEmail($user));
         return $user;
        } catch (\Throwable $th) {
         dd('Use a different email and try again. Failed to register with this email');
