@@ -16,9 +16,9 @@ class DashboardController extends Controller
         // important
         $user = auth()->user();
         $userData = json_encode($user);
-        dd(request('destination'));
+        
         if(auth()->check()){
-            switch (request('destination')) {
+            switch (auth()->user()->current_destination) {
                 case 'marketplace':
                     $destination = 'https://greenwebbtech.com/market/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
