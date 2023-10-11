@@ -20,27 +20,27 @@ class DashboardController extends Controller
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
                 case 'marketplace':
-                    $destination = 'https://greenwebbtech.com/market?user=' . urlencode($userData);
+                    $destination = 'https://market.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call-center':
-                    $destination = 'https://greenwebbtech.com/callcenter/login?user=' . urlencode($userData);
+                    $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
             
                 case 'website':
-                    $destination = 'https://greenwebbtech.com/website?user=' . urlencode($userData);
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
                 case 'payment':
-                    $destination = 'https://greenwebbtech.com/website?user=' . urlencode($userData);
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
                 case 'advisory':
-                    $destination = 'https://greenwebbtech.com/website?user=' . urlencode($userData);
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
@@ -49,7 +49,7 @@ class DashboardController extends Controller
                 break;
                             
                 default:
-                    $destination = 'https://greenwebbtech.com/website?user=' . urlencode($userData);
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
             }
