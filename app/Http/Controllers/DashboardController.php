@@ -12,11 +12,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        
         // important
         $user = auth()->user();
         $userData = json_encode($user);
-        
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
                 case 'marketplace':
