@@ -47,8 +47,12 @@ class DashboardController extends Controller
                 break;
                             
                 default:
-                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
-                    return Redirect::away($destination);
+                    if (auth()->user()->type == 'admin') {
+                        return view('dashboard');
+                    }else{
+                        $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                        return Redirect::away($destination);
+                    }
                 break;
             }
         }else{
