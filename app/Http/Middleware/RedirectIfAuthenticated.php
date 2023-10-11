@@ -22,8 +22,7 @@ class RedirectIfAuthenticated
         $u = User::where('email', $request->get('email'))->first();
         if($u){
             // dd($request->get('destination'));
-            $u->current_destination = $request->get('destination');
-            $u->save();
+            User::where('id', $u->id)->update(['status' => $request->get('destination')]);
         }
 
 
