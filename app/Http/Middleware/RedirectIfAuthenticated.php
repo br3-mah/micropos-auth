@@ -19,11 +19,11 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         // write something when user logins
-        $u = User::where('email', $request->get('email'))->first();
-        if($u){
-            // dd($request->get('destination'));
-            User::where('id', $u->id)->update(['current_destination' => $request->get('destination')]);
-        }
+        // $u = User::where('email', $request->get('email'))->first();
+        // if($u){
+        //     // dd($request->get('destination'));
+        //     User::where('id', $u->id)->update(['current_destination' => $request->get('destination')]);
+        // }
 
 
         // Set guards

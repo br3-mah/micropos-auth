@@ -25,6 +25,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         
        try {
+
         //  dd($input);
          Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -53,15 +54,18 @@ class CreateNewUser implements CreatesNewUsers
                 
                 // Save the file path in the database if you have a table for file records
                 UserFile::create([
-                    'name' => 'Documents',
+                    'name' => $file->getClientOriginalName(),
                     'path' => $path,
                     'user_id' => $user->id
                 ]);
             }
         }
-        if (!empty($input['destination'])) {
+        if (!empty($input['source'])) {
             $user->current_source = $input['source'];
-            $user->current_destination = $input['destination'];
+            $user->current_destination = $input['purpose'];
+            $user->save();
+        }else{
+            $user->current_destination = $input['purpose'];
             $user->save();
         }
               
@@ -69,6 +73,7 @@ class CreateNewUser implements CreatesNewUsers
         Mail::to($user->email)->send(new WelcomeEmail($user));
         return $user;
        } catch (\Throwable $th) {
+        dd($th);
         dd('Use a different email and try again. Failed to register with this email');
        }
     }

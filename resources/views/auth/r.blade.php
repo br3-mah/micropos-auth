@@ -159,7 +159,7 @@
     background-color: #ff4444;
     color: #fff;
     border: none;
-    border-radius: 100%;
+    border-radius: 10%;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -238,11 +238,16 @@
         <div class="container pt-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 mx-auto">
-              <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="http://auth.greenwebbtech.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
+              <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="https://auth.greenwebbtech.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
             </div>
           </div>
         </div>
         <div class="container my-auto py-5">
+          @if(session('message'))
+              <div class="alert alert-success">
+                  {{ session('message') }}
+              </div>
+          @endif
           <div class="row gx-0">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
               {{-- <h3 class="fw-300 text-9 mb-2">Sign up</h3> --}}
@@ -255,7 +260,7 @@
                   <!-- Add a grid of 4 div elements with icons inside -->
                   <div class="grid">
                       <div class="grid-item">
-                          <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="advisory" checked>
+                          <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="call center" checked>
                           <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
                               <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
@@ -312,9 +317,9 @@
                       <input type="hidden" name="source" value="{{ $source ?? '' }}">
                   
                       <!-- Use a label for file input and add a Font Awesome icon -->
-                      <input type="file" multiple class="file-input visually-hidden" id="fileInput" accept=".pdf, .doc, .docx" name="files[]">
+                      <input type="file" multiple class="file-input visually-hidden" id="fileInput" accept=".pdf, .doc, .docx" name="files[]" onchange="displaySelectedFiles()">
                       <label for="fileInput" class="file-input-label">
-                          <i class="fas fa-cloud-upload-alt"></i> <!-- Replace with the desired icon -->
+                          <i class="fas fa-cloud-upload-alt"></i>
                           <span>Click to upload files</span>
                       </label>
                       
@@ -355,7 +360,7 @@
                   <div class="flex">
                     <div class="w-1/2">
                       <label for="emailAddress" class="form-label fw-300">City</label>
-                      <input type="email" name="city" class="form-control bg-light border-light" placeholder="City">
+                      <input type="text" name="city" class="form-control bg-light border-light" placeholder="City">
                     </div>
                     <div class="w-1/2">
                       <label for="province" class="form-label fw-300">Province</label>
@@ -502,53 +507,53 @@
     });
 
 // JavaScript to handle file selection and removal
-const fileInput = document.getElementById('fileInput');
-const fileList = document.getElementById('fileList');
+// const fileInput = document.getElementById('fileInput');
+// const fileList = document.getElementById('fileList');
 
-const uploadedFiles = [];
-// const uploadedFilesJson = [];
+// const uploadedFiles = [];
+// // const uploadedFilesJson = [];
 
-// JavaScript to handle file selection and removal
-fileInput.addEventListener('change', function () {
-    const files = this.files; 
-    // Initialize an array to store uploaded file names
-
-    if (files.length > 0) {
+// // JavaScript to handle file selection and removal
+// fileInput.addEventListener('change', function () {
+//     const files = this.files; 
+//     // Initialize an array to store uploaded file names
+//     console.log(files)
+//     if (files.length > 0) {
       
-        // Add the uploaded files to the uploadedFiles array
-        Array.from(files).forEach(file => {
+//         // Add the uploaded files to the uploadedFiles array
+//         Array.from(files).forEach(file => {
           
-            uploadedFiles.push(file);
+//             uploadedFiles.push(file);
 
-            const listItem = document.createElement('li');
-            listItem.className = 'file-item grid pb-1';
-            listItem.innerHTML = `
-                <span class="grid-file-item">${file.name}</span>
-                <button class="grid-file-item-btn" class="remove-button" data-name="${file.name}">x</button>
-            `;
+//             const listItem = document.createElement('li');
+//             listItem.className = 'file-item grid pb-1';
+//             listItem.innerHTML = `
+//                 <span class="grid-file-item">${file.name}</span>
+//                 <button class="grid-file-item-btn" class="remove-button" data-name="${file.name}">x</button>
+//             `;
 
-            fileList.appendChild(listItem);
-        });
-    }
-});
+//             fileList.appendChild(listItem);
+//         });
+//     }
+// });
 
-fileList.addEventListener('click', function (e) {
+// fileList.addEventListener('click', function (e) {
   
-  console.log(e.target.classList.value);
-    if (e.target.classList.value == 'grid-file-item-btn') {
-        const fileName = e.target.getAttribute('data-name');
-        const fileItem = e.target.parentElement;
-        fileItem.remove();
-        // Remove the file name from the uploadedFiles array
-        const fileIndex = uploadedFiles.indexOf(fileName);
-        if (fileIndex !== -1) {
-            uploadedFiles.splice(fileIndex, 1);
-        }
-        // Update the hidden input with the updated uploaded files
-        myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
-        // You can perform additional actions here (e.g., remove the file from the server).
-    }
-});
+//   console.log(e.target.classList.value);
+//     if (e.target.classList.value == 'grid-file-item-btn') {
+//         const fileName = e.target.getAttribute('data-name');
+//         const fileItem = e.target.parentElement;
+//         fileItem.remove();
+//         // Remove the file name from the uploadedFiles array
+//         const fileIndex = uploadedFiles.indexOf(fileName);
+//         if (fileIndex !== -1) {
+//             uploadedFiles.splice(fileIndex, 1);
+//         }
+//         // Update the hidden input with the updated uploaded files
+//         myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+//         // You can perform additional actions here (e.g., remove the file from the server).
+//     }
+// });
 
 // Get references to the step elements and buttons
 const step1 = document.getElementById('step1');
@@ -611,6 +616,54 @@ gotoStep4Button.addEventListener('click', function () {
     step4.classList.remove('hidden');
 });
 
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+<script>
+    function displaySelectedFiles() {
+        var input = document.getElementById('fileInput');
+        var fileListContainer = $('#fileList');
+        
+        // fileListContainer.empty(); // Clear the file list
+
+        for (var i = 0; i < input.files.length; i++) {
+            var file = input.files[i];
+
+            console.log(file); //parse the file for php to process
+
+            // Create a hidden input for each file
+            var hiddenInput = $('<input>')
+                .attr('type', 'hidden')
+                .attr('name', 'files[]')
+                .val(JSON.stringify(file));
+
+            // Append the hidden input to the form
+            $('#registerForm').append(hiddenInput);
+
+            // Create a div to display the file name
+            var fileDiv = $('<div>')
+                .addClass('file-item')
+                .text(file.name);
+
+            // Create a remove button for each file
+            var removeButton = $('<button>')
+                .html('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>')
+                .addClass('remove-button');
+
+            // Append the remove button to the file div
+            fileDiv.append(removeButton);
+
+            // Append the file div to the file list
+            fileListContainer.append(fileDiv);
+            
+            // Add a click event to remove the file when the remove button is clicked
+            removeButton.click(function() {
+                hiddenInput.remove(); // Remove the hidden input
+                fileDiv.remove(); // Remove the file div
+            });
+        }
+    }
 </script>
 
 </body>
