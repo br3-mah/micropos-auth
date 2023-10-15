@@ -38,7 +38,7 @@ class SupportContactEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.support-contact',
+            view: 'emails.support-contact',
         );
     }
 

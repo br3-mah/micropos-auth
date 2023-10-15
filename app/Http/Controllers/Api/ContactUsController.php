@@ -35,7 +35,7 @@ class ContactUsController extends Controller
             Mail::to($request->input('email'))->send(new ContactEmail($contact));
 
             // 4. Send Email to Receiver (example assumes an email address)
-            Mail::to('nyeleti.bremah@gmail.com')->send(new SupportContactEmail($contact));
+            Mail::to(['nyeleti.bremah@gmail.com','georgemunganga@gmail.com'])->send(new SupportContactEmail($contact));
             // Mail::to('nyeleti.bremah@gmail.com')->send(new ContactEmail());
 
             // 5. Return a JSON response
