@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UserTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class DashboardController extends Controller
 {
+    use UserTrait;
     /**
      * Display a listing of the resource.
      */
@@ -16,6 +18,11 @@ class DashboardController extends Controller
         // dd('Destination: '.auth()->user()->current_destination);
         $user = auth()->user();
         $userData = json_encode($user);
+
+        // Statistics
+        $total_guests = $this->totalGuests();
+        $total_agronomists = $this->totalAgronomists();
+        $total_farmers = $this->totalFarmers();
             
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
@@ -55,12 +62,20 @@ class DashboardController extends Controller
                 break;
         
                 case 'auth':
-                    return view('dashboard');
+                    return view('dashboard',[
+                        'total_guests' => $total_guests,
+                        'total_agronomists' => $total_agronomists,
+                        'total_farmers' => $total_farmers
+                    ]);
                 break;
                             
                 default:
                     if (auth()->user()->type == 'admin') {
-                        return view('dashboard');
+                        return view('dashboard',[
+                            'total_guests' => $total_guests,
+                            'total_agronomists' => $total_agronomists,
+                            'total_farmers' => $total_farmers
+                        ]);
                     }else{
                         $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
                         return Redirect::away($destination);
@@ -68,7 +83,11 @@ class DashboardController extends Controller
                 break;
             }
         }else{
-            return view('dashboard');
+            return view('dashboard',[
+                'total_guests' => $total_guests,
+                'total_agronomists' => $total_agronomists,
+                'total_farmers' => $total_farmers
+            ]);
         }
     }
 

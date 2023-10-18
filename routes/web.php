@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MainController;
+use App\Livewire\Orders\OrderDetailView;
+use App\Livewire\Orders\OrderListView;
 use App\Livewire\Products\CreateProductView;
 use App\Livewire\Products\MyProductListView;
 use App\Livewire\Products\ProductListView;
@@ -52,7 +54,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post('/store-product', [MainController::class, 'storeProduct'])->name('product.store');
 
     //Order & Deliveries
-    // Route::get('/customer-orders', ProductListView::class)->name('cust-orders'); 
+    Route::get('/customer-orders', OrderListView::class)->name('cust-orders'); 
+    Route::get('/customer-order-details/{id}', OrderDetailView::class)->name('orders-detail'); 
     // Route::get('/my-orders', ProductListView::class)->name('my-orders');
 
 });

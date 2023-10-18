@@ -252,7 +252,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="##">
+											<a class="menu-link" href="{{ route('cust-orders') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -1228,22 +1228,22 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Copyright-->
 							<div class="text-dark order-2 order-md-1">
 								<span class="text-muted fw-semibold me-1">2023&copy;</span>
-								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Ecoagro - Powered by Greenwebbtech</a>
 							</div>
 							<!--end::Copyright-->
-							<!--begin::Menu-->
+							<!--begin::Menu
 							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
 								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+									<a href="#" target="_blank" class="menu-link px-2">About</a>
 								</li>
 								<li class="menu-item">
-									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
+									<a href="#" target="_blank" class="menu-link px-2">Support</a>
 								</li>
 								<li class="menu-item">
-									<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+									<a href="#" target="_blank" class="menu-link px-2">Purchase</a>
 								</li>
 							</ul>
-							<!--end::Menu-->
+							end::Menu-->
 						</div>
 						<!--end::Container-->
 					</div>

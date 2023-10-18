@@ -28,6 +28,8 @@ trait UserTrait
     {
         return User::find($id);
     }
+
+
     public function create($request)
     {
         
@@ -37,5 +39,20 @@ trait UserTrait
     {
         // Delete the product
         $user->delete();
+    }
+
+
+    // Stats
+    public function totalGuests(){
+        return User::where('type', 'guest')->count();
+    }
+    public function totalFarmers(){
+        return User::where('type', 'farmer')->count();
+    }
+    public function totalAgronomists(){
+        return User::where('type', 'agronomist')->count();
+    }
+    public function totalUsers(){
+        return User::count();
     }
 }

@@ -201,10 +201,10 @@
                                     <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1" />
                                 </div>
                             </th>
-                            <th class="min-w-200px">Product</th>
-                            <th class="text-end min-w-100px">SKU</th>
-                            <th class="text-end min-w-70px">Qty</th>
-                            <th class="text-end min-w-100px">Price</th>
+                            <th class="min-w-80px">Customer</th>
+                            <th class="text-end min-w-80px">Order#</th>
+                            {{-- <th class="text-end min-w-70px">Qty</th> --}}
+                            <th class="text-end min-w-80px">Address</th>
                             <th class="text-end min-w-100px">Status</th>
                             <th class="text-end min-w-70px">Actions</th>
                         </tr>
@@ -219,31 +219,25 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <!--begin::Thumbnail-->
-                                        <a href="#" class="symbol symbol-50px">
-                                            <span class="symbol-label" style="background-image:url({{asset("storage/" . $order->image)}});"></span>
-
-                                        </a>
-                                        <!--end::Thumbnail-->
-                                        <div class="ms-5">
-                                            <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-order-filter="product_name">{{ $order->name }}</a>
-                                            <!--end::Title-->
-                                        </div>
-                                    </div>
+                                    {{ $order->billing_first_name.' '.$order->billing_last_name }}
+                                
                                 </td>
                                 <td class="text-end pe-0">
-                                    <span class="fw-bold">{{ $product->sku }}</span>
+                                    <span class="fw-bold">{{ $order->id }}</span>
                                 </td>
-                                <td class="text-end pe-0" data-order="{{ $order->qty }}">
-                                    <span class="fw-bold ms-3">{{ $order->qty }}</span>
+                                {{-- <td class="text-end pe-0" dat-order="{{ $order->id }}">
+                                    <span class="fw-bold ms-3">{{ '' }}</span>
+                                </td> --}}
+                                <td class="text-end pe-0">
+                                    {{ $order->billing_address_1 }}
+                                    {{ $order->billing_city }}
+                                    {{ $order->billing_country }}
                                 </td>
-                                <td class="text-end pe-0">{{ $order->price }}</td>
-                                <td class="text-end pe-0" data-order="{{ $order->status }}">
+                                <td class="text-end pe-0" data-order="{{ '' }}">
+                                    {{$order->order_status}}
                                     <!--begin::Badges-->
-                                    <div class="badge badge-light-{{ $order->status === '1' ? 'success' : 'danger' }}">
-                                        @switch($order->status)
+                                    <div class="badge badge-light-{{ $order->order_status === '1' ? 'success' : 'danger' }}">
+                                        @switch($order->order_status)
                                             @case(0)
                                                 Draft
                                                 @break
@@ -270,15 +264,15 @@
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3">
-                                            {{--  <a href="{{ route('orders.edit', ['id' => $order->id]) }}" class="menu-link px-3">Edit</a>  --}}
+                                             <a target="_blank" href="{{ route('orders-detail', $order->id) }}" class="menu-link px-3">View</a> 
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="{{ route('products.destroy', ['id' => $product->id]) }}" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Delete</a>
+                                        {{-- <div class="menu-item px-3">
+                                            <a href="{{ route('products.destroy', ['id' => $order->id]) }}" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Delete</a>
 
-                                            {{--  <a href="#" wire:click="deleteProduct({{ $product->id }})"  class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Delete</a>  --}}
-                                        </div>
+                                             <a href="#" wire:click="deleteProduct({{ $product->id }})"  class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Delete</a> 
+                                        </div> --}}
                                         <!--end::Menu item-->
                                     </div>
                                     <!--end::Menu-->

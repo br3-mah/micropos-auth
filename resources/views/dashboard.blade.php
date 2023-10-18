@@ -14,7 +14,7 @@
 					<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
 						<!--begin::Item-->
 						<li class="breadcrumb-item text-muted">
-							<a href="../../demo10/dist/index.html" class="text-muted text-hover-primary">Home</a>
+							<a href="#" class="text-muted text-hover-primary">Home</a>
 						</li>
 						<!--end::Item-->
 						<!--begin::Item-->
@@ -23,15 +23,15 @@
 						</li>
 						<!--end::Item-->
 						<!--begin::Item-->
-						<li class="breadcrumb-item text-muted">Dashboards</li>
+						<li class="breadcrumb-item text-muted">Overview</li>
 						<!--end::Item-->
 						<!--begin::Item-->
-						<li class="breadcrumb-item">
+						{{-- <li class="breadcrumb-item">
 							<span class="bullet bg-gray-200 w-5px h-2px"></span>
-						</li>
+						</li> --}}
 						<!--end::Item-->
 						<!--begin::Item-->
-						<li class="breadcrumb-item text-dark">Default</li>
+						{{-- <li class="breadcrumb-item text-dark">Default</li> --}}
 						<!--end::Item-->
 					</ul>
 					<!--end::Breadcrumb-->
@@ -150,14 +150,14 @@
 								<h3 class="card-title fw-bold text-white">Sales Progress</h3>
 								<div class="card-toolbar">
 									<!--begin::Menu-->
-									<button type="button" class="btn btn-sm btn-icon btn-color-white btn-active-white btn-active-color- border-0 me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+									{{-- <button type="button" class="btn btn-sm btn-icon btn-color-white btn-active-white btn-active-color- border-0 me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 										<i class="ki-duotone ki-category fs-6">
 											<span class="path1"></span>
 											<span class="path2"></span>
 											<span class="path3"></span>
 											<span class="path4"></span>
 										</i>
-									</button>
+									</button> --}}
 									<!--begin::Menu 3-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
 										<!--begin::Heading-->
@@ -255,7 +255,7 @@
 									<div class="row g-0 mb-7">
 										<!--begin::Col-->
 										<div class="col mx-5">
-											<div class="fs-6 text-gray-400">Avarage Sale</div>
+											<div class="fs-6 text-gray-400">Total Sale</div>
 											<div class="fs-2 fw-bold text-gray-800">K0</div>
 										</div>
 										<!--end::Col-->
@@ -268,7 +268,7 @@
 									</div>
 									<!--end::Row-->
 									<!--begin::Row-->
-									<div class="row g-0">
+									{{-- <div class="row g-0">
 										<!--begin::Col-->
 										<div class="col mx-5">
 											<div class="fs-6 text-gray-400">Revenue</div>
@@ -281,7 +281,7 @@
 											<div class="fs-2 fw-bold text-gray-800">K0</div>
 										</div>
 										<!--end::Col-->
-									</div>
+									</div> --}}
 									<!--end::Row-->
 								</div>
 								<!--end::Stats-->
@@ -303,14 +303,14 @@
 								</h3>
 								<div class="card-toolbar">
 									<!--begin::Menu-->
-									<button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+									{{-- <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 										<i class="ki-duotone ki-category fs-6">
 											<span class="path1"></span>
 											<span class="path2"></span>
 											<span class="path3"></span>
 											<span class="path4"></span>
 										</i>
-									</button>
+									</button> --}}
 									<!--begin::Menu 3-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
 										<!--begin::Heading-->
@@ -424,7 +424,7 @@
 										</div>
 										<!--end::Section-->
 										<!--begin::Label-->
-										<div class="badge badge-light fw-semibold py-4 px-3">#ttg</div>
+										<div class="badge badge-light fw-semibold py-4 px-3">{{ $total_guests }}</div>
 										<!--end::Label-->
 									</div>
 									<!--end::Item-->
@@ -448,7 +448,7 @@
 										</div>
 										<!--end::Section-->
 										<!--begin::Label-->
-										<div class="badge badge-light text-dark fw-semibold py-4 px-3">#ttf</div>
+										<div class="badge badge-light text-dark fw-semibold py-4 px-3">{{ $total_farmers }}</div>
 										<!--end::Label-->
 									</div>
 									<!--end::Item-->
@@ -465,14 +465,14 @@
 											<!--end::Symbol-->
 											<!--begin::Title-->
 											<div class="py-1">
-												<a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Total Advisors</a>
+												<a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Total Agronomists</a>
 												<div class="fs-7 text-muted fw-semibold mt-1">Advisory</div>
 											</div>
 											<!--end::Title-->
 										</div>
 										<!--end::Section-->
 										<!--begin::Label-->
-										<div class="badge badge-light fw-semibold py-4 px-3">#tta</div>
+										<div class="badge badge-light fw-semibold py-4 px-3">{{ $total_agronomists }}</div>
 										<!--end::Label-->
 									</div>
 									<!--end::Item-->
@@ -492,18 +492,18 @@
 							<div class="card-header align-items-center border-0 mt-4">
 								<h3 class="card-title align-items-start flex-column">
 									<span class="fw-bold mb-2 text-dark">Activities</span>
-									<span class="text-muted fw-semibold fs-7">890,344 Sales</span>
+									<span class="text-muted fw-semibold fs-7">0 Sales</span>
 								</h3>
 								<div class="card-toolbar">
 									<!--begin::Menu-->
-									<button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+									{{-- <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 										<i class="ki-duotone ki-category fs-6">
 											<span class="path1"></span>
 											<span class="path2"></span>
 											<span class="path3"></span>
 											<span class="path4"></span>
 										</i>
-									</button>
+									</button> --}}
 									<!--begin::Menu 1-->
 									<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_64b7768277a87">
 										<!--begin::Header-->
@@ -585,7 +585,7 @@
 							</div>
 							<!--end::Header-->
 							<!--begin::Body-->
-							<div class="card-body pt-5">
+							{{-- <div class="card-body pt-5">
 								<!--begin::Timeline-->
 								<div class="timeline-label">
 									<!--begin::Item-->
@@ -666,56 +666,10 @@
 										<a href="#" class="text-primary">#XF-2356</a>.</div>
 										<!--end::Desc-->
 									</div>
-									<!--end::Item-->
-									<!--begin::Item-->
-									<div class="timeline-item">
-										<!--begin::Label-->
-										<div class="timeline-label fw-bold text-gray-800 fs-6">16:50</div>
-										<!--end::Label-->
-										<!--begin::Badge-->
-										<div class="timeline-badge">
-											<i class="fa fa-genderless text-primary fs-1"></i>
-										</div>
-										<!--end::Badge-->
-										<!--begin::Text-->
-										<div class="timeline-content fw-mormal text-muted ps-3">Indulging in poorly driving and keep structure keep great</div>
-										<!--end::Text-->
-									</div>
-									<!--end::Item-->
-									<!--begin::Item-->
-									<div class="timeline-item">
-										<!--begin::Label-->
-										<div class="timeline-label fw-bold text-gray-800 fs-6">21:03</div>
-										<!--end::Label-->
-										<!--begin::Badge-->
-										<div class="timeline-badge">
-											<i class="fa fa-genderless text-danger fs-1"></i>
-										</div>
-										<!--end::Badge-->
-										<!--begin::Desc-->
-										<div class="timeline-content fw-semibold text-gray-800 ps-3">New order placed
-										<a href="#" class="text-primary">#XF-2356</a>.</div>
-										<!--end::Desc-->
-									</div>
-									<!--end::Item-->
-									<!--begin::Item-->
-									<div class="timeline-item">
-										<!--begin::Label-->
-										<div class="timeline-label fw-bold text-gray-800 fs-6">10:30</div>
-										<!--end::Label-->
-										<!--begin::Badge-->
-										<div class="timeline-badge">
-											<i class="fa fa-genderless text-success fs-1"></i>
-										</div>
-										<!--end::Badge-->
-										<!--begin::Text-->
-										<div class="timeline-content fw-mormal text-muted ps-3">Finance KPI Mobile app launch preparion meeting</div>
-										<!--end::Text-->
-									</div>
-									<!--end::Item-->
+									
 								</div>
 								<!--end::Timeline-->
-							</div>
+							</div> --}}
 							<!--end: Card Body-->
 						</div>
 						<!--end: List Widget 5-->
@@ -734,14 +688,14 @@
 								<h3 class="card-title fw-bold text-dark">Todo</h3>
 								<div class="card-toolbar">
 									<!--begin::Menu-->
-									<button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+									{{-- <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 										<i class="ki-duotone ki-category fs-6">
 											<span class="path1"></span>
 											<span class="path2"></span>
 											<span class="path3"></span>
 											<span class="path4"></span>
 										</i>
-									</button>
+									</button> --}}
 									<!--begin::Menu 3-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
 										<!--begin::Heading-->
@@ -865,10 +819,10 @@
 									<span class="card-label fw-bold fs-3 mb-1">Latest Onboarding</span>
 									<span class="text-muted mt-1 fw-semibold fs-7">Over 500 Customers</span>
 								</h3>
-								<div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user">
+								{{-- <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user">
 									<a href="#" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
 									<i class="ki-duotone ki-plus fs-2"></i>New Member</a>
-								</div>
+								</div> --}}
 							</div>
 							<!--end::Header-->
 							<!--begin::Body-->
