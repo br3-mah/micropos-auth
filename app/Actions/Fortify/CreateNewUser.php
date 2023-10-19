@@ -39,7 +39,7 @@ class CreateNewUser implements CreatesNewUsers
                     'email' => $input['email'],
                     'email_verified_at' => now(),
                     'customer_group' => $input['purpose'], //replace with og
-                    'type' => $input['type'], //replace with og
+                    'type' => $input['type'] ?? 'guest', //replace with og
                     'status' => true,
                     'password' => Hash::make($input['password']),
                     'global_secret_word' => $input['password'],
