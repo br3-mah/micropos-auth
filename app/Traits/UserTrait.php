@@ -2,6 +2,7 @@
 namespace App\Traits;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 
 trait UserTrait
 {
@@ -54,5 +55,53 @@ trait UserTrait
     }
     public function totalUsers(){
         return User::count();
+    }
+
+    public function redirectUser(){
+        $user = auth()->user();
+        $userData = json_encode($user);
+        if(auth()->check()){
+            switch (auth()->user()->current_destination) {
+                case 'marketplace':
+                    $destination = 'https://market.greenwebbtech.com?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+                
+                case 'call-center':
+                    $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+                
+                case 'call center':
+                    $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+            
+                case 'website':
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+        
+                case 'payment':
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+        
+                case 'payment solution':
+                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+        
+                case 'advisory':
+                    $destination = 'https://callcenter.greenwebbtech.com?user=' . urlencode($userData);
+                    return Redirect::away($destination);
+                break;
+                            
+                default:
+                        $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                        return Redirect::away($destination);
+                break;
+            }
+        }
     }
 }

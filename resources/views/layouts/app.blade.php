@@ -366,7 +366,7 @@ License: For each use you must have a valid license purchased only from above li
 										<div class="menu-content d-flex align-items-center px-3">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-50px me-5">
-												<img alt="Ecoagro" src="{{ asset('public/img/logo.png') }}" />
+												<img alt="Ecoagro" src="{{ asset('public/img/logo2.png') }}" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Username-->

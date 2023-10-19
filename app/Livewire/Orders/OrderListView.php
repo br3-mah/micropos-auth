@@ -2,16 +2,21 @@
 
 namespace App\Livewire\Orders;
 
+use App\Traits\UserTrait;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class OrderListView extends Component
 {
+    use UserTrait;
     public $orders = [];
     public $order_view = [];
     public $order_item_view = [];
     public function render()
     {
+        if(auth()->user()->type !== 'admin'){
+            $this->redirectUser();
+        }
         // Retrieve products from the second database
         $this->orders = DB::connection('second_database')
             ->table('orders')
