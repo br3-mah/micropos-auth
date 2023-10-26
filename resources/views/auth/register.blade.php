@@ -261,7 +261,7 @@
                 @csrf
 
                 <div id="step1">
-                  <h6>Choose a service you would like to access</h6>
+                  <h6 style="text-align: center">Choose a service you would like to access</h6>
                   <!-- Add a grid of 4 div elements with icons inside -->
                   <div class="grid">
                       <div class="grid-item"
