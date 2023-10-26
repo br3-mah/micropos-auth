@@ -221,6 +221,12 @@ License: For each use you must have a valid license purchased only from above li
 												</span>
 												<span class="menu-title">Customer Products</span>
 											</a>
+											<a class="menu-link" href="{{ route('categories') }}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Product Categories</span>
+											</a>
 											<!--end:Menu link-->
 										</div>
 										<!--end:Menu item-->
@@ -5854,6 +5860,9 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="public/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 		<script src="public/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		
+		<script src="public/assets/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
+		// <script src="public/assets/js/custom/apps/ecommerce/catalog/save-category.js"></script>
+
 		<script src="public/assets/js/widgets.bundle.js"></script>
 		<script src="public/assets/js/custom/widgets.js"></script>
 		<script src="public/assets/js/custom/apps/chat/chat.js"></script>
@@ -5865,7 +5874,6 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="public/assets/js/custom/apps/user-management/users/list/table.js"></script>
 		<script src="public/assets/js/custom/apps/user-management/users/list/export-users.js"></script>
 		<script src="public/assets/js/custom/apps/user-management/users/list/add.js"></script>
-		<script src="public/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 		<script src="public/assets/js/custom/utilities/modals/users-search.js"></script>
         @stack('modals')
 

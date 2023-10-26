@@ -70,7 +70,7 @@ class CreateNewUser implements CreatesNewUsers
         }
               
         
-        Mail::to($user->email)->send(new WelcomeEmail($user));
+        // Mail::to($user->email)->send(new WelcomeEmail($user));
         return $user;
        } catch (\Throwable $th) {
         dd($th);

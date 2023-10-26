@@ -12,7 +12,7 @@
 <!-- Web Fonts
 ========================= -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" type="text/css">
-
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <!-- Stylesheet
 ========================= -->
 <link rel="stylesheet" type="text/css" href="{{ asset('public/theme/css/css-bootstrap.min.css')}}">
@@ -70,26 +70,26 @@
 
 /* Style for each grid item */
 .grid-file-item {
+    width: 100%;
     text-align: center;
     padding: 2px;
     background-color: #ffffff; /* Background color of grid items */
-    border: 1px solid #dddddd; /* Border around each grid item */
+    border: 1px solid #ffffff; /* Border around each grid item */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover for interactivity */
 }
 .grid-file-item-btn{
     text-align: center;
-    padding: 2px;
-    background-color: #ff0000; /* Background color of grid items */
-    border: 1px solid #ff0000; /* Border around each grid item */
-    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* Background color of grid items */
+    border: 1px solid #ffffff; /* Border around each grid item */
+    border-radius: 100%; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover for interactivity */
 }
 .grid-item {
     text-align: center;
     padding: 20px;
     background-color: #ffffff; /* Background color of grid items */
-    border: 1px solid #dddddd; /* Border around each grid item */
+    border: 1px solid #ffffff; /* Border around each grid item */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover for interactivity */
 }
@@ -134,7 +134,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #ddd;
+    border: 1px solid #ffffff;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
@@ -190,21 +190,25 @@
 .file-input-label {
     display: inline-block;
     padding: 10px;
-    background-color: #007bff; /* Change to your desired background color */
-    color: #fff; /* Change to your desired text color */
+    background-color: #f6f7f7; /* Change to your desired background color */
+    color: #29444a; /* Change to your desired text color */
     border-radius: 4px;
     cursor: pointer;
+    font-size: 12px;
 }
 
 /* Style the icon using Font Awesome classes */
 .file-input-label i {
-    margin-right: 5px; /* Adjust as needed for spacing */
+    margin-right: 20px; /* Adjust as needed for spacing */
+    font-size: 30px;
 }
 
 .purpose-radio-input {
     display: none;
 }
-
+.w-full{
+  width: 100% !important;
+}
 </style>
 </head>
 <body>
@@ -226,6 +230,7 @@
     use Illuminate\Support\Facades\Request;
     $source = Request::input('source');
     $destination = Request::input('destination');
+    // var_dump($destination);
     $type = Request::input('type');
 @endphp
 
@@ -259,7 +264,13 @@
                   <h6>Choose a service you would like to access</h6>
                   <!-- Add a grid of 4 div elements with icons inside -->
                   <div class="grid">
-                      <div class="grid-item">
+                      <div class="grid-item"
+                      data-aos="fade-up"
+                      data-aos-offset="200"
+                      data-aos-delay="10"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-in-out"
+                      data-aos-mirror="true">
                           <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="advisory" checked>
                           <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
@@ -269,7 +280,13 @@
                           </div>
                           <p>Advisory</p>
                       </div>
-                      <div class="grid-item">
+                      <div class="grid-item"
+                      data-aos="fade-up"
+                      data-aos-offset="200"
+                      data-aos-delay="100"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-in-out"
+                      data-aos-mirror="true">
                           <input type="radio" name="purpose" id="marketplace" class="purpose-radio-input" value="marketplace">
                           <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
@@ -278,7 +295,13 @@
                           </div>
                           <p>Marketplace</p>
                       </div>
-                      <div class="grid-item">
+                      <div class="grid-item"
+                      data-aos="fade-up"
+                      data-aos-offset="200"
+                      data-aos-delay="200"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-in-out"
+                      data-aos-mirror="true">
                           <input type="radio" name="purpose" id="call-center" class="purpose-radio-input" value="call center">
                           <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
@@ -287,7 +310,13 @@
                           </div>
                           <p>Call Center</p>
                       </div>
-                      <div class="grid-item">
+                      <div class="grid-item"
+                      data-aos="fade-up"
+                      data-aos-offset="200"
+                      data-aos-delay="300"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-in-out"
+                      data-aos-mirror="true">
                           <input type="radio" name="purpose" id="payments-solution" class="purpose-radio-input" value="payment solution">
                           <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
@@ -298,7 +327,7 @@
                       </div>
                   </div>
                   <div class="d-grid my-4">
-                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep2" type="button">Next</button>
+                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep2" type="button">Next</button>
                   </div>
                 </div>
 
@@ -312,34 +341,37 @@
                     &nbsp;
                     Upload any relevant documents
                   </h6>
-                  <div class="file-uploader">
+                  <div class="file-uploader" style="width: 100%">
                       <!-- Hidden file input -->
                       <input type="hidden" name="source" value="{{ $source ?? '' }}">
                   
                       <!-- Use a label for file input and add a Font Awesome icon -->
                       <input type="file" multiple class="file-input visually-hidden" id="fileInput" accept=".pdf, .doc, .docx" name="files[]">
                       <label for="fileInput" class="file-input-label">
-                          <i class="fas fa-cloud-upload-alt"></i> <!-- Replace with the desired icon -->
-                          <span>Click to upload files</span>
+                        <svg style="color: #3b5f67" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+                        </svg> <!-- Replace with the desired icon -->
+                          <span>Upload your files</span>
                       </label>
                       
                       <!-- Uploaded file list -->
-                      <div class="pt-2">
+                      <div class="pt-2" style="width: 100%">
                           <ul class="file-list" id="fileList"></ul>
                       </div>
                   </div>
                   <div class="d-grid flex gap-2 my-4">
                     {{-- <button class="btn btn-dark shadow-none fw-400" id="gotoStep1" type="button">Back</button> --}}
-                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep3" type="button">Next</button>
+                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep3" type="button">Next</button>
                   </div>
                 </div>
                 <div id="step3">
-                  
+                  @if ($destination !== null)
                   <a id="gotoStep22" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
                   </a>
+                  @endif
                   <div class="mb-3">
                     <label for="phoneNumber" class="form-label fw-300">Phone Number</label>
                     <input type="text" name="phoneNumber" class="form-control bg-light border-light"  required placeholder="Phone Number">
@@ -368,7 +400,7 @@
                     </div>
                   </div>
                   <div class="d-grid flex gap-2 my-4">
-                    <button class="btn btn-dark shadow-none fw-400" id="gotoStep4" type="button">Next</button>
+                    <button  style="background-color:#29444a" class="btn text-white shadow-none fw-400" id="gotoStep4" type="button">Next</button>
                   </div>
                 </div>
                 <div id="step4">
@@ -400,7 +432,7 @@
                   <input type="hidden" name="destination" value="{{ $destination ?? '' }}">
                   <input type="hidden" name="type" value="{{ $type ?? '' }}">
                   <div class="d-grid my-4">
-                    <button class="btn btn-dark shadow-none fw-400" type="submit">Sign Up</button>
+                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="submit">Sign Up</button>
                   </div>
                 </div>
               </form>
@@ -471,7 +503,10 @@
 <!-- Style Switcher --> 
 <script src="{{ asset('public/theme/js/6379-js-switcher.min.js')}}"></script> 
 <script src="{{ asset('public/theme/js/3806-js-theme.js')}}"></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
+    AOS.init();
     // Get the modal and the close button
     
     
@@ -526,10 +561,29 @@ fileInput.addEventListener('change', function () {
             uploadedFiles.push(file);
 
             const listItem = document.createElement('li');
-            listItem.className = 'file-item grid pb-1';
+            listItem.className = 'file-item pb-1 w-full';
+            listItem.setAttribute('data-aos', 'fade-right');
+            listItem.setAttribute('data-aos-offset', '200');
+            listItem.setAttribute('data-aos-delay', '10');
+            listItem.setAttribute('data-aos-duration', '500');
+            listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            listItem.setAttribute('data-aos-mirror', 'true');
             listItem.innerHTML = `
-                <span class="grid-file-item">${file.name}</span>
-                <button class="grid-file-item-btn" class="remove-button" data-name="${file.name}">x</button>
+                <span>
+                  <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                  </svg>
+                </span>
+                <span class="grid-file-item">
+                  ${file.name}
+                  <button title="Remove" class="grid-file-item-btn" class="remove-button" data-name="${file.name}">
+                    <svg style="color:#29444a" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                    </svg>
+                  </button>
+                </span>
             `;
 
             fileList.appendChild(listItem);
@@ -569,9 +623,51 @@ const gotoStep4Button = document.getElementById('gotoStep4');
 
 // Initialize 
 const type = '{{$type}}';
+const destination = '{{$destination}}';
 step2.classList.add('hidden');
 step3.classList.add('hidden');
 step4.classList.add('hidden');
+
+if (destination !== null) {
+  if (destination == 'call-center') {
+    const callCenter = document.getElementById("call-center");
+    callCenter.checked = true;
+    if (type == 'farmer') {
+      step1.classList.add('hidden');
+      step2.classList.add('hidden');
+      step3.classList.remove('hidden');
+    } else {
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+    }
+  }
+  if (destination == 'marketplace') {
+    const marketPlace = document.getElementById("marketplace");
+    marketPlace.checked = true;
+    if (type == 'farmer') {
+      step1.classList.add('hidden');
+      step2.classList.add('hidden');
+      step3.classList.remove('hidden');
+    } else {
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+    }
+  }
+  if (destination == 'payment') {
+    const paySolution = document.getElementById("payment-solution");
+    paySolution.checked = true;
+    if (type == 'farmer') {
+      step1.classList.add('hidden');
+      step2.classList.add('hidden');
+      step3.classList.remove('hidden');
+    } else {
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+    }
+  }
+  
+}
+
 // Event listener for "Next" button on Step 1
 gotoStep2Button.addEventListener('click', function () {
   if (type == 'farmer') {
@@ -583,18 +679,21 @@ gotoStep2Button.addEventListener('click', function () {
       step2.classList.remove('hidden');
   }
 });
-// Event listener for "Next" button on Step 1
-gotoStep22Button.addEventListener('click', function () {
-  if (type == 'farmer') {
-    step3.classList.add('hidden');
-    step2.classList.add('hidden');
-    step1.classList.remove('hidden');
-  } else {
-    step1.classList.add('hidden');
-    step2.classList.remove('hidden');
-    step3.classList.add('hidden');
-  }
-});
+
+if (destination !== null){
+  // Event listener for "Next" button on Step 1
+  gotoStep22Button.addEventListener('click', function () {
+    if (type == 'farmer') {
+      step3.classList.add('hidden');
+      step2.classList.add('hidden');
+      step1.classList.remove('hidden');
+    } else {
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+      step3.classList.add('hidden');
+    }
+  });
+}
 // Event listener for "Back" button on Step 2
 gotoStep1Button.addEventListener('click', function () {
     step2.classList.add('hidden');

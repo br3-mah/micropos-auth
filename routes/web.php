@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\eCategoryContrl;
 use App\Http\Controllers\MainController;
+use App\Livewire\Category\CategoryListView;
+use App\Livewire\Category\CreateCategoryView;
 use App\Livewire\Orders\OrderDetailView;
 use App\Livewire\Orders\OrderListView;
 use App\Livewire\Products\CreateProductView;
@@ -49,9 +52,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/my-products', MyProductListView::class)->name('my-products'); 
     Route::get('/create-product', CreateProductView::class)->name('create-product'); 
 
+    //Categroies
+    Route::get('/product-categories', CategoryListView::class)->name('categories'); 
+    Route::get('/create-categories', CreateCategoryView::class)->name('create-categories'); 
+
     // External DB Ops
     Route::get('/products/{id}', [MainController::class, 'destroyProduct'])->name('products.destroy');
     Route::post('/store-product', [MainController::class, 'storeProduct'])->name('product.store');
+    Route::post('/store-category', [eCategoryContrl::class, 'storeCategory'])->name('category.store');
 
     //Order & Deliveries
     Route::get('/customer-orders', OrderListView::class)->name('cust-orders'); 
