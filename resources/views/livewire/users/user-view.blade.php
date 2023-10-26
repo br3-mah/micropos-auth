@@ -618,7 +618,7 @@
                                                 <!--end::Input-->
                                                 <!--begin::Label-->
                                                 <label class="form-check-label" for="kt_modal_update_email_notification_6">
-                                                    <div class="fw-bold">Document {{$key+1}}</div>
+                                                    <div class="fw-bold">{{$ufile->name}} {{$key+1}}</div>
                                                 </label>
                                                 <!--end::Label-->
                                             </a>

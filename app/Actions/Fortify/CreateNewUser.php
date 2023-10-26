@@ -46,20 +46,70 @@ class CreateNewUser implements CreatesNewUsers
                 ]);
 
         $this->registerDetails($input, $user);
-        // Handle file uploads
-        if (array_key_exists('files', $input) && is_array($input['files'])) {
-            foreach ($input['files'] as $file) {
+        // Handle file uploads 
+        //::Bad Bug:: Unable to save all other multiple
+        // dd(array_key_exists('files', $input));
+        if (array_key_exists('files', $input)) {
+            $file = $input['files'];
+            // Store the file in the storage/app/public directory (you can change the path as needed)
+            $path = $file->store('public');
+            
+            // Save the file path in the database if you have a table for file records
+            UserFile::create([
+                'name' => $file->getClientOriginalName(),
+                'path' => $path,
+                'user_id' => $user->id
+            ]);
+        }
+        if (array_key_exists('files1', $input) ) {
+                $file1 = $input['files1'];
                 // Store the file in the storage/app/public directory (you can change the path as needed)
-                $path = $file->store('public');
+                $path = $file1->store('public');
                 
                 // Save the file path in the database if you have a table for file records
                 UserFile::create([
-                    'name' => $file->getClientOriginalName(),
+                    'name' => $file1->getClientOriginalName(),
                     'path' => $path,
                     'user_id' => $user->id
                 ]);
-            }
         }
+        if (array_key_exists('files2', $input) ) {
+                $file2 = $input['files2'];
+                // Store the file in the storage/app/public directory (you can change the path as needed)
+                $path = $file2->store('public');
+                
+                // Save the file path in the database if you have a table for file records
+                UserFile::create([
+                    'name' => $file2->getClientOriginalName(),
+                    'path' => $path,
+                    'user_id' => $user->id
+                ]);
+        }
+        if (array_key_exists('files3', $input) ) {
+                $file3 = $input['files3'];
+                // Store the file in the storage/app/public directory (you can change the path as needed)
+                $path = $file3->store('public');
+                
+                // Save the file path in the database if you have a table for file records
+                UserFile::create([
+                    'name' => $file3->getClientOriginalName(),
+                    'path' => $path,
+                    'user_id' => $user->id
+                ]);
+        }
+        if (array_key_exists('files4', $input) ) {
+                $file4 = $input['files4'];
+                // Store the file in the storage/app/public directory (you can change the path as needed)
+                $path = $file4->store('public');
+                
+                // Save the file path in the database if you have a table for file records
+                UserFile::create([
+                    'name' => $file4->getClientOriginalName(),
+                    'path' => $path,
+                    'user_id' => $user->id
+                ]);
+        }
+
         if (!empty($input['source'])) {
             $user->current_source = $input['source'];
             $user->current_destination = $input['purpose'];
@@ -70,10 +120,10 @@ class CreateNewUser implements CreatesNewUsers
         }
               
         
-        // Mail::to($user->email)->send(new WelcomeEmail($user));
+        Mail::to($user->email)->send(new WelcomeEmail($user));
         return $user;
        } catch (\Throwable $th) {
-        dd($th);
+        // dd($th);
         dd('Use a different email and try again. Failed to register with this email');
        }
     }

@@ -77,6 +77,7 @@
     border: 1px solid #ffffff; /* Border around each grid item */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover for interactivity */
+    font-size:10px;
 }
 .grid-file-item-btn{
     text-align: center;
@@ -126,7 +127,7 @@
 /* Styles for the uploaded files list */
 .file-list {
     list-style: none;
-    padding: 3%;
+    padding: 0;
 }
 
 /* Styles for each file item */
@@ -209,6 +210,7 @@
 .w-full{
   width: 100% !important;
 }
+
 </style>
 </head>
 <body>
@@ -261,7 +263,7 @@
                 @csrf
 
                 <div id="step1">
-                  <h6 style="text-align: center">Choose a service you would like to access</h6>
+                  <h6>Choose a service you would like to access</h6>
                   <!-- Add a grid of 4 div elements with icons inside -->
                   <div class="grid">
                       <div class="grid-item"
@@ -346,17 +348,55 @@
                       <input type="hidden" name="source" value="{{ $source ?? '' }}">
                   
                       <!-- Use a label for file input and add a Font Awesome icon -->
-                      <input type="file" multiple class="file-input visually-hidden" id="fileInput" accept=".pdf, .doc, .docx" name="files[]">
-                      <label for="fileInput" class="file-input-label">
+                      <input type="file" class="file-input visually-hidden" id="fileInput" accept=".pdf, .doc, .docx" name="files">
+                      <label id="btnfileInput" for="fileInput" class="file-input-label">
                         <svg style="color: #3b5f67" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
                           <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
                         </svg> <!-- Replace with the desired icon -->
                           <span>Upload your files</span>
                       </label>
+
+                      
+                      <input type="file" class="file-input visually-hidden" id="fileInput1" accept=".pdf, .doc, .docx" name="files1">
+                      <label id="btnfileInput1" for="fileInput1" class="file-input-label">
+                        <svg style="color: #3b5f67" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+                        </svg> <!-- Replace with the desired icon -->
+                          <span>Upload your files </span>
+                      </label>
+                      
+                      <input type="file" class="file-input visually-hidden" id="fileInput2" accept=".pdf, .doc, .docx" name="files2">
+                      <label id="btnfileInput2" for="fileInput2" class="file-input-label">
+                        <svg style="color: #3b5f67" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+                        </svg> <!-- Replace with the desired icon -->
+                          <span>Upload your files </span>
+                      </label>
+                      
+                      <input type="file" class="file-input visually-hidden" id="fileInput3" accept=".pdf, .doc, .docx" name="files3">
+                      <label id="btnfileInput3" for="fileInput3" class="file-input-label">
+                        <svg style="color: #3b5f67" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+                        </svg> <!-- Replace with the desired icon -->
+                          <span>Upload your files </span>
+                      </label>
+                      
+                      <input type="file" class="file-input visually-hidden" id="fileInput4" accept=".pdf, .doc, .docx" name="files4">
+                      <label id="btnfileInput4" for="fileInput4" class="file-input-label">
+                        <svg style="color: #3b5f67" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+                        </svg> <!-- Replace with the desired icon -->
+                          <span>Upload your files </span>
+                      </label>
                       
                       <!-- Uploaded file list -->
-                      <div class="pt-2" style="width: 100%">
+                      <div class="pt-2" style="width: 100%; line-height: ;">
                           <ul class="file-list" id="fileList"></ul>
+                          <ul class="file-list" id="fileList1"></ul>
+                          <ul class="file-list" id="fileList2"></ul>
+                          <ul class="file-list" id="fileList3"></ul>
+                          <ul class="file-list" id="fileList4"></ul>
+                          <ul class="file-list"></ul>
                       </div>
                   </div>
                   <div class="d-grid flex gap-2 my-4">
@@ -506,7 +546,10 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+    AOS.init({
+    // ... your other initialisation options here ...
+    once: true,
+    });
     // Get the modal and the close button
     
     
@@ -541,73 +584,8 @@
         });
     });
 
-// JavaScript to handle file selection and removal
-const fileInput = document.getElementById('fileInput');
-const fileList = document.getElementById('fileList');
 
-const uploadedFiles = [];
-// const uploadedFilesJson = [];
 
-// JavaScript to handle file selection and removal
-fileInput.addEventListener('change', function () {
-    const files = this.files; 
-    // Initialize an array to store uploaded file names
-
-    if (files.length > 0) {
-      
-        // Add the uploaded files to the uploadedFiles array
-        Array.from(files).forEach(file => {
-          
-            uploadedFiles.push(file);
-
-            const listItem = document.createElement('li');
-            listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-mirror', 'true');
-            listItem.innerHTML = `
-                <span>
-                  <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                  </svg>
-                </span>
-                <span class="grid-file-item">
-                  ${file.name}
-                  <button title="Remove" class="grid-file-item-btn" class="remove-button" data-name="${file.name}">
-                    <svg style="color:#29444a" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                    </svg>
-                  </button>
-                </span>
-            `;
-
-            fileList.appendChild(listItem);
-        });
-    }
-});
-
-fileList.addEventListener('click', function (e) {
-  
-  console.log(e.target.classList.value);
-    if (e.target.classList.value == 'grid-file-item-btn') {
-        const fileName = e.target.getAttribute('data-name');
-        const fileItem = e.target.parentElement;
-        fileItem.remove();
-        // Remove the file name from the uploadedFiles array
-        const fileIndex = uploadedFiles.indexOf(fileName);
-        if (fileIndex !== -1) {
-            uploadedFiles.splice(fileIndex, 1);
-        }
-        // Update the hidden input with the updated uploaded files
-        myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
-        // You can perform additional actions here (e.g., remove the file from the server).
-    }
-});
 
 // Get references to the step elements and buttons
 const step1 = document.getElementById('step1');
@@ -717,5 +695,437 @@ gotoStep4Button.addEventListener('click', function () {
 
 </script>
 
+
+
+
+<script>
+
+// JavaScript to handle file selection and removal
+const fileInput = document.getElementById('fileInput');
+const fileInput1 = document.getElementById('fileInput1');
+const fileInput2 = document.getElementById('fileInput2');
+const fileInput3 = document.getElementById('fileInput3');
+const fileInput4 = document.getElementById('fileInput4');
+
+const fileList = document.getElementById('fileList');
+const fileList1 = document.getElementById('fileList1');
+const fileList2 = document.getElementById('fileList2');
+const fileList3 = document.getElementById('fileList3');
+const fileList4 = document.getElementById('fileList4');
+
+
+
+const btnfileInput = document.getElementById('btnfileInput');
+const btnfileInput1 = document.getElementById('btnfileInput1');
+const btnfileInput2 = document.getElementById('btnfileInput2');
+const btnfileInput3 = document.getElementById('btnfileInput3');
+const btnfileInput4 = document.getElementById('btnfileInput4');
+
+ btnfileInput1.style.display = 'none';
+ btnfileInput2.style.display = 'none';
+ btnfileInput3.style.display = 'none';
+ btnfileInput4.style.display = 'none';
+
+const uploadedFiles = [];
+// const uploadedFilesJson = [];
+
+// JavaScript to handle file selection and removal
+fileInput.addEventListener('change', function () {
+    const files = this.files; 
+    
+    
+    // Initialize an array to store uploaded file names
+    if (files.length > 0 && uploadedFiles.length < 5) {
+      
+        // Add the uploaded files to the uploadedFiles array
+        Array.from(files).forEach(file => {
+          
+            uploadedFiles.push(file);
+
+            const listItem = document.createElement('li');
+            listItem.className = 'file-item pb-1 w-full';
+            listItem.setAttribute('data-aos', 'fade-right');
+            listItem.setAttribute('data-aos-offset', '200');
+            listItem.setAttribute('data-aos-delay', '10');
+            listItem.setAttribute('data-aos-duration', '500');
+            listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            listItem.setAttribute('data-aos-mirror', 'false');
+            listItem.setAttribute('data-aos-once', 'true');
+            listItem.innerHTML = `
+            
+                <span class="grid-file-item">
+                  <span>
+                    <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                  </span>
+                  ${file.name}
+                  <!---<button style="font-weight:bold; color:red" title="Remove" class="grid-file-item-btn" data-name="${file.name}">
+                    x
+                  </button>-->
+                </span>
+            `;
+
+            fileList.appendChild(listItem);
+        });
+        // alert(uploadedFiles.length);
+        if(uploadedFiles.length < 5){
+          btnfileInput.style.display = 'none';
+          btnfileInput1.style.display = 'block';
+          btnfileInput2.style.display = 'none';
+          btnfileInput3.style.display = 'none';
+          btnfileInput4.style.display = 'none';
+        }
+    }else{
+      
+        btnfileInput.style.display = 'none';
+        btnfileInput1.style.display = 'none';
+        btnfileInput2.style.display = 'none';
+        btnfileInput3.style.display = 'none';
+        btnfileInput4.style.display = 'none';
+    }
+});
+
+fileList.addEventListener('click', function (e) {
+  // alert(e.target.classList.value);
+  // console.log(e.target.getAttribute('data-name'));
+    if (e.target.classList.value == 'grid-file-item-btn') {
+        const fileName = e.target.getAttribute('data-name');
+        const fileItem = e.target.parentElement;
+        fileItem.remove();
+        btnfileInput.style.display = 'block';
+        btnfileInput1.style.display = 'none';
+        btnfileInput2.style.display = 'none';
+        btnfileInput3.style.display = 'none';
+        btnfileInput4.style.display = 'none';
+        // Remove the file name from the uploadedFiles array
+        const fileIndex = uploadedFiles.indexOf(fileName);
+        if (fileIndex !== -1) {
+            uploadedFiles.splice(fileIndex, 1);
+        }
+        // Update the hidden input with the updated uploaded files
+        myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+        // You can perform additional actions here (e.g., remove the file from the server).
+
+    }
+});
+
+
+fileInput1.addEventListener('change', function () {
+    const files = this.files; 
+    // Initialize an array to store uploaded file names
+
+    if (files.length > 0 && uploadedFiles.length < 5) {
+      
+        // Add the uploaded files to the uploadedFiles array
+        Array.from(files).forEach(file => {
+          
+            uploadedFiles.push(file);
+
+            const listItem = document.createElement('li');
+            listItem.className = 'file-item pb-1 w-full';
+            listItem.setAttribute('data-aos', 'fade-right');
+            listItem.setAttribute('data-aos-offset', '200');
+            listItem.setAttribute('data-aos-delay', '10');
+            listItem.setAttribute('data-aos-duration', '500');
+            listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            listItem.setAttribute('data-aos-once', 'true');
+            listItem.innerHTML = `
+                <span class="grid-file-item">
+                  <span>
+                    <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                  </span>
+                  ${file.name}
+                  <!---<button style="font-weight:bold; color:red" title="Remove" class="grid-file-item-btn" data-name="${file.name}">
+                    x
+                  </button>-->
+                </span>
+            `;
+
+            fileList1.appendChild(listItem);
+        });
+        if(uploadedFiles.length  < 5){
+          btnfileInput.style.display = 'none';
+          btnfileInput1.style.display = 'none';
+          btnfileInput2.style.display = 'block';
+          btnfileInput3.style.display = 'none';
+          btnfileInput4.style.display = 'none';
+        }
+    }else{
+      
+      btnfileInput.style.display = 'none';
+      btnfileInput1.style.display = 'none';
+      btnfileInput2.style.display = 'none';
+      btnfileInput3.style.display = 'none';
+      btnfileInput4.style.display = 'none';
+  }
+});
+
+fileList1.addEventListener('click', function (e) {
+  
+  console.log(e.target.classList.value);
+    if (e.target.classList.value == 'grid-file-item-btn') {
+        const fileName = e.target.getAttribute('data-name');
+        const fileItem = e.target.parentElement;
+        fileItem.remove();
+        btnfileInput.style.display = 'none';
+        btnfileInput1.style.display = 'block';
+        btnfileInput2.style.display = 'none';
+        btnfileInput3.style.display = 'none';
+        btnfileInput4.style.display = 'none';
+        // Remove the file name from the uploadedFiles array
+        const fileIndex = uploadedFiles.indexOf(fileName);
+        if (fileIndex !== -1) {
+            uploadedFiles.splice(fileIndex, 1);
+        }
+        // Update the hidden input with the updated uploaded files
+        // myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+        // You can perform additional actions here (e.g., remove the file from the server).
+        
+
+    }
+});
+
+fileInput2.addEventListener('change', function () {
+    const files = this.files; 
+    // Initialize an array to store uploaded file names
+
+    if (files.length > 0 && uploadedFiles.length < 5) {
+      
+        // Add the uploaded files to the uploadedFiles array
+        Array.from(files).forEach(file => {
+          
+            uploadedFiles.push(file);
+
+            const listItem = document.createElement('li');
+            listItem.className = 'file-item pb-1 w-full';
+            listItem.setAttribute('data-aos', 'fade-right');
+            listItem.setAttribute('data-aos-offset', '200');
+            listItem.setAttribute('data-aos-delay', '10');
+            listItem.setAttribute('data-aos-duration', '500');
+            listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            listItem.setAttribute('data-aos-once', 'true');
+            listItem.innerHTML = `
+                <span class="grid-file-item">
+                  <span>
+                    <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                  </span>
+                  ${file.name}
+                  <!---<button style="font-weight:bold; color:red" title="Remove" class="grid-file-item-btn" data-name="${file.name}">
+                    x
+                  </button>-->
+                </span>
+            `;
+
+            fileList2.appendChild(listItem);
+        });
+
+        if(uploadedFiles.length  < 5){
+          btnfileInput.style.display = 'none';
+          btnfileInput1.style.display = 'none';
+          btnfileInput2.style.display = 'none';
+          btnfileInput3.style.display = 'block';
+          btnfileInput4.style.display = 'none';
+        } 
+    }else{
+      
+      btnfileInput.style.display = 'none';
+      btnfileInput1.style.display = 'none';
+      btnfileInput2.style.display = 'none';
+      btnfileInput3.style.display = 'none';
+      btnfileInput4.style.display = 'none';
+  }
+});
+
+fileList2.addEventListener('click', function (e) {
+  
+  console.log(e.target.classList.value);
+    if (e.target.classList.value == 'grid-file-item-btn') {
+        const fileName = e.target.getAttribute('data-name');
+        const fileItem = e.target.parentElement;
+        fileItem.remove();
+
+        btnfileInput.style.display = 'none';
+        btnfileInput1.style.display = 'none';
+        btnfileInput2.style.display = 'block';
+        btnfileInput3.style.display = 'none';
+        btnfileInput4.style.display = 'none';
+        // Remove the file name from the uploadedFiles array
+        const fileIndex = uploadedFiles.indexOf(fileName);
+        if (fileIndex !== -1) {
+            uploadedFiles.splice(fileIndex, 1);
+        }
+        // Update the hidden input with the updated uploaded files
+        // myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+        // You can perform additional actions here (e.g., remove the file from the server).
+    }
+});
+
+fileInput3.addEventListener('change', function () {
+    const files = this.files; 
+    // Initialize an array to store uploaded file names
+
+    if (files.length > 0 && uploadedFiles.length < 5) {
+      
+        // Add the uploaded files to the uploadedFiles array
+        Array.from(files).forEach(file => {
+          
+            uploadedFiles.push(file);
+
+            const listItem = document.createElement('li');
+            listItem.className = 'file-item pb-1 w-full';
+            listItem.setAttribute('data-aos', 'fade-right');
+            listItem.setAttribute('data-aos-offset', '200');
+            listItem.setAttribute('data-aos-delay', '10');
+            listItem.setAttribute('data-aos-duration', '500');
+            listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            listItem.setAttribute('data-aos-once', 'true');
+            listItem.innerHTML = `
+                <span class="grid-file-item">
+                  <span>
+                    <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                  </span>
+                  ${file.name}
+                  <!---<button style="font-weight:bold; color:red" title="Remove" class="grid-file-item-btn" data-name="${file.name}">
+                    x
+                  </button>-->
+                </span>
+            `;
+
+            fileList3.appendChild(listItem);
+        });
+
+        if(uploadedFiles.length  < 5){
+          btnfileInput.style.display = 'none';
+          btnfileInput1.style.display = 'none';
+          btnfileInput2.style.display = 'none';
+          btnfileInput3.style.display = 'none';
+          btnfileInput4.style.display = 'block';
+        }
+    }else{
+      
+      btnfileInput.style.display = 'none';
+      btnfileInput1.style.display = 'none';
+      btnfileInput2.style.display = 'none';
+      btnfileInput3.style.display = 'none';
+      btnfileInput4.style.display = 'none';
+  }
+});
+
+fileList3.addEventListener('click', function (e) {
+  
+  console.log(e.target.classList.value);
+    if (e.target.classList.value == 'grid-file-item-btn') {
+        const fileName = e.target.getAttribute('data-name');
+        const fileItem = e.target.parentElement;
+        fileItem.remove();
+        btnfileInput.style.display = 'none';
+        btnfileInput1.style.display = 'none';
+        btnfileInput2.style.display = 'none';
+        btnfileInput3.style.display = 'block';
+        btnfileInput4.style.display = 'none';
+        // Remove the file name from the uploadedFiles array
+        const fileIndex = uploadedFiles.indexOf(fileName);
+        if (fileIndex !== -1) {
+            uploadedFiles.splice(fileIndex, 1);
+        }
+        // Update the hidden input with the updated uploaded files
+        // myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+        // You can perform additional actions here (e.g., remove the file from the server).
+
+    }
+});
+
+fileInput4.addEventListener('change', function () {
+    const files = this.files; 
+    // Initialize an array to store uploaded file names
+
+    if (files.length > 0 && uploadedFiles.length < 5) {
+      
+        // Add the uploaded files to the uploadedFiles array
+        Array.from(files).forEach(file => {
+          
+            uploadedFiles.push(file);
+
+            const listItem = document.createElement('li');
+            listItem.className = 'file-item pb-1 w-full';
+            listItem.setAttribute('data-aos', 'fade-right');
+            listItem.setAttribute('data-aos-offset', '200');
+            listItem.setAttribute('data-aos-delay', '10');
+            listItem.setAttribute('data-aos-duration', '500');
+            listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            listItem.setAttribute('data-aos-once', 'true');
+            listItem.innerHTML = `
+                <span class="grid-file-item">
+                  <span>
+                    <svg style="color:#56B493" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                  </span>
+                  ${file.name}
+                  <!---<button style="font-weight:bold; color:red" title="Remove" class="grid-file-item-btn" data-name="${file.name}">
+                    x
+                  </button>-->
+                </span>
+            `;
+
+            fileList4.appendChild(listItem);
+        });
+        if(uploadedFiles.length  < 5){
+          btnfileInput.style.display = 'none';
+          btnfileInput1.style.display = 'none';
+          btnfileInput2.style.display = 'none';
+          btnfileInput3.style.display = 'none';
+          btnfileInput4.style.display = 'none';
+        }
+    }else{
+      
+      btnfileInput.style.display = 'none';
+      btnfileInput1.style.display = 'none';
+      btnfileInput2.style.display = 'none';
+      btnfileInput3.style.display = 'none';
+      btnfileInput4.style.display = 'none';
+  }
+});
+
+fileList4.addEventListener('click', function (e) {
+  
+  console.log(e.target.classList.value);
+    if (e.target.classList.value == 'grid-file-item-btn') {
+        const fileName = e.target.getAttribute('data-name');
+        const fileItem = e.target.parentElement;
+        fileItem.remove();
+        btnfileInput.style.display = 'none';
+        btnfileInput1.style.display = 'none';
+        btnfileInput2.style.display = 'none';
+        btnfileInput3.style.display = 'none';
+        btnfileInput4.style.display = 'block';
+        // Remove the file name from the uploadedFiles array
+        const fileIndex = uploadedFiles.indexOf(fileName);
+        if (fileIndex !== -1) {
+            uploadedFiles.splice(fileIndex, 1);
+        }
+        // Update the hidden input with the updated uploaded files
+        // myUploadedFilesInput.value = JSON.stringify(uploadedFiles);
+        // You can perform additional actions here (e.g., remove the file from the server).
+    }
+});
+</script>
 </body>
 </html>
