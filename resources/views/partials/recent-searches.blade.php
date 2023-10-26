@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center mb-5">
+{{-- <div class="d-flex align-items-center mb-5">
     <!--begin::Symbol-->
     <div class="symbol symbol-40px me-4">
         <span class="symbol-label bg-light">
@@ -137,4 +137,4 @@
         <span class="fs-7 text-muted fw-semibold">#24005</span>
     </div>
     <!--end::Title-->
-</div>
+</div> --}}

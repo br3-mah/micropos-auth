@@ -66,9 +66,9 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Menu-->
 							<div class="menu menu-column menu-rounded menu-sub-indention menu-active-bg fw-semibold my-auto" id="#kt_aside_menu" data-kt-menu="true">
 								<!--begin:Menu item-->
-								<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+								<div class="menu-item here show menu-accordion">
 									<!--begin:Menu link-->
-									<span class="menu-link">
+									<span class="menu-link flex">
 										<span class="menu-icon">
 											<i class="ki-duotone ki-element-11 fs-2">
 												<span class="path1"></span>
@@ -77,10 +77,9 @@ License: For each use you must have a valid license purchased only from above li
 												<span class="path4"></span>
 											</i>
 										</span>
-										<a href="{{ route('dashboard') }}" class="menu-title">
+										<a class="menu-link" href="{{ route('dashboard') }}">
 											Dashboard
 										</a>
-										<!-- <span class="menu-arrow"></span> -->
 									</span>
 									<!--end:Menu link-->
 									<!--begin:Menu sub-->
@@ -463,67 +462,26 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Menu separator-->
 									<div class="separator my-2"></div>
 									<!--end::Menu separator-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-end" data-kt-menu-offset="-15px, 0">
-										<a href="#" class="menu-link px-5">
-											<span class="menu-title position-relative">Language
-											<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-											<img class="w-15px h-15px rounded-1 ms-2" src="public/assets/media/flags/united-states.svg" alt="" /></span></span>
-										</a>
-										<!--begin::Menu sub-->
-										<div class="menu-sub menu-sub-dropdown w-175px py-4">
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="#english" class="menu-link d-flex px-5 active">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="public/assets/media/flags/united-states.svg" alt="" />
-												</span>English</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="public/assets/media/flags/spain.svg" alt="" />
-												</span>Spanish</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="public/assets/media/flags/germany.svg" alt="" />
-												</span>German</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="public/assets/media/flags/japan.svg" alt="" />
-												</span>Japanese</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="public/assets/media/flags/france.svg" alt="" />
-												</span>French</a>
-											</div>
-											<!--end::Menu item-->
-										</div>
-										<!--end::Menu sub-->
-									</div>
+									<!--begin::Menu item
+									
 									<!--end::Menu item-->
-									<!--begin::Menu item-->
+									<!--begin::Menu item--
 									<div class="menu-item px-5 my-1">
 										<a href="#" class="menu-link px-5">Account Settings</a>
 									</div>
-									<!--end::Menu item-->
+									--end::Menu item-->
 									<!--begin::Menu item-->
 									<div class="menu-item px-5">
-										<a href="#" class="menu-link px-5">Sign Out</a>
+										<a class="menu-link px-5" href="{{ route('logout') }}"
+											onclick="event.preventDefault();
+															document.getElementById('logout-form').submit();">
+												{{ __('Sign Out') }}
+											</a>
+
+											<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+												@csrf
+											</form>
+										</a>
 									</div>
 									<!--end::Menu item-->
 								</div>
@@ -1205,7 +1163,7 @@ License: For each use you must have a valid license purchased only from above li
 									<a href="#" class="btn btn-success border-0 px-3 px-lg-6" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">New Goal</a>
 								</div>  --}}
 								<!--end::Item-->
-								<!--begin::Item-->
+								<!--begin::Item
 								<div class="d-flex align-items-center">
 									<a href="#" class="btn btn-icon btn-color-white btn-active-color-primary border-0 me-n3" data-bs-toggle="tooltip" data-bs-placement="left" title="Log Out">
 										<i class="ki-duotone ki-cross-square fs-2x text-white">
@@ -1214,7 +1172,7 @@ License: For each use you must have a valid license purchased only from above li
 										</i>
 									</a>
 								</div>
-								<!--end::Item-->
+								end::Item-->
 							</div>
 							<!--end::Topbar-->
 						</div>

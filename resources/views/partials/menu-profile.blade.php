@@ -16,10 +16,10 @@
                 </div>
                 <!--end::Avatar-->
                 <!--begin::Username-->
-                <div class="d-flex flex-column">
-                    <div class="fw-bold d-flex align-items-center fs-5">Max Smith
-                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                <div class="d-block ">
+                    <p class="fw-bold d-flex align-items-center fs-5">{{ auth()->user()->name }} </p>
+                    <p class="badge badge-light-success fw-bold fs-8">Administration</p>
+                    <p class="fw-semibold text-muted text-hover-primary fs-7">{{ auth()->user()->name }}</p>
                 </div>
                 <!--end::Username-->
             </div>
@@ -30,21 +30,21 @@
         <!--end::Menu separator-->
         <!--begin::Menu item-->
         <div class="menu-item px-5">
-            <a href="../../demo10/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+            <a href="user/profile" class="menu-link px-5">My Profile</a>
         </div>
         <!--end::Menu item-->
         <!--begin::Menu item-->
-        <div class="menu-item px-5">
+        {{-- <div class="menu-item px-5">
             <a href="../../demo10/dist/apps/projects/list.html" class="menu-link px-5">
                 <span class="menu-text">My Projects</span>
                 <span class="menu-badge">
                     <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
                 </span>
             </a>
-        </div>
+        </div> --}}
         <!--end::Menu item-->
         <!--begin::Menu item-->
-        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" data-kt-menu-offset="-15px, 0">
+        {{-- <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" data-kt-menu-offset="-15px, 0">
             <a href="#" class="menu-link px-5">
                 <span class="menu-title">My Subscription</span>
                 <span class="menu-arrow"></span>
@@ -93,77 +93,32 @@
                 <!--end::Menu item-->
             </div>
             <!--end::Menu sub-->
-        </div>
+        </div> --}}
         <!--end::Menu item-->
         <!--begin::Menu item-->
-        <div class="menu-item px-5">
-            <a href="../../demo10/dist/account/statements.html" class="menu-link px-5">My Statements</a>
-        </div>
         <!--end::Menu item-->
         <!--begin::Menu separator-->
         <div class="separator my-2"></div>
         <!--end::Menu separator-->
         <!--begin::Menu item-->
-        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" data-kt-menu-offset="-15px, 0">
-            <a href="#" class="menu-link px-5">
-                <span class="menu-title position-relative">Language
-                <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                <img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
-            </a>
-            <!--begin::Menu sub-->
-            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                    <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5 active">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
-                    </span>English</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                    <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
-                    </span>Spanish</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                    <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
-                    </span>German</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                    <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
-                    </span>Japanese</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                    <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
-                    </span>French</a>
-                </div>
-                <!--end::Menu item-->
-            </div>
-            <!--end::Menu sub-->
-        </div>
+        
         <!--end::Menu item-->
         <!--begin::Menu item-->
-        <div class="menu-item px-5 my-1">
+        {{-- <div class="menu-item px-5 my-1">
             <a href="../../demo10/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
-        </div>
+        </div> --}}
         <!--end::Menu item-->
         <!--begin::Menu item-->
         <div class="menu-item px-5">
-            <a href="../../demo10/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+            <a class="menu-link px-5" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                {{ __('Sign Out') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form></a>
         </div>
         <!--end::Menu item-->
     </div>

@@ -252,22 +252,15 @@
             <!--begin::Section-->
             <div class="pt-10 pb-0">
                 <!--begin::Title-->
-                <h3 class="text-dark text-center fw-bold">Get Pro Access</h3>
+                <h3 class="text-dark text-center fw-bold">Notifications</h3>
                 <!--end::Title-->
                 <!--begin::Text-->
-                <div class="text-center text-gray-600 fw-semibold pt-1">Outlines keep you honest. They stoping you from amazing poorly about drive</div>
-                <!--end::Text-->
-                <!--begin::Action-->
-                <div class="text-center mt-5 mb-9">
-                    <a href="#" class="btn btn-sm btn-primary px-6" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>
-                </div>
+                <div class="text-center text-gray-600 fw-semibold pt-1">No Notifications</div>
+             
                 <!--end::Action-->
             </div>
             <!--end::Section-->
             <!--begin::Illustration-->
-            <div class="text-center px-4">
-                <img class="mw-100 mh-200px" alt="image" src="assets/media/illustrations/sigma-1/1.png" />
-            </div>
             <!--end::Illustration-->
         </div>
         <!--end::Wrapper-->

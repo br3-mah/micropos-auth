@@ -27,8 +27,8 @@ class DashboardController extends Controller
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
                 case 'marketplace':
-                    $destination = 'https://market.greenwebbtech.com/login?user=' . urlencode($userData);
-                    // $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
+                    // $destination = 'https://market.greenwebbtech.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
