@@ -310,7 +310,7 @@
                           </div>
                           <p>Call Center</p>
                       </div>
-                      <div class="grid-item"
+                      {{-- <div class="grid-item"
                       data-aos="fade-up"
                       data-aos-offset="200"
                       data-aos-delay="300"
@@ -324,7 +324,7 @@
                             </svg>
                           </div>
                           <p>Payments Solution</p>
-                      </div>
+                      </div> --}}
                   </div>
                   <div class="d-grid my-4">
                     <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep2" type="button">Next</button>
