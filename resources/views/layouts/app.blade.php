@@ -226,6 +226,12 @@ License: For each use you must have a valid license purchased only from above li
 												</span>
 												<span class="menu-title">Product Categories</span>
 											</a>
+											<a class="menu-link" href="{{ route('tags') }}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Product Tags</span>
+											</a>
 											<!--end:Menu link-->
 										</div>
 										<!--end:Menu item-->

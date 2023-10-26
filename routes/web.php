@@ -10,6 +10,8 @@ use App\Livewire\Orders\OrderListView;
 use App\Livewire\Products\CreateProductView;
 use App\Livewire\Products\MyProductListView;
 use App\Livewire\Products\ProductListView;
+use App\Livewire\Tag\CreateTagView;
+use App\Livewire\Tag\TagListView;
 use App\Livewire\Users\AdvisorListView;
 use App\Livewire\Users\AgronomistListView;
 use App\Livewire\Users\CallCenterListView;
@@ -55,11 +57,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     //Categroies
     Route::get('/product-categories', CategoryListView::class)->name('categories'); 
     Route::get('/create-categories', CreateCategoryView::class)->name('create-categories'); 
+    //Categroies
+    Route::get('/product-tags', TagListView::class)->name('tags'); 
+    Route::get('/create-tag', CreateTagView::class)->name('create-tag'); 
 
     // External DB Ops
     Route::get('/products/{id}', [MainController::class, 'destroyProduct'])->name('products.destroy');
     Route::post('/store-product', [MainController::class, 'storeProduct'])->name('product.store');
     Route::post('/store-category', [eCategoryContrl::class, 'storeCategory'])->name('category.store');
+    Route::post('/store-tag', [eCategoryContrl::class, 'storeTag'])->name('tag.store');
 
     //Order & Deliveries
     Route::get('/customer-orders', OrderListView::class)->name('cust-orders'); 
