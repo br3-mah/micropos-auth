@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\eCategoryContrl;
 use App\Http\Controllers\eProductContrl;
+use App\Http\Controllers\eUserController;
 use App\Livewire\Category\CategoryListView;
 use App\Livewire\Category\CreateCategoryView;
 use App\Livewire\Orders\OrderDetailView;
@@ -48,7 +49,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/payment-providers', PaymentProviderListView::class)->name('payment-providers'); 
     Route::get('/marketplace-users', GuestListView::class)->name('marketplace-users'); 
     Route::get('/users/{id}', UserView::class)->name('view-user'); 
-
+    Route::get('/users/{id}', UserView::class)->name('view-user'); 
+    Route::post('/user-approve-now', [eUserController::class, 'approve'])->name('user.approve');
+    
     //Products
     Route::get('/products', ProductListView::class)->name('products'); 
     Route::get('/my-products', MyProductListView::class)->name('my-products'); 

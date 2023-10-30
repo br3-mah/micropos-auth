@@ -32,7 +32,8 @@ class User extends Authenticatable
         'global_secret_word',
         'customer_group', //advisory, call center, payment solution, marketplace, admin, none
         'type', //admin, farmer, agronomist, guest
-        'status'
+        'status',
+        'is_approved'
     ];
 
     /**
