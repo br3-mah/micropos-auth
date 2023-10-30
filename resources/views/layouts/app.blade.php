@@ -562,8 +562,8 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Aside toggle-->
 								<!--begin::Logo-->
 								<a href="{{ route('dashboard') }}">
-									<img alt="Ecoagro" src="{{ asset('public/img/logo.png') }}" class="h-25px h-lg-30px d-none d-md-block" />
-									<img alt="Ecoagro" src="{{ asset('public/img/logo.png') }}g" class="h-25px d-block d-md-none" />
+									<img alt="Ecoagro" src="{{ asset('public/img/logo2.png') }}" class="h-25px h-lg-30px d-none d-md-block" />
+									<img alt="Ecoagro" src="{{ asset('public/img/logo2.png') }}g" class="h-25px d-block d-md-none" />
 								</a>
 								<!--end::Logo-->
 							</div>
@@ -5867,7 +5867,7 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="public/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		
 		<script src="public/assets/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
-		// <script src="public/assets/js/custom/apps/ecommerce/catalog/save-category.js"></script>
+		
 
 		<script src="public/assets/js/widgets.bundle.js"></script>
 		<script src="public/assets/js/custom/widgets.js"></script>

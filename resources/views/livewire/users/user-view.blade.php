@@ -248,13 +248,14 @@
                                             <i class="ki-duotone ki-down fs-3"></i>
                                         </span>
                                 </div>
-                                @if ($user->is_approved !== 1)
-                                <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Approve customer details">
+                                {{-- @dd($user->is_approved) --}}
+                                @if ($user->is_approved !== '1')
+                                <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Approve as advisor">
                                     <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_update_details">Approve Now</a>
                                 </span>
                                 @else
-                                <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Dispprove customer details">
-                                    <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_update_details2">Disapprove</a>
+                                <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Dispprove as advisor">
+                                    <a href="#" class="btn btn-sm btn-light-danger" data-bs-toggle="modal" data-bs-target="#kt_modal_update_details2">Disapprove</a>
                                 </span>
                                 @endif
                             </div>
@@ -861,6 +862,63 @@
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <input type="hidden" name="user_email" value="nyeleti.bremah@gmail.com">
                                     <input type="hidden" name="new_status" value="1">
+
+                                </div>
+                                <!--end::Scroll-->
+                            </div>
+                            <!--end::Modal body-->
+                            <!--begin::Modal footer-->
+                            <div class="modal-footer flex-center">
+                                <!--begin::Button-->
+                                <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
+                                <!--end::Button-->
+                                <!--begin::Button-->
+                                <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+                                    <span class="indicator-label">Yes, Sure</span>
+                                    <span class="indicator-progress">Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                </button>
+                                <!--end::Button-->
+                            </div>
+                            <!--end::Modal footer-->
+                        </form>
+                        <!--end::Form-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="kt_modal_update_details2" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog modal-dialog-centered mw-650px">
+                    <!--begin::Modal content-->
+                    <div class="modal-content">
+                        <!--begin::Form-->
+                        <form class="form" method="POST" action="{{ route('user.approve') }}" id="kt_modal_update_user_form">
+                            @csrf
+                            <!--begin::Modal header-->
+                            <div class="modal-header" id="kt_modal_update_user_header">
+                                <!--begin::Modal title-->
+                                <h2 class="fw-bold me-4">Disapprove User</h2>
+                                <!--end::Modal title-->
+                                <!--begin::Close-->
+                                <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+                                    <i class="ki-duotone ki-cross fs-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </div>
+                                <!--end::Close-->
+                            </div>
+                            <!--end::Modal header-->
+                            <!--begin::Modal body-->
+                            <div class="modal-body py-10 px-lg-17">
+                                <!--begin::Scroll-->
+                                <div class="" id="kt_modal_update_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_update_user_header" data-kt-scroll-wrappers="#kt_modal_update_user_scroll" data-kt-scroll-offset="300px">
+                                    
+                                    Please confirm if you are sure you want to <span style="color:red"><b>approve</b></span>this user, and allow them to access the call center dashboard
+                                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                    <input type="hidden" name="user_email" value="nyeleti.bremah@gmail.com">
+                                    <input type="hidden" name="new_status" value="0">
 
                                 </div>
                                 <!--end::Scroll-->

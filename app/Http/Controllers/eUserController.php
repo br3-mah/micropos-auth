@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Notifications\AccountApproved;
+use App\Notifications\AccountDisapproved;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 class eUserController extends Controller
@@ -53,8 +54,15 @@ class eUserController extends Controller
             User::where("id", $request->input('user_id'))->update(["is_approved"=> $request->input('new_status')]);
             $user = User::where('email', $request->input('user_email'))->first();
             // Send notification to multiple users
-            Notification::route('mail', $request->input('user_email'))->notify(new AccountApproved($user));
-            return redirect()->back()->with('success',    'Account approved successfully');
+            if($request->input('new_status')){
+
+                Notification::route('mail', $request->input('user_email'))->notify(new AccountApproved($user));
+                return redirect()->back()->with('success',    'Account approved successfully');
+            }else{
+                    
+                Notification::route('mail', $request->input('user_email'))->notify(new AccountDisapproved($user));
+                return redirect()->back()->with('success',    'Account disapproved successfully');
+            }
         } catch (\Throwable $th) {
             return redirect()->back()->with('error',    $th->getMessage());
         }

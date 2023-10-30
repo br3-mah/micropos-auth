@@ -334,6 +334,13 @@
                 </div>
 
                 <div id="step2">
+                  <div style="padding: 2%; border-radius: 4px; border: 1px solid #f2d086; color: #163028; background-color: #ffeabc;">
+                    <small style="margin: 0;">
+                        <strong>Note:</strong> Your documents will need to undergo a review and approval process before you gain access to the advisory service.
+                    </small>
+                </div>
+                
+                  <br>
                   <h6>
                     <a id="gotoStep1" type="button">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">

@@ -7,16 +7,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AccountApproved extends Notification
+class AccountDisapproved extends Notification
 {
     use Queueable;
     public $user;
+
     /**
      * Create a new notification instance.
      */
     public function __construct($user)
     {
-        $this->user = $user;    
+        $this->user = $user;   
     }
 
     /**
@@ -34,15 +35,14 @@ class AccountApproved extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        
-        $userData = json_encode($this->user);
-        $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
         return (new MailMessage)
-        ->subject('Account Approved Notification')
+        ->subject('Account Disapproval Notification')
         ->greeting('Dear'.$this->user->name.',')
-        ->line('Your account has been approved. You can now enjoy all the features of our platform.')
-        ->action('Visit Your Dashboard', $destination)
-        ->line('Thank you for using our service.');
+        ->line('We hope this message finds you well.')
+        ->line('Regrettably, we must inform you that your application to conduct advisory services has been disapproved.')
+        ->line('This decision is based on our current evaluation criteria. We appreciate your interest and encourage you to review and consider reapplying in the future.')
+        ->line('Thank you for considering our platform and we wish you success in your future endeavors.')
+        ->salutation('Sincerely, The [Your Company/Organization Name] Team');
     }
 
     /**
