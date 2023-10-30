@@ -37,12 +37,12 @@ class AccountDisapproved extends Notification
     {
         return (new MailMessage)
         ->subject('Account Disapproval Notification')
-        ->greeting('Dear'.$this->user->name.',')
+        ->greeting('Dear '.$this->user->name.',')
         ->line('We hope this message finds you well.')
         ->line('Regrettably, we must inform you that your application to conduct advisory services has been disapproved.')
         ->line('This decision is based on our current evaluation criteria. We appreciate your interest and encourage you to review and consider reapplying in the future.')
         ->line('Thank you for considering our platform and we wish you success in your future endeavors.')
-        ->salutation('Sincerely, The [Your Company/Organization Name] Team');
+        ->salutation('Sincerely, The EcoAgro Team');
     }
 
     /**

@@ -334,7 +334,7 @@
                 </div>
 
                 <div id="step2">
-                  <div style="padding: 2%; border-radius: 4px; border: 1px solid #f2d086; color: #163028; background-color: #ffeabc;">
+                  <div style="padding: 2%; border-radius: 4px; border: 1px solid #481616; color: #ffffff; background-color: #770614;">
                     <small style="margin: 0;">
                         <strong>Note:</strong> Your documents will need to undergo a review and approval process before you gain access to the advisory service.
                     </small>
@@ -513,7 +513,7 @@
           </div>
           <div class="row g-0 my-auto">
             <div class="col-11 col-md-10 mx-auto">
-              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community in the world. <h3 class="fw-300 text-9 mb-2">Create an Account</h3></h1>
+              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community. <h3 class="fw-300 text-9 mb-2">Create an Account</h3></h1>
             </div>
           </div>
         </div>

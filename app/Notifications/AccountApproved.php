@@ -36,10 +36,11 @@ class AccountApproved extends Notification
     {
         
         $userData = json_encode($this->user);
-        $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+        // $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+        $destination = 'https://callcenter.greenwebbtech.com';
         return (new MailMessage)
         ->subject('Account Approved Notification')
-        ->greeting('Dear'.$this->user->name.',')
+        ->greeting('Dear '.$this->user->name.',')
         ->line('Your account has been approved. You can now enjoy all the features of our platform.')
         ->action('Visit Your Dashboard', $destination)
         ->line('Thank you for using our service.');

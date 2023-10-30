@@ -119,12 +119,13 @@ class CreateNewUser implements CreatesNewUsers
             $user->save();
         }
               
-        
+        $admin = User::where('id', 1)->first(); 
         Mail::to($user->email)->send(new WelcomeEmail($user));
+        Mail::to($admin->email)->send(new WelcomeEmail($user));
         return $user;
        } catch (\Throwable $th) {
-        // dd($th);
-        dd('Use a different email and try again. Failed to register with this email');
+        return redirect()->back();
+        // dd('Use a different email and try again. Failed to register with this email');
        }
     }
 

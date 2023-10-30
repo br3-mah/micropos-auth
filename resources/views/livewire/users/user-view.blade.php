@@ -860,7 +860,7 @@
                                     
                                     Please confirm if you are sure you want to approve this user, and allow them to access the call center dashboard
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                    <input type="hidden" name="user_email" value="nyeleti.bremah@gmail.com">
+                                    <input type="hidden" name="user_email" value="{{ $user->email }}">
                                     <input type="hidden" name="new_status" value="1">
 
                                 </div>
@@ -915,9 +915,9 @@
                                 <!--begin::Scroll-->
                                 <div class="" id="kt_modal_update_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_update_user_header" data-kt-scroll-wrappers="#kt_modal_update_user_scroll" data-kt-scroll-offset="300px">
                                     
-                                    Please confirm if you are sure you want to <span style="color:red"><b>approve</b></span>this user, and allow them to access the call center dashboard
+                                    Please confirm if you are sure you want to <span style="color:red"><b>Disapprove</b></span> this user, and allow them to access the call center dashboard
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                    <input type="hidden" name="user_email" value="nyeleti.bremah@gmail.com">
+                                    <input type="hidden" name="user_email" value="{{ $user->email }}">
                                     <input type="hidden" name="new_status" value="0">
 
                                 </div>

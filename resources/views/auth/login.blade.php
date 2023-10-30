@@ -92,7 +92,7 @@
                   @endif
                 </div>
                 <div class="d-grid my-4">
-                  <button class="btn btn-dark shadow-none fw-400" type="submit">Sign in</button>
+                  <button style="background-color:#29444a;" class="btn btn-dark shadow-none fw-400" type="submit">Sign in</button>
                 </div>
               </form>
               {{-- <div class="d-flex align-items-center my-4">
@@ -125,7 +125,7 @@
           </div>
           <div class="row g-0 my-auto">
             <div class="col-11 col-md-10 mx-auto">
-              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community in the world.</h1>
+              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community.</h1>
             </div>
           </div>
         </div>
