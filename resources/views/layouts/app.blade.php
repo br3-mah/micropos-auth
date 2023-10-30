@@ -38,7 +38,49 @@ License: For each use you must have a valid license purchased only from above li
 		<link href="public/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
-	
+		<style>
+			/* Create the look of a generic thumbnail */
+			.thumbnail {
+			  position:relative;
+			  display:inline-block;
+			  width:6em;
+			  height:6em;
+			  border-radius:0.6em;
+			  border:0.25em solid white;
+			  vertical-align:middle;
+			  box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
+			  margin:0.5em;
+			  
+			  background-position:center;
+			  background-size:cover;
+			}
+			
+			
+			
+			/* This will hide the file input */
+			.imagepicker input {
+			  display:none;
+			}
+			.imagepicker {
+			  cursor:pointer;
+			  color:white;
+			  background-color:rgba(0,0,0,0.3);
+			}
+			/* This will add the floating plus symbol to the imagepicker */
+			.imagepicker:before {
+			  content:'+';
+			  position:absolute;
+			  font-size:3em;
+			  vertical-align:middle;
+			  top:50%;
+			  left:50%;
+			  transform:translate(-50%,-50%);
+			}
+			/* This will hide the plus symbol behind the background of the imagepicker if the class "picked" is added to the element */
+			.imagepicker.picked:before {
+			  z-index:-1;
+			}
+			</style>
         <!-- Scripts -->
         {{--  @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
 
@@ -5842,6 +5884,51 @@ License: For each use you must have a valid license purchased only from above li
         @stack('modals')
 
         @livewireScripts
+
+				
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+		<script>
+		// This function just works and can be used for many file types.
+		// It will accept multiple files, and will only fire the callback once for each file.
+		// Don't try to reinvent this
+		function readFiles(files,callback,index=0) {
+		if (files && files[0]) {
+			let file = files[index++],
+				reader = new FileReader();
+			reader.onload = function(e){
+			callback(e);
+			if(index<files.length) readFiles(files,callback,index);
+			}
+			reader.readAsDataURL(file);
+		}
+		}
+
+
+		// Create a selector for an input and then do whatever you want using the callback function.
+		$("body").on("change",".imagepicker-replace input",function() {
+		// store the current "this" into a variable
+		var imagepicker = this;
+		readFiles(this.files,function(e) {
+			// "this" will be different in the callback function
+			$(imagepicker).parent()
+			.addClass("picked")
+			.css({"background-image":"url("+e.target.result+")"});
+		});
+		})
+						
+
+
+		// This example will add a new thumbnail each time
+		$("body").on("change",".imagepicker-add input",function() {
+		var imagepicker = this;
+		readFiles(this.files,function(e) {
+			$(imagepicker).parent().before(
+			"<div class='thumbnail' style='background-image:url("+e.target.result+")'></div>"
+			)
+		});
+		});
+		</script>	
 	</body>
 	<!--end::Body-->
 </html>

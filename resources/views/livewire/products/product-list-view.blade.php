@@ -240,27 +240,33 @@
                                     <span class="fw-bold ms-3">{{ $product->qty }}</span>
                                 </td>
                                 <td class="text-end pe-0">{{ $product->price }}</td>
-                                <td class="text-end pe-0" data-order="{{ $product->status }}">
+                                <td class="text-end pe-0"  data-bs-toggle="modal" data-bs-target="#kt_modal_new_address" data-order="{{ $product->status }}">
                                     <!--begin::Badges-->
-                                    <div class="badge badge-light-{{ $product->status === '1' ? 'success' : 'danger' }}">
+                                    
                                         @switch($product->status)
                                             @case(0)
-                                                Draft
-                                                @break
+                                            <div class="badge badge-light-danger text-primary">Inactive</div>
+                                            @break
                                             @case(1)
-                                                Published
+                                                @if ($product->is_approved == 1)
+                                                <div class="badge badge-light-success text-primary">Published</div>
+                                                @else
+                                                <div class="badge badge-light-success text-primary">Pending Approval</div>
+                                                @endif
                                                 @break
                                             @case(2)
-                                                Scheduled
+                                                <div class="badge badge-light-danger text-primary">Inactive</div>
                                                 @break
                                             @case(3)
-                                                Inactive
+                                                <div class="badge badge-light-info text-primary">Scheduled</div>
                                                 @break
-                                        
+                                            @case(4)
+                                                <div class="badge badge-light-primary text-primary">Inactive</div>
+                                                @break
                                             @default
-                                                
+                                                <div class="badge badge-light-danger text-primary">Inactive</div>
                                         @endswitch
-                                    </div>
+                                        
                                     <!--end::Badges-->
                                 </td>
                                 <td class="text-end">
@@ -296,5 +302,7 @@
         </div>
         <!--end::Container-->
     </div>
+    
+    @include('__parts.products.update-status')
     <!--end::Post-->
 </div>

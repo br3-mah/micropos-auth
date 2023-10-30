@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\eCategoryContrl;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\eProductContrl;
 use App\Livewire\Category\CategoryListView;
 use App\Livewire\Category\CreateCategoryView;
 use App\Livewire\Orders\OrderDetailView;
@@ -62,8 +62,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/create-tag', CreateTagView::class)->name('create-tag'); 
 
     // External DB Ops
-    Route::get('/products/{id}', [MainController::class, 'destroyProduct'])->name('products.destroy');
-    Route::post('/store-product', [MainController::class, 'storeProduct'])->name('product.store');
+    Route::get('/products/{id}', [eProductContrl::class, 'destroyProduct'])->name('products.destroy');
+    Route::post('/store-product', [eProductContrl::class, 'storeProduct'])->name('product.store');
     Route::post('/store-category', [eCategoryContrl::class, 'storeCategory'])->name('category.store');
     Route::post('/store-tag', [eCategoryContrl::class, 'storeTag'])->name('tag.store');
 

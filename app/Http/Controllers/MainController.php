@@ -13,19 +13,20 @@ class MainController extends Controller
     }
 
     public function storeProduct(Request $request){
+        dd($request);
         // Validate the form data, including the image
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'tags' => 'nullable|string',
             'disc_type' => 'nullable|string',
             'fixed_price' => 'nullable|numeric',
             'tax_class' => 'nullable|string',
             'vat' => 'nullable|numeric',
             'sku' => 'nullable|string',
             'barcode' => 'nullable|string',
-            'shelf_qty' => 'nullable|integer',
-            'warehouse_qty' => 'nullable|integer',
+            'shelf_qty' => 'nullable|numeric',
+            'warehouse_qty' => 'nullable|numeric',
+            'weight' => 'nullable|numeric',
             'width' => 'nullable|numeric',
             'height' => 'nullable|numeric',
             'length' => 'nullable|numeric',
@@ -61,7 +62,7 @@ class MainController extends Controller
         }
 
         // Redirect back to the product listing page or another appropriate page
-        return redirect()->route('products');
+        // return redirect()->route('products');
     }
 
     public function destroyProduct($id)

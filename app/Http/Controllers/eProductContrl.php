@@ -14,11 +14,11 @@ class eProductContrl extends Controller
     }
 
     public function storeProduct(Request $request){
+        
         // Validate the form data, including the image
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'tags' => 'nullable|string',
             'disc_type' => 'nullable|string',
             'fixed_price' => 'nullable|numeric',
             'tax_class' => 'nullable|string',
@@ -41,12 +41,33 @@ class eProductContrl extends Controller
             $avatarPath = $request->file('avatar')->store('products/avatars', 'public');
             $validatedData['image'] = $avatarPath;
         }
+        
 
         // Insert the product into the second database
         DB::connection('second_database')->beginTransaction();
 
         try {
             DB::connection('second_database')->table('products')->insert($validatedData);
+            // dd($product);
+
+            // Insert variations
+            // foreach ($request->input('kt_ecommerce_add_product_options') as $option) {
+            //     // ProductVariation::created([
+            //     //     "option" => $option['product_option'],
+            //     //     "value" => $option['product_option_value'],
+            //     //     "product_id" => $product->id
+            //     // ]);
+            //     DB::connection('second_database')->table('products')->insert([
+            //         "option" => $option['product_option'],
+            //         "value" => $option['product_option_value'],
+            //         "product_id" => $product->id
+            //     ]);
+            // }
+            // Insert categories
+
+            // Insert tags
+
+            // Insert pics
 
             // Commit the transaction
             DB::connection('second_database')->commit();
@@ -54,6 +75,8 @@ class eProductContrl extends Controller
             // Optionally, you can add a success message
             session()->flash('successMessage', 'Product inserted successfully.');
         } catch (\Exception $e) {
+
+            // dd($e);
             // Rollback the transaction in case of an error
             DB::connection('second_database')->rollback();
 

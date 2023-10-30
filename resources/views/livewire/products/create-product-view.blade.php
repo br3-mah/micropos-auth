@@ -256,18 +256,11 @@
                                 <label class="form-label">Categories</label>
                                 <!--end::Label-->
                                 <!--begin::Select2-->
-                                <select class="form-select mb-2" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+                                <select class="form-select mb-2" name="categories[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
                                     <option></option>
-                                    <option value="seed">Seeds</option>
-                                    <option value="feed">Animal Feed</option>
-                                    <option value="machinery">Machinery</option>
-                                    <option value="Clothing">Clothing</option>
-                                    <option value="Chemical">Chemical</option>
-                                    <option value="Maize">maize</option>
-                                    <option value="Tools">tools</option>
-                                    <option value="Pesticides">Pesticides</option>
-                                    <option value="food">Food</option>
-                                    <option value="Other">Others</option>
+                                    @foreach($categories as $cat)
+                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                    @endforeach
                                 </select>
                                 <!--end::Select2-->
                                 <!--begin::Description-->
@@ -283,8 +276,12 @@
                                 <label class="form-label d-block">Tags</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input id="kt_ecommerce_add_product_tags" name="tags" class="form-control mb-2" value="" />
-                                <!--end::Input-->
+                                <select class="form-select mb-2" name="tags[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+                                    <option></option>
+                                    @foreach($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                    @endforeach
+                                </select>                                <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Add tags to a product.</div>
                                 <!--end::Description-->
@@ -419,24 +416,21 @@
                                         <!--begin::Card body-->
                                         <div class="card-body pt-0">
                                             <!--begin::Input group-->
-                                            <div class="fv-row mb-2">
-                                                <!--begin::Dropzone-->
-                                                <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                    <!--begin::Message-->
-                                                    <div class="dz-message needsclick">
-                                                        <!--begin::Icon-->
-                                                        <i class="ki-outline ki-file-up text-primary fs-3x"></i>
-                                                        <!--end::Icon-->
-                                                        <!--begin::Info-->
-                                                        <div class="ms-4">
-                                                            <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
-                                                            <span class="fs-7 fw-semibold text-gray-400">Upload up to 10 files</span>
-                                                        </div>
-                                                        <!--end::Info-->
-                                                    </div>
-                                                </div>
-                                                <!--end::Dropzone-->
-                                            </div>
+                                            <label class="imagepicker imagepicker-replace thumbnail">
+                                                <input type='file' name="pic1" id="imagepicker1">
+                                            </label>
+                                            <label class="imagepicker imagepicker-replace thumbnail">
+                                                <input type='file' name="pic2" id="imagepicker2">
+                                            </label>
+                                            <label class="imagepicker imagepicker-replace thumbnail">
+                                                <input type='file' name="pic3" id="imagepicker3">
+                                            </label>
+                                            <label class="imagepicker imagepicker-replace thumbnail">
+                                                <input type='file' name="pic4" id="imagepicker4">
+                                            </label>
+                                            <label class="imagepicker imagepicker-replace thumbnail">
+                                                <input type='file' name="pic5" id="imagepicker5">
+                                            </label>
                                             <!--end::Input group-->
                                             <!--begin::Description-->
                                             <div class="text-muted fs-7">Set the product media gallery.</div>
