@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="favicons/1567-images-favicon.png" rel="icon">
-<title>ecoAgro - SignUp</title>
+<title>EcoAgro - SignUp</title>
 <meta name="description" content="ecoAgro">
 <meta name="author" content="harnishdesign.net">
 
