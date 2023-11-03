@@ -508,7 +508,7 @@
         <div class="container h-100 d-flex flex-column">
           <div class="row g-0">
             <div class="col-11 col-md-10 mx-auto">
-              <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="#" title="ecoAgro"><img src="{{ asset('public/img/logo.png')}}" alt="ecoAgro"></a> </div>
+              <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="https://ecoagrozm.com" title="ecoAgro"><img src="{{ asset('public/img/logo.png')}}" alt="ecoAgro"></a> </div>
             </div>
           </div>
           <div class="row g-0 my-auto">
