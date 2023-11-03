@@ -50,7 +50,7 @@
           <div class="row gx-0">
             <div class="col-11 col-md-10 mx-auto">
               <p class="text-end text-2 text-muted fw-300">
-                Not a member? <a class="fw-300" href="https://auth.greenwebbtech.com/register?source={{$source}}&destination={{$destination}}">Sign up now</a>
+                Not a member? <a class="fw-300" href="https://auth.ecoagrozm.com/register?source={{$source}}&destination={{$destination}}">Sign up now</a>
               </p>
             </div>
           </div>

@@ -27,40 +27,47 @@ class DashboardController extends Controller
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
                 case 'marketplace':
-                    $destination = 'https://market.greenwebbtech.com/login?user=' . urlencode($userData);
-                    // $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
+                    // $destination = 'https://market.ecoagrozm.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call-center':
-                    $destination = 'https://callcenter.greenwebbtech.com/';
-                    // $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+                    
+                    $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
+                    // $destination = 'https://callcenter.ecoagrozm.com/';
+                    // $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call center':
-                    $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+                    
+                    $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
+                    // $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
             
                 case 'website':
-                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                    
+                    $destination = 'http://localhost/eco-web?user=' . urlencode($userData);
+                    // $destination = 'https://website.ecoagrozm.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
                 case 'payment':
-                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                    $destination = 'https://website.ecoagrozm.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
                 case 'payment solution':
-                    $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                    $destination = 'https://website.ecoagrozm.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
                 case 'advisory':
-                    $destination = 'https://callcenter.greenwebbtech.com/';
-                    // $destination = 'https://callcenter.greenwebbtech.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
+                    // $destination = 'https://callcenter.ecoagrozm.com/';
+                    // $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
@@ -80,7 +87,8 @@ class DashboardController extends Controller
                             'total_farmers' => $total_farmers
                         ]);
                     }else{
-                        $destination = 'https://website.greenwebbtech.com?user=' . urlencode($userData);
+                        $destination = 'http://localhost/eco-web?user=' . urlencode($userData);
+                        // $destination = 'https://website.ecoagrozm.com?user=' . urlencode($userData);
                         return Redirect::away($destination);
                     }
                 break;

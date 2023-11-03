@@ -33,7 +33,9 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Users</li>
+                    <li class="breadcrumb-item text-muted">
+                    <a href="#" class="text-muted text-hover-primary">Users</a>
+                    </li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
