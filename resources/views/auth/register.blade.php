@@ -8,6 +8,7 @@
 <title>EcoAgro - SignUp</title>
 <meta name="description" content="ecoAgro">
 <meta name="author" content="harnishdesign.net">
+<link rel="shortcut icon" href="fav.png" />
 
 <!-- Web Fonts
 ========================= -->
