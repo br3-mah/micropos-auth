@@ -58,7 +58,7 @@
           <table role="presentation" style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
             <tr>
               <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
-                <a href="#" style="text-decoration:none;"><img src="https://website.greenwebbtech.com/images/logo-inverse.png" width="165" alt="Logo" style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
+                <a href="#" style="text-decoration:none;"><img src="https://ecoagrozm.com/images/logo-inverse.png" width="165" alt="Logo" style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
               </td>
             </tr>
             <tr>
@@ -67,7 +67,7 @@
                 <p style="margin:0;">
                   We have received your contact form submission and will get back to you as soon as possible. 
                   
-                  <a href="https://website.greenwebbtech.com" style="color:#e50d70;text-decoration:underline;">ecoagro.com</a>, 
+                  <a href="https://ecoagrozm.com" style="color:#e50d70;text-decoration:underline;">ecoagro.com</a>, 
                   Your inquiry is important to us, and we appreciate you taking the time to get in touch.
                 </p>
 
