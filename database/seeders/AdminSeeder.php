@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('eco.@2023'), // hashing the password
             'current_source' => 'auth',
             'current_destination' => 'auth',
-            'global_secret_word' => '@eco.@2023',
+            'global_secret_word' => 'eco.@2023',
             'customer_group' => 'admin',
             'type' => 'admin',
             'status' => true
