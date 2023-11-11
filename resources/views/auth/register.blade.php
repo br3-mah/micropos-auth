@@ -211,7 +211,21 @@
 .w-full{
   width: 100% !important;
 }
+#mobileLogo {
+    display: none; 
+}
+@media only screen and (max-width: 767px) {
+    #desktopLogo, #deskItem{
+        display: none;
+    }      
+    #mobileLogo {
+        display: block; 
+    }
 
+    #main-wrapper{
+      padding: 4%;
+    }
+}   
 </style>
 </head>
 <body>
@@ -243,7 +257,7 @@
       <!-- Register Form
       ========================= -->
       <div class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
-        <div class="container pt-5">
+        <div id="deskItem" class="container pt-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 mx-auto">
               <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="https://auth.ecoagrozm.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
@@ -416,12 +430,14 @@
 
                 {{-- Step 3 --}}
                 <div id="step3">
-                  @if ($destination !== null)
-                  <a id="gotoStep22" type="button">
+                  @if ($destination !== null )
+                  {{-- <a id="gotoStep22" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
-                  </a>
+                  </a> --}}
+                  @else
+                  <div id="gotoStep22"></div>
                   @endif
                   <div class="mb-3">
                     <label for="phoneNumber" class="form-label fw-300">Phone Number</label>
@@ -542,7 +558,7 @@
       
       <!-- Welcome Text
       ========================= -->
-      <div class="col-md-6 bg-light  order-1 order-md-2">
+      <div id="desktopLogo" class="col-md-6 bg-light  order-1 order-md-2">
         <div class="container h-100 d-flex flex-column">
           <div class="row g-0">
             <div class="col-11 col-md-10 mx-auto">
@@ -640,7 +656,7 @@ const step4 = document.getElementById('step4');
 const step5 = document.getElementById('step5');
 const gotoStep1Button = document.getElementById('gotoStep1');
 const gotoStep2Button = document.getElementById('gotoStep2');
-const gotoStep22Button = document.getElementById('gotoStep22');
+// const gotoStep22Button = document.getElementById('gotoStep22');
 const gotoStep33Button = document.getElementById('gotoStep33');
 const gotoStep44Button = document.getElementById('gotoStep44');
 const gotoStep3Button = document.getElementById('gotoStep3');
@@ -707,20 +723,20 @@ gotoStep2Button.addEventListener('click', function () {
   }
 });
 
-if (destination !== null){
-  // Event listener for "Next" button on Step 2
-  gotoStep22Button.addEventListener('click', function () {
-    if (type == 'seller') {
-      step3.classList.add('hidden');
-      step2.classList.add('hidden');
-      step1.classList.remove('hidden');
-    } else {
-      step1.classList.add('hidden');
-      step2.classList.remove('hidden');
-      step3.classList.add('hidden');
-    }
-  });
-}
+// if (destination !== null){
+//   // Event listener for "Next" button on Step 2
+//   gotoStep22Button.addEventListener('click', function () {
+//     if (type == 'seller') {
+//       step3.classList.add('hidden');
+//       step2.classList.add('hidden');
+//       step1.classList.remove('hidden');
+//     } else {
+//       step1.classList.add('hidden');
+//       step2.classList.remove('hidden');
+//       step3.classList.add('hidden');
+//     }
+//   });
+// }
 // Event listener for "Back" button on Step 2
 gotoStep1Button.addEventListener('click', function () {
     step2.classList.add('hidden');

@@ -21,6 +21,30 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('public/theme/css/css-stylesheet.css')}}">
 <!-- Colors Css -->
 <link id="color-switcher" type="text/css" rel="stylesheet" href="{{ asset('public/theme/css/oxyy-#')}}">
+
+
+<style>
+      #mobileLogo {
+        display: none; 
+      }
+  @media only screen and (max-width: 767px) {
+      #desktopLogo, #deskItem{
+        display: none;
+      }      
+      #mobileLogo { 
+        display: flex;
+        /* justify-content: center;
+        align-items: center;
+        height: 100vh; */
+      }
+      #main-wrapper{
+        padding: 4%;
+      }
+      #signText{
+        text-align: center;
+      }
+  } 
+</style>
 </head>
 <body>
 
@@ -47,7 +71,7 @@
       <!-- Login Form
       ========================= -->
       <div class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
-        <div class="container pt-5">
+        <div id="deskItem"  class="container pt-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 mx-auto">
               <p class="text-end text-2 text-muted fw-300">
@@ -56,17 +80,23 @@
             </div>
           </div>
         </div>
-        <x-validation-errors class="mb-4" />
 
-            @if (session('status'))
-                <div class="mb-4 font-medium text-sm text-green-600">
-                    {{ session('status') }}
-                </div>
-            @endif
+        <x-validation-errors class="mb-4" />
+        @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
+
         <div class="container my-auto py-5">
           <div class="row gx-0">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
-              <h3 class="fw-300 text-9 mb-5">Sign in</h3>
+              <div id="mobileLogo" class="justify-content-center align-items-center">
+                <a href="https://ecoagrozm.com" title="ecoAgro" class="text-center">
+                  <img width="100" src="{{('public/img/logo.png')}}" alt="ecoAgro">
+                </a>
+              </div>
+              <h3 id="signText" class="fw-300 text-9 mb-5">Sign in</h3>
               <form id="loginForm" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-2">
@@ -117,7 +147,7 @@
       
       <!-- Welcome Text
       ========================= -->
-      <div class="col-md-6 bg-light  order-1 order-md-2">
+      <div id="desktopLogo" class="col-md-6 bg-light  order-1 order-md-2">
         <div class="container h-100 d-flex flex-column">
           <div class="row g-0">
             <div class="col-11 col-md-10 mx-auto">
