@@ -55,8 +55,6 @@ License: For each use you must have a valid license purchased only from above li
 			  background-size:cover;
 			}
 			
-			
-			
 			/* This will hide the file input */
 			.imagepicker input {
 			  display:none;

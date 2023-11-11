@@ -263,83 +263,84 @@
               <form id="registerForm" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
 
-                <div id="step1">
-                  <h6>Choose a service you would like to access</h6>
-                  <!-- Add a grid of 4 div elements with icons inside -->
-                  <div class="grid">
-                      <div class="grid-item"
-                      data-aos="fade-up"
-                      data-aos-offset="200"
-                      data-aos-delay="10"
-                      data-aos-duration="1000"
-                      data-aos-easing="ease-in-out"
-                      data-aos-mirror="true">
-                          <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="advisory" checked>
-                          <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
-                              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                          </svg>
-                          </div>
-                          <p>Advisory</p>
-                      </div>
-                      <div class="grid-item"
-                      data-aos="fade-up"
-                      data-aos-offset="200"
-                      data-aos-delay="100"
-                      data-aos-duration="1000"
-                      data-aos-easing="ease-in-out"
-                      data-aos-mirror="true">
-                          <input type="radio" name="purpose" id="marketplace" class="purpose-radio-input" value="marketplace">
-                          <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
-                                <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
+                {{-- Step 1 --}}
+                  <div id="step1">
+                    <h6>Choose a service you would like to access</h6>
+                    <!-- Add a grid of 4 div elements with icons inside -->
+                    <div class="grid">
+                        <div class="grid-item"
+                        data-aos="fade-up"
+                        data-aos-offset="200"
+                        data-aos-delay="10"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-in-out"
+                        data-aos-mirror="true">
+                            <input type="radio" name="purpose" id="advisory" class="purpose-radio-input" value="advisory" checked>
+                            <div class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                             </svg>
-                          </div>
-                          <p>Marketplace</p>
-                      </div>
-                      <div class="grid-item"
-                      data-aos="fade-up"
-                      data-aos-offset="200"
-                      data-aos-delay="200"
-                      data-aos-duration="1000"
-                      data-aos-easing="ease-in-out"
-                      data-aos-mirror="true">
-                          <input type="radio" name="purpose" id="call-center" class="purpose-radio-input" value="call center">
-                          <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
-                                <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
-                            </svg>
-                          </div>
-                          <p>Call Center</p>
-                      </div>
-                      {{-- <div class="grid-item"
-                      data-aos="fade-up"
-                      data-aos-offset="200"
-                      data-aos-delay="300"
-                      data-aos-duration="1000"
-                      data-aos-easing="ease-in-out"
-                      data-aos-mirror="true">
-                          <input type="radio" name="purpose" id="payments-solution" class="purpose-radio-input" value="payment solution">
-                          <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
-                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
-                            </svg>
-                          </div>
-                          <p>Payments Solution</p>
-                      </div> --}}
+                            </div>
+                            <p>Advisory</p>
+                        </div>
+                        <div class="grid-item"
+                        data-aos="fade-up"
+                        data-aos-offset="200"
+                        data-aos-delay="100"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-in-out"
+                        data-aos-mirror="true">
+                            <input type="radio" name="purpose" id="marketplace" class="purpose-radio-input" value="marketplace">
+                            <div class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
+                              </svg>
+                            </div>
+                            <p>Marketplace</p>
+                        </div>
+                        <div class="grid-item"
+                        data-aos="fade-up"
+                        data-aos-offset="200"
+                        data-aos-delay="200"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-in-out"
+                        data-aos-mirror="true">
+                            <input type="radio" name="purpose" id="call-center" class="purpose-radio-input" value="call-center">
+                            <div class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                                  <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                              </svg>
+                            </div>
+                            <p>Call Center</p>
+                        </div>
+                        {{-- <div class="grid-item"
+                        data-aos="fade-up"
+                        data-aos-offset="200"
+                        data-aos-delay="300"
+                        data-aos-duration="1000"
+                        data-aos-easing="ease-in-out"
+                        data-aos-mirror="true">
+                            <input type="radio" name="purpose" id="payments-solution" class="purpose-radio-input" value="payment solution">
+                            <div class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
+                                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
+                              </svg>
+                            </div>
+                            <p>Payments Solution</p>
+                        </div> --}}
+                    </div>
+                    <div class="d-grid my-4">
+                      <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep2" type="button">Next</button>
+                    </div>
                   </div>
-                  <div class="d-grid my-4">
-                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep2" type="button">Next</button>
-                  </div>
-                </div>
 
-                <div id="step2">
-                  <div style="padding: 2%; border-radius: 4px; border: 1px solid #481616; color: #ffffff; background-color: #770614;">
-                    <small style="margin: 0;">
-                        <strong>Note:</strong> Your documents will need to undergo a review and approval process before you gain access to the advisory service.
-                    </small>
-                </div>
+                  <div id="step2">
+                    <div style="padding: 2%; border-radius: 4px; border: 1px solid #481616; color: #ffffff; background-color: #770614;">
+                      <small style="margin: 0;">
+                          <strong>Note:</strong> Your documents will need to undergo a review and approval process before you gain access to the advisory service.
+                      </small>
+                  </div>
                 
                   <br>
                   <h6>
@@ -412,6 +413,8 @@
                     <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep3" type="button">Next</button>
                   </div>
                 </div>
+
+                {{-- Step 3 --}}
                 <div id="step3">
                   @if ($destination !== null)
                   <a id="gotoStep22" type="button">
@@ -451,8 +454,42 @@
                     <button  style="background-color:#29444a" class="btn text-white shadow-none fw-400" id="gotoStep4" type="button">Next</button>
                   </div>
                 </div>
+
+                {{-- Step 4 --}}
                 <div id="step4">
                   <a id="gotoStep33" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                  </a>
+                  <div class="mb-3">
+                    <label for="seller_name" class="form-label fw-300">Seller/Business Name</label>
+                    <input type="text" name="seller_name"   class="form-control bg-light border-light" id="seller_name"  placeholder="Business/Seller Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_address" class="form-label fw-300">Business Address</label>
+                    <input type="text" name="seller_address" class="form-control bg-light border-light" id="seller_address"  placeholder="Address Location">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_phone" class="form-label fw-300">Seller Phone Number</label>
+                    <input type="text" name="seller_phone" class="form-control bg-light border-light" id="seller_phone"  placeholder="077 -- --- --">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_city" class="form-label fw-300">City</label>
+                    <input type="text" name="seller_city" class="form-control bg-light border-light" id="seller_city"  placeholder="Where are you found?">
+                  </div>
+                  <div class="form-check my-4">
+                    <input id="agree" name="is_farmer" class="form-check-input" type="checkbox">
+                    <label class="form-check-label text-2 fw-300" for="agree">I am a Farmer.</label>
+                  </div>
+                  <div class="d-grid my-4">
+                    <button  id="gotoStep5" style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="button">Next</button>
+                  </div>
+                </div>
+
+                {{-- Step 5 --}}
+                <div id="step5">
+                  <a id="gotoStep44" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
@@ -600,12 +637,15 @@ const step1 = document.getElementById('step1');
 const step2 = document.getElementById('step2');
 const step3 = document.getElementById('step3');
 const step4 = document.getElementById('step4');
+const step5 = document.getElementById('step5');
 const gotoStep1Button = document.getElementById('gotoStep1');
 const gotoStep2Button = document.getElementById('gotoStep2');
 const gotoStep22Button = document.getElementById('gotoStep22');
 const gotoStep33Button = document.getElementById('gotoStep33');
+const gotoStep44Button = document.getElementById('gotoStep44');
 const gotoStep3Button = document.getElementById('gotoStep3');
 const gotoStep4Button = document.getElementById('gotoStep4');
+const gotoStep5Button = document.getElementById('gotoStep5');
 
 // Initialize 
 const type = '{{$type}}';
@@ -613,12 +653,13 @@ const destination = '{{$destination}}';
 step2.classList.add('hidden');
 step3.classList.add('hidden');
 step4.classList.add('hidden');
+step5.classList.add('hidden');
 
 if (destination !== null) {
   if (destination == 'call-center') {
     const callCenter = document.getElementById("call-center");
     callCenter.checked = true;
-    if (type == 'farmer') {
+    if (type == 'seller') {
       step1.classList.add('hidden');
       step2.classList.add('hidden');
       step3.classList.remove('hidden');
@@ -630,7 +671,7 @@ if (destination !== null) {
   if (destination == 'marketplace') {
     const marketPlace = document.getElementById("marketplace");
     marketPlace.checked = true;
-    if (type == 'farmer') {
+    if (type == 'seller') {
       step1.classList.add('hidden');
       step2.classList.add('hidden');
       step3.classList.remove('hidden');
@@ -642,7 +683,7 @@ if (destination !== null) {
   if (destination == 'payment') {
     const paySolution = document.getElementById("payment-solution");
     paySolution.checked = true;
-    if (type == 'farmer') {
+    if (type == 'seller') {
       step1.classList.add('hidden');
       step2.classList.add('hidden');
       step3.classList.remove('hidden');
@@ -656,7 +697,7 @@ if (destination !== null) {
 
 // Event listener for "Next" button on Step 1
 gotoStep2Button.addEventListener('click', function () {
-  if (type == 'farmer') {
+  if (type == 'seller') {
       step1.classList.add('hidden');
       step2.classList.add('hidden');
       step3.classList.remove('hidden');
@@ -667,9 +708,9 @@ gotoStep2Button.addEventListener('click', function () {
 });
 
 if (destination !== null){
-  // Event listener for "Next" button on Step 1
+  // Event listener for "Next" button on Step 2
   gotoStep22Button.addEventListener('click', function () {
-    if (type == 'farmer') {
+    if (type == 'seller') {
       step3.classList.add('hidden');
       step2.classList.add('hidden');
       step1.classList.remove('hidden');
@@ -698,6 +739,15 @@ gotoStep33Button.addEventListener('click', function () {
 // Event listener for "Next" button on Step 2
 gotoStep4Button.addEventListener('click', function () {
     step3.classList.add('hidden');
+    step4.classList.remove('hidden');
+});
+// Event listener for "Next" button on Step 2
+gotoStep5Button.addEventListener('click', function () {
+    step4.classList.add('hidden');
+    step5.classList.remove('hidden');
+});
+gotoStep44Button.addEventListener('click', function () {
+    step5.classList.add('hidden');
     step4.classList.remove('hidden');
 });
 

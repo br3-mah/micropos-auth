@@ -24,7 +24,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         
-       try {
+    //    try {
 
         //  dd($input);
          Validator::make($input, [
@@ -123,10 +123,10 @@ class CreateNewUser implements CreatesNewUsers
         Mail::to($user->email)->send(new WelcomeEmail($user));
         Mail::to($admin->email)->send(new WelcomeEmail($user));
         return $user;
-       } catch (\Throwable $th) {
-        return redirect()->back();
-        // dd('Use a different email and try again. Failed to register with this email');
-       }
+    //    } catch (\Throwable $th) {
+    //     return redirect()->back();
+    //     // dd('Use a different email and try again. Failed to register with this email');
+    //    }
     }
 
     
