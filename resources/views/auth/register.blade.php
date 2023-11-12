@@ -456,9 +456,13 @@
                       </select>
                     </div>                    
                   </div>
+                  <div class="mb-3">
+                    <label for="occupation" class="form-label fw-300">Occupation</label>
+                    <input type="text" name="occupation" class="form-control bg-light border-light" placeholder="What do you do?">
+                  </div>
                   <div class="flex">
                     <div class="w-1/2">
-                      <label for="emailAddress" class="form-label fw-300">City</label>
+                      <label for="city" class="form-label fw-300">City</label>
                       <input type="text" name="city" class="form-control bg-light border-light" placeholder="City">
                     </div>
                     <div class="w-1/2">

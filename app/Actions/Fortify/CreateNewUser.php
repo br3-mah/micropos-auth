@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Mail\SellerRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeEmail;
 use App\Models\User;
@@ -24,9 +25,9 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         
-    //    try {
+       try {
 
-        //  dd($input);
+        //  dd($input['is_farmer'] ==);
          Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -43,6 +44,10 @@ class CreateNewUser implements CreatesNewUsers
                     'status' => true,
                     'password' => Hash::make($input['password']),
                     'global_secret_word' => $input['password'],
+
+                    'sex' => $input['sex'],
+                    'occupation' => $input['occupation'],
+                    'is_farmer' => $input['is_farmer'] == 'on' ? 1 : 0,
                 ]);
 
         $this->registerDetails($input, $user);
@@ -120,13 +125,21 @@ class CreateNewUser implements CreatesNewUsers
         }
               
         $admin = User::where('id', 1)->first(); 
+
+        // Send welcome email to user
         Mail::to($user->email)->send(new WelcomeEmail($user));
         Mail::to($admin->email)->send(new WelcomeEmail($user));
+
+        
+        if($input['type'] == 'seller'){
+            $this->registerSeller($user, $input);
+        }
+
         return $user;
-    //    } catch (\Throwable $th) {
-    //     return redirect()->back();
-    //     // dd('Use a different email and try again. Failed to register with this email');
-    //    }
+       } catch (\Throwable $th) {
+        // return redirect()->back();
+        dd($th);
+       }
     }
 
     
@@ -145,6 +158,21 @@ class CreateNewUser implements CreatesNewUsers
             'user_id' => $user->id,
         ]);
         return $result;
+    }
+
+
+    public function registerSeller($user, $data){
+        
+        $user->is_type = $data['type'];
+        $user->seller_name = $data['seller_name'];
+        $user->seller_address = $data['seller_address'];
+        $user->seller_city = $data['seller_city'];
+        $user->seller_phone = $data['seller_phone'];
+        $user->save();
+        // EnterSend email to admin of new seller
+
+        Mail::to('nyeleti.bremah@gmail.com')->send(new SellerRequest($user));
+        
     }
 
 }
