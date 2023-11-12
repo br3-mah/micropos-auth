@@ -4,8 +4,8 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Reset Password Email Template</title>
-    <meta name="description" content="Reset Password Email Template.">
+    <title>Seller Account Request</title>
+    <meta name="description" content="Seller Account Request">
     <style type="text/css">
         a:hover {text-decoration: underline !important;}
     </style>
@@ -17,10 +17,10 @@
         style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
         <tr>
             <td>
-                <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
+                <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="1"
                     align="center" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td style="height:80px;">&nbsp;</td>
+                        <td style="height:20px;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td style="text-align:center;">
@@ -30,7 +30,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="height:20px;">&nbsp;</td>
+                        <td style="height:10px;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>
@@ -44,7 +44,7 @@
                                         <h1 style="color:#2d1e1e; font-weight:800; font-weight:bold; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">You have
                                             new seller request
                                         </h1>
-                                        <p style="color: #455056">A new seller request has been submitted</p>
+                                        <p style="color: #455056">A new request to activate a seller account has been submitted</p>
                                         <br> 
                                         <br>                                        
                                         <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
@@ -58,14 +58,14 @@
                                                         <img width="100" src="https://auth.ecoagrozm.com/public/img/seller.png"> 
                                                     @endif
                                                     
-                                                    <p>
+                                                    <p><b>
                                                         @if($data['sex'] == 'Male')
                                                             Mr. 
                                                         @else
                                                             Mrs. 
                                                         @endif
                                                         {{ $data['name'] }}
-                                                    </p>
+                                                    </b></p>
 
                                                     <p>
                                                         {{ $data['occupation'] }}   
@@ -79,11 +79,11 @@
                                                     <p>{{ $data['phoneNumber'] }}</p>
                                                 </span>
                                                 <span style="margin-left:10%">
-                                                    <img width="100" src="https://auth.ecoagrozm.com/public/img/swap.png"> 
+                                                    <img width="50" src="https://auth.ecoagrozm.com/public/img/swap.png"> 
                                                 </span>
                                                 <span style="margin-left:10%">
-                                                    <img width="50" src="https://auth.ecoagrozm.com/public/img/shop.png">
-                                                    <p>{{ $data['seller_name'] }}</p>
+                                                    <img width="100" src="https://auth.ecoagrozm.com/public/img/shop.png">
+                                                    <p><b>{{ $data['seller_name'] }}</b></p>
                                                     <p>{{ $data['seller_address'] }}</p>
                                                     <p>{{ $data['seller_phone'] }}</p>
                                                     <p>{{ $data['seller_city'] }}</p>
@@ -113,17 +113,16 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.rakeshmandal.com</strong></p>
+                            <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.ecoagrozm.com</strong></p>
                         </td>
                     </tr>
                     <tr>
-                        <td style="height:80px;">&nbsp;</td>
+                        <td style="height:20px;">&nbsp;</td>
                     </tr>
                 </table>
             </td>
         </tr>
     </table>
-    
 </body>
 
 </html>
