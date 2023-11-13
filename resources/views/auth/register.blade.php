@@ -822,14 +822,14 @@ fileInput.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-mirror', 'false');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-mirror', 'false');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
             
                 <span class="grid-file-item">
@@ -904,13 +904,13 @@ fileInput1.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
@@ -983,13 +983,13 @@ fileInput2.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
@@ -1062,13 +1062,13 @@ fileInput3.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
@@ -1141,13 +1141,13 @@ fileInput4.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
