@@ -28,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         
-       try {
+    //    try {
 
         //  dd($input['is_farmer'] ==);
          Validator::make($input, [
@@ -142,10 +142,10 @@ class CreateNewUser implements CreatesNewUsers
         }
 
         return $user;
-       } catch (\Throwable $th) {
-        // return redirect()->back();
-        dd($th);
-       }
+    //    } catch (\Throwable $th) {
+    //     // return redirect()->back();
+    //     dd($th);
+    //    }
     }
 
     
