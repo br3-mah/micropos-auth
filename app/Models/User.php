@@ -90,6 +90,10 @@ class User extends Authenticatable
     public function user_files(){
         return $this->hasMany(UserFile::class);
     }
+    // Relationships
+    public function bpo(){
+        return $this->hasMany(BPO::class);
+    }
     
     public static function details($user_id){
         return UserDetail::where('user_id', $user_id)->first();

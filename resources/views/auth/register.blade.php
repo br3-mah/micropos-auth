@@ -214,6 +214,9 @@
 #mobileLogo {
     display: none; 
 }
+#main-wrapper{
+      padding: 0%;
+}
 @media only screen and (max-width: 767px) {
     #desktopLogo, #deskItem{
         display: none;
@@ -226,6 +229,9 @@
       padding: 4%;
     }
 }   
+/* #plate{
+  margin-top:-5%;
+} */
 </style>
 </head>
 <body>
@@ -256,14 +262,8 @@
     <div class="row g-0 min-vh-100"> 
       <!-- Register Form
       ========================= -->
-      <div class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
-        <div id="deskItem" class="container pt-5">
-          <div class="row gx-0">
-            <div class="col-11 col-md-10 mx-auto">
-              <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="https://auth.ecoagrozm.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
-            </div>
-          </div>
-        </div>
+      <div id="plate" class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
+   
         <div class="container my-auto py-5">
           @if(session('message'))
               <div class="alert alert-success">
@@ -271,7 +271,15 @@
               </div>
           @endif
           <div class="row gx-0">
+
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
+              <div id="deskItem" class="w-full ml-0 pt-2">
+                <div class="row gx-0">
+                  <div class="mx-12">
+                    <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="https://auth.ecoagrozm.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
+                  </div>
+                </div>
+              </div>
               {{-- <h3 class="fw-300 text-9 mb-2">Sign up</h3> --}}
               <x-validation-errors class="mb-4" />
               <form id="registerForm" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -350,6 +358,7 @@
                   </div>
 
                   <div id="step2">
+                    
                     <div style="padding: 2%; border-radius: 4px; border: 1px solid #481616; color: #ffffff; background-color: #770614;">
                       <small style="margin: 0;">
                           <strong>Note:</strong> Your documents will need to undergo a review and approval process before you gain access to the advisory service.
@@ -430,12 +439,12 @@
 
                 {{-- Step 3 --}}
                 <div id="step3">
-                  @if ($destination !== null )
-                  {{-- <a id="gotoStep22" type="button">
+                  @if ($type == 'seller' || $type == 'bpo' || $type == 'agronomist')
+                  <a id="gotoStep22" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
-                  </a> --}}
+                  </a>
                   @else
                   <div id="gotoStep22"></div>
                   @endif
@@ -443,24 +452,24 @@
                     <label for="phoneNumber" class="form-label fw-300">Phone Number</label>
                     <input type="text" name="phoneNumber" class="form-control bg-light border-light"  required placeholder="Phone Number">
                   </div>
-                  <div class="flex">
-                    <div class="w-1/2">
-                      <label for="dob" class="form-label fw-300">Date of Birth</label>
-                      <input type="date" name="dob" class="form-control bg-light border-light">
-                    </div>
-                    <div class="w-1/2">
+                  <div class="mb-3 w-full">
+                    <div class="w-1/4 mb-2">
                       <label for="sex" class="form-label fw-300">Sex</label>
-                      <select id="sex" name="sex" class="form-control bg-light border-light">
+                      <select id="sex" name="sex" class="w-full form-control bg-light border-light">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                       </select>
-                    </div>                    
+                    </div> 
+                    <div class="w-3/4">
+                      <label for="dob" class="form-label fw-300">Date of Birth</label>
+                      <input type="date" name="dob" class="form-control bg-light border-light">
+                    </div>                   
                   </div>
                   <div class="mb-3">
                     <label for="occupation" class="form-label fw-300">Occupation</label>
                     <input type="text" name="occupation" class="form-control bg-light border-light" placeholder="What do you do?">
                   </div>
-                  <div class="flex">
+                  <div class="d-flex gap-2">
                     <div class="w-1/2">
                       <label for="city" class="form-label fw-300">City</label>
                       <input type="text" name="city" class="form-control bg-light border-light" placeholder="City">
@@ -476,6 +485,7 @@
                 </div>
 
                 {{-- Step 4 --}}
+                @if($type == 'seller')
                 <div id="step4">
                   <a id="gotoStep33" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -506,6 +516,48 @@
                     <button  id="gotoStep5" style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="button">Next</button>
                   </div>
                 </div>
+                @elseif($type == 'bpo')
+                <div id="step4">
+                  <a id="gotoStep33" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                  </a>
+                  <div class="mb-3">
+                    <label for="seller_name" class="form-label fw-300">Company Name</label>
+                    <input type="text" name="c_name"  class="form-control bg-light border-light"  placeholder="Company Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_address" class="form-label fw-300">Company Email Address</label>
+                    <input type="text" name="c_email" class="form-control bg-light border-light"   placeholder="Address Location">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_address" class="form-label fw-300">Company Physical Address</label>
+                    <input type="text" name="c_address" class="form-control bg-light border-light"  placeholder="Address Location">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_phone" class="form-label fw-300">Company Contact Phone Number</label>
+                    <input type="text" name="c_phone" class="form-control bg-light border-light"  placeholder="077 -- --- --">
+                  </div>
+               
+                  <div class="d-flex gap-2">
+                    <div class="w-1/2">
+                      <label for="province" class="form-label fw-300">Country</label>
+                      <input type="text" name="c_country" class="form-control bg-light border-light" placeholder="Which country is the company based">
+                    </div>
+                    <div class="w-1/2">
+                      <label for="city" class="form-label fw-300">City</label>
+                      <input type="text" name="c_city" class="form-control bg-light border-light" placeholder="Which city is the company based">
+                    </div>
+                  </div>
+                  
+                    <input id="agree" value="off" name="is_farmer" class="form-check-input" type="hidden">
+                    
+                  <div class="d-grid my-4">
+                    <button  id="gotoStep5" style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="button">Next</button>
+                  </div>
+                </div>
+                @endif
 
                 {{-- Step 5 --}}
                 <div id="step5">

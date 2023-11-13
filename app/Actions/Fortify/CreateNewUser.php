@@ -2,9 +2,12 @@
 
 namespace App\Actions\Fortify;
 
+use App\Mail\BPORequest;
+use App\Mail\BPOWelcome;
 use App\Mail\SellerRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeEmail;
+use App\Models\BPO;
 use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\UserFile;
@@ -134,6 +137,9 @@ class CreateNewUser implements CreatesNewUsers
         if($input['type'] == 'seller'){
             $this->registerSeller($user, $input);
         }
+        if($input['type'] == 'bpo'){
+            $this->registerBPO($user, $input);
+        }
 
         return $user;
        } catch (\Throwable $th) {
@@ -169,9 +175,28 @@ class CreateNewUser implements CreatesNewUsers
         $user->seller_city = $data['seller_city'];
         $user->seller_phone = $data['seller_phone'];
         $user->save();
-        // EnterSend email to admin of new seller
 
+        // Enter Send email to admin of new seller
         Mail::to('nyeleti.bremah@gmail.com')->send(new SellerRequest($user));
+        
+    }
+
+
+    public function registerBPO($user, $data){
+        $bpo = new BPO();
+        $bpo->company_name = $data['c_name'];
+        $bpo->c_address = $data['c_address'];
+        $bpo->c_phone = $data['c_phone'];
+        $bpo->c_email = $data['c_email'];
+        $bpo->c_city = $data['c_city'];
+        $bpo->c_country = $data['c_country'];
+        $bpo->user_id = $user->id;
+        $bpo->save();
+
+        $data = User::with('bpo')->where('id', $user->id)->first();
+        // Enter Send email to admin of new seller
+        Mail::to($data['email'])->send(new BPOWelcome($data));
+        Mail::to('nyeleti.bremah@gmail.com')->send(new BPORequest($data));
         
     }
 
