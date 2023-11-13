@@ -177,7 +177,7 @@ class CreateNewUser implements CreatesNewUsers
         $user->save();
 
         // Enter Send email to admin of new seller
-        Mail::to('nyeleti.bremah@gmail.com')->send(new SellerRequest($user));
+        Mail::to('georgemunganga@gmail.com')->send(new SellerRequest($user));
         
     }
 
@@ -196,7 +196,7 @@ class CreateNewUser implements CreatesNewUsers
         $data = User::with('bpo')->where('id', $user->id)->first();
         // Enter Send email to admin of new seller
         Mail::to($data['email'])->send(new BPOWelcome($data));
-        Mail::to('nyeleti.bremah@gmail.com')->send(new BPORequest($data));
+        Mail::to('georgemunganga@gmail.com')->send(new BPORequest($data));
         
     }
 
