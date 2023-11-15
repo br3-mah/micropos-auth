@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Traits\UserTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -16,7 +17,7 @@ class DashboardController extends Controller
     {
         // important
         // dd('Destination: '.auth()->user()->current_destination);
-        $user = auth()->user();
+        $user = User::where('id', auth()->user()->id)->with('bpo')->first();
         $userData = json_encode($user);
 
         // Statistics
@@ -33,22 +34,20 @@ class DashboardController extends Controller
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
                 case 'marketplace':
-                    $destination = 'https://market.ecoagrozm.com/login?user=' . urlencode($userData);
                     // $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
+                    $destination = 'https://market.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call-center':
-                    
                     // $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
-                    // $destination = 'https://callcenter.ecoagrozm.com/';
                     $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call center':
                     
-                    // $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
+                    // $destination = 'http://localhost/eco-call/login?user='. urlencode($userData);
                     $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;

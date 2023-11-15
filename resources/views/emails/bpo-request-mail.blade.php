@@ -8,7 +8,6 @@
     <meta name="description" content="Seller Account Request">
     <style type="text/css">
         a:hover {text-decoration: underline !important;}
-
     </style>
 </head>
 

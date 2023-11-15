@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,6 +26,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'global_key',
         'name',
         'email',
         'password',
@@ -31,12 +34,13 @@ class User extends Authenticatable
         'current_destination',
         'global_secret_word',
         'customer_group', //advisory, call center, payment solution, marketplace, admin, none
-        'type', //admin, farmer, agronomist, guest
+        'type', //admin, agronomist, bpo
         'sex',
         'occupation',
         'status',
-        'is_approved',
-        "is_type",
+        'is_approved', //seller_approval
+        'is_bpo_approved', //bpo approval
+        "is_type", //buyer or seller
         "is_farmer",
         "seller_name",
         "seller_address",
@@ -79,6 +83,18 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    // Booting
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            // Generate a unique key using UUID
+            $user->global_key = (string) Uuid::uuid4();
+        });
+    }
 
 
 

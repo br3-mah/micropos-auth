@@ -557,6 +557,12 @@
                     <button  id="gotoStep5" style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="button">Next</button>
                   </div>
                 </div>
+                @else
+                
+                <div id="step4"></div>
+                <div id="gotoStep33"></div>
+                <div id="gotoStep5"></div>
+                <input id="agree" value="off" name="is_farmer" class="form-check-input" type="hidden">
                 @endif
 
                 {{-- Step 5 --}}
@@ -810,8 +816,14 @@ gotoStep33Button.addEventListener('click', function () {
 });
 // Event listener for "Next" button on Step 2
 gotoStep4Button.addEventListener('click', function () {
-    step3.classList.add('hidden');
-    step4.classList.remove('hidden');
+    if(type == 'agronomist'){
+      step3.classList.add('hidden');
+      step4.classList.add('hidden');
+      step5.classList.remove('hidden');
+    }else{
+      step3.classList.add('hidden');
+      step4.classList.remove('hidden');
+    }
 });
 // Event listener for "Next" button on Step 2
 gotoStep5Button.addEventListener('click', function () {
