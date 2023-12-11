@@ -34,28 +34,27 @@ class DashboardController extends Controller
         if(auth()->check()){
             switch (auth()->user()->current_destination) {
                 case 'marketplace':
-                    // $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
-                    $destination = 'https://market.ecoagrozm.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-market/login?user=' . urlencode($userData);
+                    // $destination = 'https://market.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call-center':
-                    // $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
-                    $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
+                    // $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
                 
                 case 'call center':
                     
-                    // $destination = 'http://localhost/eco-call/login?user='. urlencode($userData);
-                    $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-call/login?user='. urlencode($userData);
+                    // $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
             
                 case 'website':
-                    
-                    // $destination = 'http://localhost/eco-web?user=' . urlencode($userData);
-                    $destination = 'https://ecoagrozm.com?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-web?user=' . urlencode($userData);
+                    // $destination = 'https://ecoagrozm.com?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
@@ -70,9 +69,8 @@ class DashboardController extends Controller
                 break;
         
                 case 'advisory':
-                    // $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
-                    // $destination = 'https://callcenter.ecoagrozm.com/';
-                    $destination = 'https://callcenter.ecoagrozm.com/login?user=' . urlencode($userData);
+                    $destination = 'http://localhost/eco-call/login?user=' . urlencode($userData);
+                    // $destination = 'https://callcenter..com/login?user=' . urlencode($userData);
                     return Redirect::away($destination);
                 break;
         
@@ -92,8 +90,8 @@ class DashboardController extends Controller
                             'total_farmers' => $total_farmers
                         ]);
                     }else{
-                        // $destination = 'http://localhost/eco-web?user=' . urlencode($userData);
-                        $destination = 'https://ecoagrozm.com?user=' . urlencode($userData);
+                        $destination = 'http://localhost/eco-web?user=' . urlencode($userData);
+                        // $destination = 'https://ecoagrozm.com?user=' . urlencode($userData);
                         return Redirect::away($destination);
                     }
                 break;
