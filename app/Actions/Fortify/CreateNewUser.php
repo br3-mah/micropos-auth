@@ -177,26 +177,31 @@ class CreateNewUser implements CreatesNewUsers
         $user->save();
 
         // Enter Send email to admin of new seller
-        // Mail::to('nyeleti.bremah@gmail.com')->send(new SellerRequest($user));
+        Mail::to('info@ecogrozambia.com')->send(new SellerRequest($user));
         
     }
 
 
     public function registerBPO($user, $data){
-        $bpo = new BPO();
-        $bpo->company_name = $data['c_name'];
-        $bpo->c_address = $data['c_address'];
-        $bpo->c_phone = $data['c_phone'];
-        $bpo->c_email = $data['c_email'];
-        $bpo->c_city = $data['c_city'];
-        $bpo->c_country = $data['c_country'];
-        $bpo->user_id = $user->id;
-        $bpo->save();
-
-        $data = User::with('bpo')->where('id', $user->id)->first();
-        // Enter Send email to admin of new seller
-        // Mail::to($data['email'])->send(new BPOWelcome($data));
-        // Mail::to('nyeleti.bremah@gmail.com')->send(new BPORequest($data));
+        try {
+            $bpo = new BPO();
+            $bpo->company_name = $data['c_name'];
+            $bpo->c_address = $data['c_address'];
+            $bpo->c_phone = $data['c_phone'];
+            $bpo->c_email = $data['c_email'];
+            $bpo->c_city = $data['c_city'];
+            $bpo->c_country = $data['c_country'];
+            $bpo->user_id = $user->id;
+            $bpo->save();
+    
+            $dt = User::with('bpo')->where('id', $user->id)->first();
+            // Enter Send email to admin of new seller
+            Mail::to($dt['email'])->send(new BPOWelcome($data));
+            Mail::to('info@ecogrozambia.com')->send(new BPORequest($data));
+            return true;
+        } catch (\Throwable $th) {
+            return true;
+        }
         
     }
 
