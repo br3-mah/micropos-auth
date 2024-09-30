@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Mail\BPORequest;
 use App\Mail\BPOWelcome;
+use App\Mail\OTPEmail;
 use App\Mail\SellerRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeEmail;
@@ -25,128 +26,176 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @param  array<string, string>  $input
      */
-    public function create(array $input): User
-    {
-        
-    //    try {
-
-        //  dd($input['is_farmer'] ==);
+    
+     public function create(array $input): User
+     {
+         // Validate
          Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => $this->passwordRules(),
-            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
-        ])->validate();
+             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+         ])->validate();
+ 
+         // Generate a unique OTP code
+         $otpCode = rand(10000, 99999); // Generate a 5-digit OTP code
+ 
+         // Save it in the Database
+         $user = User::create([
+             'email' => $input['email'],
+             'otp' => $otpCode, // Store OTP code in the database
+             'otp_verified' => 0,
+         ]);
+ 
+         // Dispatch Email
+         if (!empty($input['source'])) {
+             $user->current_source = $input['source'];
+             $user->current_destination = $input['purpose'];
+             $user->save();
+         } else {
+             $user->current_destination = $input['purpose'];
+             $user->save();
+         }
+ 
+         $admin = User::where('id', 1)->first(); 
+ 
+         // Send welcome email to user and admin notice
+         Mail::to($user->email)->send(new WelcomeEmail($user));
+         Mail::to($admin->email)->send(new WelcomeEmail($user));
+ 
+         // Send OTP email to the user
+         Mail::to($user->email)->send(new OTPEmail($user));
+ 
+         if ($input['type'] == 'seller') {
+             $this->registerSeller($user, $input);
+         }
+         if ($input['type'] == 'bpo') {
+             $this->registerBPO($user, $input);
+         }
+ 
+         return $user;
+     }
+    
+    
+    // public function createBKP(array $input): User
+    // {
+        
+    // //    try {
 
-        $user = User::create([
-                    'name' => $input['name'],
-                    'email' => $input['email'],
-                    'email_verified_at' => now(),
-                    'customer_group' => $input['purpose'], //replace with og
-                    'type' => $input['type'] ?? 'guest', //replace with og
-                    'status' => true,
-                    'password' => Hash::make($input['password']),
-                    'global_secret_word' => $input['password'],
+    //     //  dd($input['is_farmer'] ==);
+    //      Validator::make($input, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'password' => $this->passwordRules(),
+    //         'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+    //     ])->validate();
 
-                    'sex' => $input['sex'],
-                    'occupation' => $input['occupation'],
-                    'is_farmer' => $input['is_farmer'] == 'on' ? 1 : 0,
-                ]);
+    //     $user = User::create([
+    //                 'name' => $input['name'],
+    //                 'email' => $input['email'],
+    //                 'email_verified_at' => now(),
+    //                 'customer_group' => $input['purpose'], //replace with og
+    //                 'type' => $input['type'] ?? 'guest', //replace with og
+    //                 'status' => true,
+    //                 'password' => Hash::make($input['password']),
+    //                 'global_secret_word' => $input['password'],
 
-        $this->registerDetails($input, $user);
-        // Handle file uploads 
-        //::Bad Bug:: Unable to save all other multiple
-        // dd(array_key_exists('files', $input));
-        if (array_key_exists('files', $input)) {
-            $file = $input['files'];
-            // Store the file in the storage/app/public directory (you can change the path as needed)
-            $path = $file->store('public');
+    //                 'sex' => $input['sex'],
+    //                 'occupation' => $input['occupation'],
+    //                 'is_farmer' => $input['is_farmer'] == 'on' ? 1 : 0,
+    //             ]);
+
+    //     $this->registerDetails($input, $user);
+    //     // Handle file uploads 
+    //     //::Bad Bug:: Unable to save all other multiple
+    //     // dd(array_key_exists('files', $input));
+    //     if (array_key_exists('files', $input)) {
+    //         $file = $input['files'];
+    //         // Store the file in the storage/app/public directory (you can change the path as needed)
+    //         $path = $file->store('public');
             
-            // Save the file path in the database if you have a table for file records
-            UserFile::create([
-                'name' => $file->getClientOriginalName(),
-                'path' => $path,
-                'user_id' => $user->id
-            ]);
-        }
-        if (array_key_exists('files1', $input) ) {
-                $file1 = $input['files1'];
-                // Store the file in the storage/app/public directory (you can change the path as needed)
-                $path = $file1->store('public');
+    //         // Save the file path in the database if you have a table for file records
+    //         UserFile::create([
+    //             'name' => $file->getClientOriginalName(),
+    //             'path' => $path,
+    //             'user_id' => $user->id
+    //         ]);
+    //     }
+    //     if (array_key_exists('files1', $input) ) {
+    //             $file1 = $input['files1'];
+    //             // Store the file in the storage/app/public directory (you can change the path as needed)
+    //             $path = $file1->store('public');
                 
-                // Save the file path in the database if you have a table for file records
-                UserFile::create([
-                    'name' => $file1->getClientOriginalName(),
-                    'path' => $path,
-                    'user_id' => $user->id
-                ]);
-        }
-        if (array_key_exists('files2', $input) ) {
-                $file2 = $input['files2'];
-                // Store the file in the storage/app/public directory (you can change the path as needed)
-                $path = $file2->store('public');
+    //             // Save the file path in the database if you have a table for file records
+    //             UserFile::create([
+    //                 'name' => $file1->getClientOriginalName(),
+    //                 'path' => $path,
+    //                 'user_id' => $user->id
+    //             ]);
+    //     }
+    //     if (array_key_exists('files2', $input) ) {
+    //             $file2 = $input['files2'];
+    //             // Store the file in the storage/app/public directory (you can change the path as needed)
+    //             $path = $file2->store('public');
                 
-                // Save the file path in the database if you have a table for file records
-                UserFile::create([
-                    'name' => $file2->getClientOriginalName(),
-                    'path' => $path,
-                    'user_id' => $user->id
-                ]);
-        }
-        if (array_key_exists('files3', $input) ) {
-                $file3 = $input['files3'];
-                // Store the file in the storage/app/public directory (you can change the path as needed)
-                $path = $file3->store('public');
+    //             // Save the file path in the database if you have a table for file records
+    //             UserFile::create([
+    //                 'name' => $file2->getClientOriginalName(),
+    //                 'path' => $path,
+    //                 'user_id' => $user->id
+    //             ]);
+    //     }
+    //     if (array_key_exists('files3', $input) ) {
+    //             $file3 = $input['files3'];
+    //             // Store the file in the storage/app/public directory (you can change the path as needed)
+    //             $path = $file3->store('public');
                 
-                // Save the file path in the database if you have a table for file records
-                UserFile::create([
-                    'name' => $file3->getClientOriginalName(),
-                    'path' => $path,
-                    'user_id' => $user->id
-                ]);
-        }
-        if (array_key_exists('files4', $input) ) {
-                $file4 = $input['files4'];
-                // Store the file in the storage/app/public directory (you can change the path as needed)
-                $path = $file4->store('public');
+    //             // Save the file path in the database if you have a table for file records
+    //             UserFile::create([
+    //                 'name' => $file3->getClientOriginalName(),
+    //                 'path' => $path,
+    //                 'user_id' => $user->id
+    //             ]);
+    //     }
+    //     if (array_key_exists('files4', $input) ) {
+    //             $file4 = $input['files4'];
+    //             // Store the file in the storage/app/public directory (you can change the path as needed)
+    //             $path = $file4->store('public');
                 
-                // Save the file path in the database if you have a table for file records
-                UserFile::create([
-                    'name' => $file4->getClientOriginalName(),
-                    'path' => $path,
-                    'user_id' => $user->id
-                ]);
-        }
+    //             // Save the file path in the database if you have a table for file records
+    //             UserFile::create([
+    //                 'name' => $file4->getClientOriginalName(),
+    //                 'path' => $path,
+    //                 'user_id' => $user->id
+    //             ]);
+    //     }
 
-        if (!empty($input['source'])) {
-            $user->current_source = $input['source'];
-            $user->current_destination = $input['purpose'];
-            $user->save();
-        }else{
-            $user->current_destination = $input['purpose'];
-            $user->save();
-        }
+    //     if (!empty($input['source'])) {
+    //         $user->current_source = $input['source'];
+    //         $user->current_destination = $input['purpose'];
+    //         $user->save();
+    //     }else{
+    //         $user->current_destination = $input['purpose'];
+    //         $user->save();
+    //     }
               
-        $admin = User::where('id', 1)->first(); 
+    //     $admin = User::where('id', 1)->first(); 
 
-        // Send welcome email to user
-        // Mail::to($user->email)->send(new WelcomeEmail($user));
-        // Mail::to($admin->email)->send(new WelcomeEmail($user));
+    //     // Send welcome email to user
+    //     // Mail::to($user->email)->send(new WelcomeEmail($user));
+    //     // Mail::to($admin->email)->send(new WelcomeEmail($user));
 
         
-        if($input['type'] == 'seller'){
-            $this->registerSeller($user, $input);
-        }
-        if($input['type'] == 'bpo'){
-            $this->registerBPO($user, $input);
-        }
+    //     if($input['type'] == 'seller'){
+    //         $this->registerSeller($user, $input);
+    //     }
+    //     if($input['type'] == 'bpo'){
+    //         $this->registerBPO($user, $input);
+    //     }
 
-        return $user;
-    //    } catch (\Throwable $th) {
-    //     // return redirect()->back();
-    //     dd($th);
-    //    }
-    }
+    //     return $user;
+    // //    } catch (\Throwable $th) {
+    // //     // return redirect()->back();
+    // //     dd($th);
+    // //    }
+    // }
 
     
     public function registerDetails($data, $user){

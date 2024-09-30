@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\ContactUsController;
+use App\Http\Controllers\APIs\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/send-otp', [AuthController::class, 'sendOtp']);
+Route::post('/resend-otp', [AuthController::class, 'reSendOtp']);
+
+Route::post('/verify-otp', [AuthController::class, 'verify'])->name('verify-otp');
+Route::post('/select-account-type', [AuthController::class, 'acc_type'])->name('account-type');
+Route::post('/save-account-details', [AuthController::class, 'save_acc'])->name('save_acc');
+
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/contact-us', [ContactUsController::class, 'store']);

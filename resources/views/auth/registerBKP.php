@@ -211,7 +211,27 @@
 .w-full{
   width: 100% !important;
 }
+#mobileLogo {
+    display: none; 
+}
+#main-wrapper{
+      padding: 0%;
+}
+@media only screen and (max-width: 767px) {
+    #desktopLogo, #deskItem{
+        display: none;
+    }      
+    #mobileLogo {
+        display: block; 
+    }
 
+    #main-wrapper{
+      padding: 4%;
+    }
+}   
+/* #plate{
+  margin-top:-5%;
+} */
 </style>
 </head>
 <body>
@@ -238,27 +258,29 @@
 @endphp
 
 <div id="main-wrapper" class="oxyy-login-register">
-  <div class="container-fluid px-0">
+  <div class="px-0 container-fluid">
     <div class="row g-0 min-vh-100"> 
       <!-- Register Form
       ========================= -->
-      <div class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
-        <div class="container pt-5">
-          <div class="row gx-0">
-            <div class="col-11 col-md-10 mx-auto">
-              <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="https://auth.ecoagrozm.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="container my-auto py-5">
+      <div id="plate" class="order-2 col-md-6 d-flex flex-column align-items-center order-md-1">
+   
+        <div class="container py-5 my-auto">
           @if(session('message'))
               <div class="alert alert-success">
                   {{ session('message') }}
               </div>
           @endif
           <div class="row gx-0">
-            <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
-              {{-- <h3 class="fw-300 text-9 mb-2">Sign up</h3> --}}
+
+            <div class="mx-auto col-11 col-md-10 col-lg-9 col-xl-8">
+              <div id="deskItem" class="w-full pt-2 ml-0">
+                <div class="row gx-0">
+                  <div class="mx-12">
+                    <p class="text-end text-2 text-muted fw-300">Already a member? <a class="fw-300" href="https://auth.ecoagrozm.com/login?source={{$source}}&destination={{$destination}}">Sign in now</a></p>
+                  </div>
+                </div>
+              </div>
+              {{-- <h3 class="mb-2 fw-300 text-9">Sign up</h3> --}}
               <x-validation-errors class="mb-4" />
               <form id="registerForm" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
@@ -330,12 +352,13 @@
                             <p>Payments Solution</p>
                         </div> --}}
                     </div>
-                    <div class="d-grid my-4">
-                      <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep2" type="button">Next</button>
+                    <div class="my-4 d-grid">
+                      <button style="background-color:#29444a;" class="text-white shadow-none btn fw-400" id="gotoStep2" type="button">Next</button>
                     </div>
                   </div>
 
                   <div id="step2">
+                    
                     <div style="padding: 2%; border-radius: 4px; border: 1px solid #481616; color: #ffffff; background-color: #770614;">
                       <small style="margin: 0;">
                           <strong>Note:</strong> Your documents will need to undergo a review and approval process before you gain access to the advisory service.
@@ -408,41 +431,47 @@
                           <ul class="file-list"></ul>
                       </div>
                   </div>
-                  <div class="d-grid flex gap-2 my-4">
-                    {{-- <button class="btn btn-dark shadow-none fw-400" id="gotoStep1" type="button">Back</button> --}}
-                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" id="gotoStep3" type="button">Next</button>
+                  <div class="flex gap-2 my-4 d-grid">
+                    {{-- <button class="shadow-none btn btn-dark fw-400" id="gotoStep1" type="button">Back</button> --}}
+                    <button style="background-color:#29444a;" class="text-white shadow-none btn fw-400" id="gotoStep3" type="button">Next</button>
                   </div>
                 </div>
 
                 {{-- Step 3 --}}
                 <div id="step3">
-                  @if ($destination !== null)
+                  @if ($type == 'seller' || $type == 'bpo' || $type == 'agronomist')
                   <a id="gotoStep22" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
                   </a>
+                  @else
+                  <div id="gotoStep22"></div>
                   @endif
                   <div class="mb-3">
                     <label for="phoneNumber" class="form-label fw-300">Phone Number</label>
                     <input type="text" name="phoneNumber" class="form-control bg-light border-light"  required placeholder="Phone Number">
                   </div>
-                  <div class="flex">
-                    <div class="w-1/2">
-                      <label for="dob" class="form-label fw-300">Date of Birth</label>
-                      <input type="date" name="dob" class="form-control bg-light border-light">
-                    </div>
-                    <div class="w-1/2">
+                  <div class="w-full mb-3">
+                    <div class="w-1/4 mb-2">
                       <label for="sex" class="form-label fw-300">Sex</label>
-                      <select id="sex" name="sex" class="form-control bg-light border-light">
+                      <select id="sex" name="sex" class="w-full form-control bg-light border-light">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                       </select>
-                    </div>                    
+                    </div> 
+                    <div class="w-3/4">
+                      <label for="dob" class="form-label fw-300">Date of Birth</label>
+                      <input type="date" name="dob" class="form-control bg-light border-light">
+                    </div>                   
                   </div>
-                  <div class="flex">
+                  <div class="mb-3">
+                    <label for="occupation" class="form-label fw-300">Occupation</label>
+                    <input type="text" name="occupation" class="form-control bg-light border-light" placeholder="What do you do?">
+                  </div>
+                  <div class="gap-2 d-flex">
                     <div class="w-1/2">
-                      <label for="emailAddress" class="form-label fw-300">City</label>
+                      <label for="city" class="form-label fw-300">City</label>
                       <input type="text" name="city" class="form-control bg-light border-light" placeholder="City">
                     </div>
                     <div class="w-1/2">
@@ -450,12 +479,13 @@
                       <input type="text" name="province" class="form-control bg-light border-light" placeholder="Province">
                     </div>
                   </div>
-                  <div class="d-grid flex gap-2 my-4">
-                    <button  style="background-color:#29444a" class="btn text-white shadow-none fw-400" id="gotoStep4" type="button">Next</button>
+                  <div class="flex gap-2 my-4 d-grid">
+                    <button  style="background-color:#29444a" class="text-white shadow-none btn fw-400" id="gotoStep4" type="button">Next</button>
                   </div>
                 </div>
 
                 {{-- Step 4 --}}
+                @if($type == 'seller')
                 <div id="step4">
                   <a id="gotoStep33" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -463,33 +493,81 @@
                     </svg>
                   </a>
                   <div class="mb-3">
-                    <label for="fullName" class="form-label fw-300">Seller/Business Name</label>
-                    <input type="text" name="name" :value="old('name')" autofocus autocomplete="name"  class="form-control bg-light border-light" id="fullName" required placeholder="Enter Your Name">
+                    <label for="seller_name" class="form-label fw-300">Seller/Business Name</label>
+                    <input type="text" name="seller_name"   class="form-control bg-light border-light" id="seller_name"  placeholder="Business/Seller Name">
                   </div>
                   <div class="mb-3">
-                    <label for="emailAddress" class="form-label fw-300">Business Address</label>
-                    <input type="email" name="email" :value="old('email')" autocomplete="username" class="form-control bg-light border-light" id="emailAddress" required placeholder="Enter Your Email">
+                    <label for="seller_address" class="form-label fw-300">Business Address</label>
+                    <input type="text" name="seller_address" class="form-control bg-light border-light" id="seller_address"  placeholder="Address Location">
                   </div>
                   <div class="mb-3">
-                    <label for="loginPassword" class="form-label fw-300">Seller Phone Number</label>
-                    <input type="password" name="password" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword" required placeholder="Enter Password">
+                    <label for="seller_phone" class="form-label fw-300">Seller Phone Number</label>
+                    <input type="text" name="seller_phone" class="form-control bg-light border-light" id="seller_phone"  placeholder="077 -- --- --">
                   </div>
                   <div class="mb-3">
-                    <label for="loginPassword2" class="form-label fw-300">Seller Email Address</label>
-                    <input type="password" name="password_confirmation" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword2" required placeholder="Enter Password">
+                    <label for="seller_city" class="form-label fw-300">City</label>
+                    <input type="text" name="seller_city" class="form-control bg-light border-light" id="seller_city"  placeholder="Where are you found?">
                   </div>
-                  <div class="form-check my-4">
-                    <input id="agree" name="terms" class="form-check-input" type="checkbox">
+                  <div class="my-4 form-check">
+                    <input id="agree" name="is_farmer" class="form-check-input" type="checkbox">
                     <label class="form-check-label text-2 fw-300" for="agree">I am a Farmer.</label>
                   </div>
-                  <div class="d-grid my-4">
-                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="button">Next</button>
+                  <div class="my-4 d-grid">
+                    <button  id="gotoStep5" style="background-color:#29444a;" class="text-white shadow-none btn fw-400" type="button">Next</button>
                   </div>
                 </div>
+                @elseif($type == 'bpo')
+                <div id="step4">
+                  <a id="gotoStep33" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                  </a>
+                  <div class="mb-3">
+                    <label for="seller_name" class="form-label fw-300">Company Name</label>
+                    <input type="text" name="c_name"  class="form-control bg-light border-light"  placeholder="Company Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_address" class="form-label fw-300">Company Email Address</label>
+                    <input type="text" name="c_email" class="form-control bg-light border-light"   placeholder="Address Location">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_address" class="form-label fw-300">Company Physical Address</label>
+                    <input type="text" name="c_address" class="form-control bg-light border-light"  placeholder="Address Location">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seller_phone" class="form-label fw-300">Company Contact Phone Number</label>
+                    <input type="text" name="c_phone" class="form-control bg-light border-light"  placeholder="077 -- --- --">
+                  </div>
+               
+                  <div class="gap-2 d-flex">
+                    <div class="w-1/2">
+                      <label for="province" class="form-label fw-300">Country</label>
+                      <input type="text" name="c_country" class="form-control bg-light border-light" placeholder="Which country is the company based">
+                    </div>
+                    <div class="w-1/2">
+                      <label for="city" class="form-label fw-300">City</label>
+                      <input type="text" name="c_city" class="form-control bg-light border-light" placeholder="Which city is the company based">
+                    </div>
+                  </div>
+                  
+                    <input id="agree" value="off" name="is_farmer" class="form-check-input" type="hidden">
+                    
+                  <div class="my-4 d-grid">
+                    <button  id="gotoStep5" style="background-color:#29444a;" class="text-white shadow-none btn fw-400" type="button">Next</button>
+                  </div>
+                </div>
+                @else
+                
+                <div id="step4"></div>
+                <div id="gotoStep33"></div>
+                <div id="gotoStep5"></div>
+                <input id="agree" value="off" name="is_farmer" class="form-check-input" type="hidden">
+                @endif
 
                 {{-- Step 5 --}}
-                {{-- <div id="step5">
-                  <a id="gotoStep4" type="button">
+                <div id="step5">
+                  <a id="gotoStep44" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
@@ -510,28 +588,28 @@
                     <label for="loginPassword2" class="form-label fw-300">Confirm Password</label>
                     <input type="password" name="password_confirmation" autocomplete="new-password" class="form-control bg-light border-light" id="loginPassword2" required placeholder="Enter Password">
                   </div>
-                  <div class="form-check my-4">
+                  <div class="my-4 form-check">
                     <input id="agree" name="terms" class="form-check-input" type="checkbox">
                     <label class="form-check-label text-2 fw-300" for="agree">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label>
                   </div>
                   <input type="hidden" name="destination" value="{{ $destination ?? '' }}">
                   <input type="hidden" name="type" value="{{ $type ?? '' }}">
-                  <div class="d-grid my-4">
-                    <button style="background-color:#29444a;" class="btn text-white shadow-none fw-400" type="submit">Sign Up</button>
+                  <div class="my-4 d-grid">
+                    <button style="background-color:#29444a;" class="text-white shadow-none btn fw-400" type="submit">Sign Up</button>
                   </div>
-                </div> --}}
+                </div>
               </form>
-              {{-- <div class="d-flex align-items-center my-4">
+              {{-- <div class="my-4 d-flex align-items-center">
                 <hr class="flex-grow-1">
                 <span class="mx-2 text-2 text-muted fw-300">Or continue with</span>
                 <hr class="flex-grow-1">
               </div>
               <div class="row gx-3">
                 <div class="col-6 d-grid">
-                  <button type="button" class="btn btn-light btn-sm fw-400 shadow-none border"><span class="me-2"><i class="fab fa-google"></i></span>Google</button>
+                  <button type="button" class="border shadow-none btn btn-light btn-sm fw-400"><span class="me-2"><i class="fab fa-google"></i></span>Google</button>
                 </div>
                 <div class="col-6 d-grid">
-                  <button type="button" class="btn btn-light btn-sm fw-400 shadow-none border"><span class="me-2"><i class="fab fa-facebook-f"></i></span>Facebook</button>
+                  <button type="button" class="border shadow-none btn btn-light btn-sm fw-400"><span class="me-2"><i class="fab fa-facebook-f"></i></span>Facebook</button>
                 </div>
               </div> --}}
             </div>
@@ -542,16 +620,16 @@
       
       <!-- Welcome Text
       ========================= -->
-      <div class="col-md-6 bg-light  order-1 order-md-2">
+      <div id="desktopLogo" class="order-1 col-md-6 bg-light order-md-2">
         <div class="container h-100 d-flex flex-column">
           <div class="row g-0">
-            <div class="col-11 col-md-10 mx-auto">
-              <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="https://ecoagrozm.com" title="ecoAgro"><img src="{{ asset('public/img/logo.png')}}" alt="ecoAgro"></a> </div>
+            <div class="mx-auto col-11 col-md-10">
+              <div class="mt-5 mb-5 logo mb-md-0"> <a class="d-flex" href="https://ecoagrozm.com" title="ecoAgro"><img src="{{ asset('public/img/logo.png')}}" alt="ecoAgro"></a> </div>
             </div>
           </div>
-          <div class="row g-0 my-auto">
-            <div class="col-11 col-md-10 mx-auto">
-              <h1 class="text-13 fw-300 mb-4">Join the largest Farming community. <h3 class="fw-300 text-9 mb-2">Create an Account</h3></h1>
+          <div class="my-auto row g-0">
+            <div class="mx-auto col-11 col-md-10">
+              <h1 class="mb-4 text-13 fw-300">Join the largest Farming community. <h3 class="mb-2 fw-300 text-9">Create an Account</h3></h1>
             </div>
           </div>
         </div>
@@ -637,12 +715,15 @@ const step1 = document.getElementById('step1');
 const step2 = document.getElementById('step2');
 const step3 = document.getElementById('step3');
 const step4 = document.getElementById('step4');
+const step5 = document.getElementById('step5');
 const gotoStep1Button = document.getElementById('gotoStep1');
 const gotoStep2Button = document.getElementById('gotoStep2');
-const gotoStep22Button = document.getElementById('gotoStep22');
+// const gotoStep22Button = document.getElementById('gotoStep22');
 const gotoStep33Button = document.getElementById('gotoStep33');
+const gotoStep44Button = document.getElementById('gotoStep44');
 const gotoStep3Button = document.getElementById('gotoStep3');
 const gotoStep4Button = document.getElementById('gotoStep4');
+const gotoStep5Button = document.getElementById('gotoStep5');
 
 // Initialize 
 const type = '{{$type}}';
@@ -650,6 +731,7 @@ const destination = '{{$destination}}';
 step2.classList.add('hidden');
 step3.classList.add('hidden');
 step4.classList.add('hidden');
+step5.classList.add('hidden');
 
 if (destination !== null) {
   if (destination == 'call-center') {
@@ -703,20 +785,20 @@ gotoStep2Button.addEventListener('click', function () {
   }
 });
 
-if (destination !== null){
-  // Event listener for "Next" button on Step 1
-  gotoStep22Button.addEventListener('click', function () {
-    if (type == 'seller') {
-      step3.classList.add('hidden');
-      step2.classList.add('hidden');
-      step1.classList.remove('hidden');
-    } else {
-      step1.classList.add('hidden');
-      step2.classList.remove('hidden');
-      step3.classList.add('hidden');
-    }
-  });
-}
+// if (destination !== null){
+//   // Event listener for "Next" button on Step 2
+//   gotoStep22Button.addEventListener('click', function () {
+//     if (type == 'seller') {
+//       step3.classList.add('hidden');
+//       step2.classList.add('hidden');
+//       step1.classList.remove('hidden');
+//     } else {
+//       step1.classList.add('hidden');
+//       step2.classList.remove('hidden');
+//       step3.classList.add('hidden');
+//     }
+//   });
+// }
 // Event listener for "Back" button on Step 2
 gotoStep1Button.addEventListener('click', function () {
     step2.classList.add('hidden');
@@ -734,7 +816,22 @@ gotoStep33Button.addEventListener('click', function () {
 });
 // Event listener for "Next" button on Step 2
 gotoStep4Button.addEventListener('click', function () {
-    step3.classList.add('hidden');
+    if(type == 'agronomist'){
+      step3.classList.add('hidden');
+      step4.classList.add('hidden');
+      step5.classList.remove('hidden');
+    }else{
+      step3.classList.add('hidden');
+      step4.classList.remove('hidden');
+    }
+});
+// Event listener for "Next" button on Step 2
+gotoStep5Button.addEventListener('click', function () {
+    step4.classList.add('hidden');
+    step5.classList.remove('hidden');
+});
+gotoStep44Button.addEventListener('click', function () {
+    step5.classList.add('hidden');
     step4.classList.remove('hidden');
 });
 
@@ -789,14 +886,14 @@ fileInput.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-mirror', 'false');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-mirror', 'false');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
             
                 <span class="grid-file-item">
@@ -871,13 +968,13 @@ fileInput1.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
@@ -950,13 +1047,13 @@ fileInput2.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
@@ -1029,13 +1126,13 @@ fileInput3.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>
@@ -1108,13 +1205,13 @@ fileInput4.addEventListener('change', function () {
 
             const listItem = document.createElement('li');
             listItem.className = 'file-item pb-1 w-full';
-            listItem.setAttribute('data-aos', 'fade-right');
-            listItem.setAttribute('data-aos-offset', '200');
-            listItem.setAttribute('data-aos-delay', '10');
-            listItem.setAttribute('data-aos-duration', '500');
-            listItem.setAttribute('data-aos-easing', 'ease-in-out');
-            listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
-            listItem.setAttribute('data-aos-once', 'true');
+            // listItem.setAttribute('data-aos', 'fade-right');
+            // listItem.setAttribute('data-aos-offset', '200');
+            // listItem.setAttribute('data-aos-delay', '10');
+            // listItem.setAttribute('data-aos-duration', '500');
+            // listItem.setAttribute('data-aos-easing', 'ease-in-out');
+            // listItem.setAttribute('data-aos-anchor-placement', 'top-bottom');
+            // listItem.setAttribute('data-aos-once', 'true');
             listItem.innerHTML = `
                 <span class="grid-file-item">
                   <span>

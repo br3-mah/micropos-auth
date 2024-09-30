@@ -27,7 +27,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'global_key',
-        'name',
+        'fname',
+        'lname',
+        'mname',
         'email',
         'password',
         'current_source',
@@ -40,7 +42,7 @@ class User extends Authenticatable
         'status',
         'is_approved', //seller_approval
         'is_bpo_approved', //bpo approval
-        "is_type", //buyer or seller
+        "is_type", //personal or company
         "is_farmer",
         "seller_name",
         "seller_address",
@@ -52,6 +54,9 @@ class User extends Authenticatable
         "seller_phone",
         "seller_phone2",
         "seller_phone3",
+        'otp',
+        'otp_verified',
+        'tpin' //user TPIN
     ];
 
     /**

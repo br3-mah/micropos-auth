@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\eCategoryContrl;
 use App\Http\Controllers\eProductContrl;
 use App\Http\Controllers\eUserController;
+use App\Livewire\Auth\OnboardView;
 use App\Livewire\Category\CategoryListView;
 use App\Livewire\Category\CreateCategoryView;
 use App\Livewire\Orders\OrderDetailView;
@@ -34,9 +35,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('get-started', OnboardView::class)->name('onboard');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
 
+    
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
