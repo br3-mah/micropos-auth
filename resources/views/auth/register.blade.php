@@ -134,18 +134,18 @@
                         <input type="text" name="lname" placeholder="e.g. Smith" class="form-control" id="inputLname" required="">
                       </div>
                     </div>
-                    <div class="col-sm-6 p-sm-0">
+                    {{-- <div class="col-sm-6 p-sm-0">
                       <div class="form-group">
                         <label for="inputLname">TPIN </label>
                         <input type="text" name="tpin" placeholder="" class="form-control" id="inputLname" required="">
                       </div>
-                    </div>
-                    <div class="col-sm-6 p-sm-0">
+                    </div> --}}
+                    {{-- <div class="col-sm-6 p-sm-0">
                       <div class="form-group">
                         <label for="inputLname">Legal Business Name </label>
                         <input type="text" name="bizname" placeholder="" class="form-control" id="inputLname" required="">
                       </div>
-                    </div>
+                    </div> --}}
                     <div class="col-md-6 p-sm-0">
                       <div class="form-group">
                         <label for="inputPhone">Phone Number</label>
@@ -241,7 +241,14 @@
                         </div>
                       </div>
                     </div>
+                    <div class="col-sm-12 p-sm-0">
+                      <div class="form-group">
+                        <label for="inputLname">User TPIN </label>
+                        <input type="number" name="tpin" placeholder="Your own Tpin" class="form-control" id="inputLname" required="">
+                      </div>
+                    </div>
                   </div>
+              
                   <div class="form-group pass-group">
                     <label for="inputPass">Password</label>
                     <input type="password" id="inputPass" name="password" class="form-control" placeholder="8+ Characters" required="" oninput="updateProgressBar()">
@@ -271,7 +278,7 @@
                       <label class="custom-control-label" for="Gfemale">Female</label>
                     </div>
                   </div>
-                  <button class="btn"><span>Next Step</span> <i class="las la-arrow-right"></i></button>
+                  <button class="submit"><span>Next Step</span> <i class="las la-arrow-right"></i></button>
                 </form>
               </div>
             </div>
@@ -458,7 +465,7 @@
                 const formData = new FormData(accountDetailsForm);
                 formData.append('email', sessionStorage.getItem('authmail'));
                 // Perform basic validation (you can expand this as needed)
-                const requiredFields = ['fname', 'lname', 'tpin', 'bizname', 'phone', 'date', 'month', 'year', 'password', 'gender'];
+                const requiredFields = ['fname', 'lname', 'tpin', 'phone', 'date', 'month', 'year', 'password', 'gender'];
                 let isValid = true;
 
                 requiredFields.forEach(field => {
@@ -493,8 +500,8 @@
 
                     // Check the result from the server response
                     if (responseData.result === 1) {
-                        // Proceed to the next step if successful
-                        nextStep();
+                        // redirect to auth
+                        window.location.href = '{{ env('APP_DASH_URL') }}/login?source=origin&destination=d';
                     } else {
                         Swal.fire({
                             icon: 'error',

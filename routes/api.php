@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/send-otp', [AuthController::class, 'sendOtp']);
-Route::post('/resend-otp', [AuthController::class, 'reSendOtp']);
+Route::post('/resave_accsend-otp', [AuthController::class, 'reSendOtp']);
 
 Route::post('/verify-otp', [AuthController::class, 'verify'])->name('verify-otp');
 Route::post('/select-account-type', [AuthController::class, 'acc_type'])->name('account-type');

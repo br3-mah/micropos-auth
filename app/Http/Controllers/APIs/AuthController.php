@@ -123,7 +123,7 @@ class AuthController extends Controller
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
             'tpin' => 'required|string|max:255',
-            'bizname' => 'required|string|max:255',
+            // 'bizname' => 'required|string|max:255',
             'email' => 'required', // Adjust regex or max length as needed
             'phone' => 'required', // Adjust regex or max length as needed
             'date' => 'required', // DOB day
@@ -145,7 +145,7 @@ class AuthController extends Controller
                 'fname' => $validatedData['fname'],
                 'lname' => $validatedData['lname'],
                 'tpin' => $validatedData['tpin'],
-                'bizname' => $validatedData['bizname'],
+                // 'bizname' => $validatedData['bizname'],
                 'phone' => $validatedData['phone'],
                 'dob' => $dob,
                 'type' => $request->input('type', $user->type), // Keep current type if not provided
