@@ -145,7 +145,6 @@ class AuthController extends Controller
                 'fname' => $validatedData['fname'],
                 'lname' => $validatedData['lname'],
                 'tpin' => $validatedData['tpin'],
-                // 'bizname' => $validatedData['bizname'],
                 'phone' => $validatedData['phone'],
                 'dob' => $dob,
                 'type' => $request->input('type', $user->type), // Keep current type if not provided
