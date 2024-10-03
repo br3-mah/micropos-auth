@@ -56,7 +56,8 @@ class User extends Authenticatable
         "seller_phone3",
         'otp',
         'otp_verified',
-        'tpin' //user TPIN
+        'tpin', //user TPIN
+        'dob' //user TPIN
     ];
 
     /**
